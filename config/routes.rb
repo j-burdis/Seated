@@ -1,6 +1,25 @@
 Rails.application.routes.draw do
+  # get "favourites/index"
+  # get "favourites/create"
+  # get "favourites/destroy"
+  # get "reviews/new"
+  # get "reviews/create"
+  # get "reviews/edit"
+  # get "reviews/update"
+  # get "reviews/destroy"
+  # get "cinemas/index"
+  # get "cinemas/show"
   devise_for :users
   root to: "pages#home"
+  get "profile", to: "pages#profile"
+  
+  resources :cinemas, only: [:index, :show] do
+    resources :reviews, only: [:new, :create]
+    resources :favourites, only: [:create]
+  end
+  resources :reviews, only: [:edit, :update, :destroy]
+  resources :favourites, only: [:index, :destroy]
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
