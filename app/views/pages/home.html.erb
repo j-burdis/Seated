@@ -1,2 +1,45 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%# <h1>Pages#home</h1>
+<p>Find me in app/views/pages/home.html.erb</p> %>
+<div class="home-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://img.freepik.com/free-photo/rows-red-seats-theater_53876-64710.jpg?t=st=1729007158~exp=1729010758~hmac=bfd8ed70225fae264879be35199cf5a1cca3bd3fc80ae8af66a8e0b31e5d41ec&w=2000);">
+  <div class="home-container">
+    <h1>Welcome to <strong>Seated</strong>!</h1>
+    <p>Where your cinema seat experience matters</p>
+    <a class="home-btn btn-flat" href="#">Search</a>
+  </div>
+</div>
+
+<div class="home-about-section">
+  <div class="home-container">
+    <h2>About Seated</h2>
+    <p>
+      Seated is your go-to app for cinema seat reviews. Whether you're looking for the best spot in the house or want to avoid a bad seat, Seated has got you covered. Read reviews from fellow moviegoers, leave your own, and engage with the community through comments and votes. Our mission is to enhance your movie-watching experience by ensuring you always find the perfect seat.
+    </p>
+    <p>
+      Join our community of cinema enthusiasts and never settle for a subpar seat again. With Seated, every seat is just a review away.
+    </p>
+  </div>
+</div>
+
+<div class="home-search-section">
+  <div class="home-container">
+    <h2>Find Local Cinemas</h2>
+    <%# <form id="home-cinema-search-form">
+      <input type="text" id="cinema-search-input" placeholder="Enter your city or zip code" />
+      <button type="submit" class="home-btn btn-flat">Search</button>
+    </form> %>
+    <form novalidate="novalidate" class="home-simple_form search" action="/" accept-charset="UTF-8" method="get">
+      <div class="home-search-form-control form-group">
+        <input class="home-form-control string required" type="text" name="search[query]" id="search_query" />
+        <button name="button" type="submit" class="home-search-btn btn-flat">
+          <i class="home-fas fa-search"></i> Search
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="map" class="home-map-section"></div>
+
+<%# Add the necessary JavaScript libraries for the map %>
+<%# <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap", async: true, defer: true %>
+<%# <%= javascript_include_tag "map"  %>
