@@ -1,7 +1,6 @@
 class Cinema < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :favourites
-  # has_many :favourited_by_users, through: :favourites, source: :user
 
   validates :name, presence: true, length: { maximum: 30 }
   validates :address, presence: true

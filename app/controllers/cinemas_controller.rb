@@ -5,7 +5,7 @@ class CinemasController < ApplicationController
   end
 
   def show
-    @reviews = @cinemas.reviews
+    @reviews = @cinema.reviews
   end
 
   private

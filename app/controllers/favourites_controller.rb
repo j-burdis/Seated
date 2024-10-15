@@ -3,7 +3,7 @@ class FavouritesController < ApplicationController
   before_action :set_cinema, only: %i[create destroy]
 
   def index
-    # @favourites = current_user.favourite_cinemas
+    @favourites = current_user.favourites
   end
 
   def create
@@ -17,8 +17,12 @@ class FavouritesController < ApplicationController
 
   def destroy
     @favourite = current_user.favourites.find_by(cinema: @cinema)
-    @favourite.destroy if favourite
-    redirect_to favourites_path, notice: 'Cinema removed from favourites.'
+    if @favourite
+      @favourite.destroy
+      redirect_to favourites_path, notice: 'Cinema removed from favourites.'
+    else
+      redirect_to favourites_path, alert: 'Could not remove cinema from favourites.'
+    end
   end
 
   private
