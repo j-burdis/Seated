@@ -28,7 +28,7 @@ Cinema.create!([
     address: "Leisure World, Southampton",
     description: "An independent cinema specializing in art house and foreign films.",
     average_rating: 4.8,
-    image_url: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.odeon.co.uk%2Fcorporate-events%2Fvenue-finder%2Fsouthampton%2F&psig=AOvVaw0WRoJg5UO0KSyPgN9-AjGb&ust=1729089900552000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMiuy4DQkIkDFQAAAAAdAAAAABAE"
+    image_url: "https://www.dailyecho.co.uk/resources/images/10198865.jpg?type=mds-article-962"
   },
   {
     name: "Cineworld Whitley",

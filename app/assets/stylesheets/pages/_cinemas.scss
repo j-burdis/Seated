@@ -1,0 +1,64 @@
+body {
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  color: #333;
+  font-size: 24px;
+}
+
+.cinema-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.cinema-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  /* Ensure it fits well within the screen */
+  margin-bottom: 20px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.cinema-img img {
+  width: 100%;
+  /* Ensure the image is responsive */
+  height: auto;
+  border-radius: 8px;
+}
+
+h2 {
+  color: #007BFF;
+  font-size: 22px;
+  /* Adjust font size for mobile */
+}
+
+h4 {
+  color: #555;
+  font-size: 16px;
+  /* Adjust font size for mobile */
+  margin-bottom: 15px;
+}
+
+.cinema-details p {
+  color: #666;
+  font-size: 14px;
+  /* Adjust font size for mobile */
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 20px 0;
+}
