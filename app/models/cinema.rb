@@ -5,7 +5,7 @@ class Cinema < ApplicationRecord
   validates :name, presence: true, length: { maximum: 30 }
   validates :address, presence: true
   validates :description, presence: true
-  validates :rating, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 5, allow_nil: true }
+  validates :average_rating, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 5, allow_nil: true }
   # validates :image_url, format: { with: URI::DEFAULT_PARSER.make_regexp(%w[http https]), allow_blank: true }
 
   # def average_rating
