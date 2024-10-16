@@ -1,48 +1,42 @@
-<%# <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p> %>
 <div class="home-banner">
-  <div class="home-container">
+  <div class="home-banner-text">
     <h1>Welcome to <strong>Seated</strong>!</h1>
-    <p>Where your cinema seat experience matters</p>
-    <%# <a class="home-btn btn-flat" href="#">Search</a> %>
-  </div>
+    <%= link_to "All cinemas", cinemas_path %>
+  </div>    
 </div>
 
-<div class="home-search-section">
-  <div class="home-container">
-    <h2>See All Cinemas</h2>
-    <%# <form id="home-cinema-search-form">
-      <input type="text" id="cinema-search-input" placeholder="Enter your city or zip code" />
-      <button type="submit" class="home-btn btn-flat">Search</button>
-    </form> %>
-      <div class="col-sm-8 my-3">
-        <%= form_tag cinemas_path, method: :get, class: "d-flex m-3" do %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="home-search">
+        <h1> Near you </h1>
+        <%= form_tag cinemas_path, method: :get, class: "d-flex" do %>
           <%= text_field_tag :query,
-                params[:query],
-                class: "form-control",
-                placeholder: "Type a cinema name or city "
-            %>
+                              params[:query],
+                              class: "form-control",
+                              placeholder: "Where are you off to?"%>
           <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
         <% end %>
+      </div>
+
+      <div id="map" class="home-map">
+        <%= image_tag "temp-maps.jpg"%>
+      </div>
+
+      <div class="home-about">
+        <h1>About us</h1>
+        <p>
+          Seated is your go-to app for cinema seat reviews. Whether you're looking for the best spot in the house or want to avoid a bad seat, Seated has got you covered. Read reviews from fellow moviegoers, leave your own, and engage with the community through comments and votes. Our mission is to enhance your movie-watching experience by ensuring you always find the perfect seat.
+        </p>
+        <p>
+          Join our community of cinema enthusiasts and never settle for a subpar seat again. With Seated, every seat is just a review away.
+        </p>
+      </div>
+
     </div>
   </div>
 </div>
 
-<div id="map" class="home-map-section"></div>
-<%= image_tag "temp-maps.jpg", width: "70%" %>
-
 <%# Add the necessary JavaScript libraries for the map %>
 <%# <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap", async: true, defer: true %>
 <%# <%= javascript_include_tag "map"  %>
-
-<div class="home-about-section" id="home-about-section">
-  <div class="home-container">
-    <h2>About Seated</h2>
-    <p>
-      Seated is your go-to app for cinema seat reviews. Whether you're looking for the best spot in the house or want to avoid a bad seat, Seated has got you covered. Read reviews from fellow moviegoers, leave your own, and engage with the community through comments and votes. Our mission is to enhance your movie-watching experience by ensuring you always find the perfect seat.
-    </p>
-    <p>
-      Join our community of cinema enthusiasts and never settle for a subpar seat again. With Seated, every seat is just a review away.
-    </p>
-  </div>
-</div>
