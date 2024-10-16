@@ -6,10 +6,11 @@
         <img src="<%= @cinema.image_url %>" alt="<%= @cinema.name %>">
         <div class="cinema-show-links">
           <p class="review-new-btn">
-            Add review
-            <%#= link_to "Write a review", new_cinema_review, class: 'review-new-btn' %>
+            <%= link_to "Add review", new_cinema_review_path(@cinema), class: 'review-new-btn' %>
           </p>
-          <%= image_tag "favourite-btn.png", alt: "Favourite button", class: "favourite-create-btn" %>
+          <%= link_to cinema_path(@cinema), method: :post do %>
+            <%= image_tag "favourite-btn.png", alt: "Favourite button", class: "favourite-toggle-btn" %>
+          <% end %>
         </div>
       </div>
       <div class="cinema-review-cards">
