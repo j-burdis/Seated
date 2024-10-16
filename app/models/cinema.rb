@@ -2,6 +2,14 @@ class Cinema < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :favourites
 
+  include PgSearch::Model
+
+  pg_search_scope :search_by_name_and_address,
+    against: [ :name, :address ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
   validates :name, presence: true, length: { maximum: 30 }
   validates :address, presence: true
   validates :description, presence: true
