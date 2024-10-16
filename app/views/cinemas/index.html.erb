@@ -1,18 +1,35 @@
-<div>
-  <h1>Cinemas in  your city</h1>
-  <div class="cinema-card">
-    <% @cinemas.each do |cinema|%>
-      <h2><%= cinema.name %></h2>
-      <h5><%= cinema.address %></h5>
-      <div class="cinema-img">
-        <img src="<%= cinema.image_url %>" alt="<%= cinema.name%>" width=300px>
-      </div>
-      <div class="cinema-p">
-        <p><%= cinema.description %></p>
-        <p> Rating: <%= cinema.average_rating %></p>
-      </div>
-      <hr>
-    <% end %>
-  </div>
+<div class="container">
+  <div class="row">
+    <div class="col">
 
+      <div class="cinema-cards">
+
+        <h2>Results</h2>
+
+        <% @cinemas.each do |cinema|%>
+          <%= link_to cinema_path(cinema) do %>
+            <div class="cinema-card">
+
+              <div class=cinema-card-location>
+                <h1><%= cinema.name %></h1>
+                <h5><%= cinema.address %></h5>
+              </div>
+
+              <div class="cinema-card-image">
+                <img src="<%= cinema.image_url %>" alt="<%= cinema.name%>" width=300px>
+              </div>
+
+              <div class="cinema-card-extras">
+                <p><%= cinema.description %></p>
+                <p> Rating: <%= cinema.average_rating %>/5 </p>
+              </div>
+
+            </div>
+          <% end %>
+        <% end %>
+
+      </div>
+
+    </div>
+  </div>
 </div>
