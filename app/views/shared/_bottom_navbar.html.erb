@@ -1,0 +1,25 @@
+<!-- Bottom Navbar -->
+<nav class="bottom_navbar navbar-light bg-light navbar-expand fixed-bottom">
+  <div class="container-fluid justify-content-around">
+
+    <%# Favourites button %>
+    <%= link_to favourites_path, class: "bottom_navbar-link" do %>
+      <i class="fas fa-star"></i>
+    <% end %>
+
+    <%#  Search button %>
+    <%= link_to "#", class: "bottom_navbar-link" do %>
+      <i class="fas fa-search"></i>
+    <% end %>
+
+    <%# Notifications button %>
+    <%= link_to "#", class: "bottom_navbar-link" do %>
+      <i class="fas fa-bell"></i>
+    <% end %>
+
+    <%#  Profile buton %>
+    <%= link_to "#", class: "bottom_navbar-link" do %>
+      <i class="fas fa-user"></i>
+    <% end %>
+  </div>
+</nav>
