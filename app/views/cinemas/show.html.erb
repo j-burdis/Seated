@@ -1,2 +1,36 @@
-<h1>Cinemas#show</h1>
-<p>Find me in app/views/cinemas/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="cinema-show-card">
+        <h1> <%= @cinema.name %> </h1>
+        <img src="<%= @cinema.image_url %>" alt="<%= @cinema.name %>">
+        <div class="cinema-show-links">
+          <p class="review-new-btn">
+            <%= link_to "Add review", new_cinema_review_path(@cinema), class: 'review-new-btn' %>
+          </p>
+          <%= link_to cinema_path(@cinema), method: :post do %>
+            <%= image_tag "favourite-btn.png", alt: "Favourite button", class: "favourite-toggle-btn" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="cinema-review-cards">
+        <h2> Our community </h2>
+        <% @cinema.reviews.each do |review| %>
+          <div class="cinema-review-card">
+            <p> <%= review.user.username %> </p>
+            <div class="review-screen-details">
+              <p> Screen: <%= review.screen %> </p>
+              <p> Seat: <%= review.seat %> </p>
+              <p> Best seat: <%= review.pref_seat %> </p>
+            </div>
+            <p> "<%= review.content %>" </p>
+            <%# add in photo uploads here %>
+            <div class="review-card-rating">
+              <p> Rating: <%= review.rating %>/5 </p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
