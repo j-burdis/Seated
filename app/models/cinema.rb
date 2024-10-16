@@ -7,7 +7,8 @@ class Cinema < ApplicationRecord
   pg_search_scope :search_by_name_and_address,
     against: [ :name, :address ],
     using: {
-      tsearch: { prefix: true }
+      tsearch: { prefix: true },
+      trigram: { threshold: 0.1 }
     }
 
   validates :name, presence: true, length: { maximum: 30 }
