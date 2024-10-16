@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_14_150031) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_16_124203) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,16 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_14_150031) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.bigint "review_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_comments_on_review_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "favourites", force: :cascade do |t|
     t.bigint "cinema_id", null: false
     t.bigint "user_id", null: false
@@ -59,6 +69,17 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_14_150031) do
     t.datetime "updated_at", null: false
     t.index ["cinema_id"], name: "index_favourites_on_cinema_id"
     t.index ["user_id"], name: "index_favourites_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "comment_id"
+    t.bigint "vote_id"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_notifications_on_comment_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+    t.index ["vote_id"], name: "index_notifications_on_vote_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -91,10 +112,26 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_14_150031) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.bigint "review_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_votes_on_review_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "reviews"
+  add_foreign_key "comments", "users"
   add_foreign_key "favourites", "cinemas"
   add_foreign_key "favourites", "users"
+  add_foreign_key "notifications", "comments"
+  add_foreign_key "notifications", "users"
+  add_foreign_key "notifications", "votes"
   add_foreign_key "reviews", "cinemas"
   add_foreign_key "reviews", "users"
+  add_foreign_key "votes", "reviews"
+  add_foreign_key "votes", "users"
 end
