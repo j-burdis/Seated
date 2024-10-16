@@ -1,6 +1,6 @@
 <%# <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p> %>
-<div class="home-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("/app/assets/images/rows-red-seats-theater.jpg");">
+<div class="home-banner">
   <div class="home-container">
     <h1>Welcome to <strong>Seated</strong>!</h1>
     <p>Where your cinema seat experience matters</p>
@@ -27,7 +27,7 @@
 </div>
 
 <div id="map" class="home-map-section"></div>
-<img src="/app/assets/images/temp-maps.jpg" />
+<%= image_tag "temp-maps.jpg", width: "50px" %>
 
 <%# Add the necessary JavaScript libraries for the map %>
 <%# <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap", async: true, defer: true %>

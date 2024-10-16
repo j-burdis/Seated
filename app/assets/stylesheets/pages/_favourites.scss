@@ -1,0 +1,52 @@
+
+.favourites-cinema-list-card {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  margin-top: 16px;
+  border-radius: 8px;
+
+  img {
+    margin-left: 5px;
+    height: 100px;
+    width: 100px;
+    // object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .favourite-cinema-title {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .fa-x {
+      font-size: 12px;
+      color:red;
+    }
+  }
+
+  .favourite-cinema-card {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    padding-top: 8px;
+    padding-bottom: 24px;
+    margin-top: 8px;
+    border-radius: 8px;
+
+    h3 {
+      padding-left: 8px;
+      font-size: 16px;
+    }
+
+    p {
+      margin-bottom: 0;
+      font-size: 12px;
+    }
+    .favourite-cinema-image-card {
+      display: flex;
+      flex-direction:row;
+    }
+  }
+}
