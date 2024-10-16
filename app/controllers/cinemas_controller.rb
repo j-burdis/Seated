@@ -1,7 +1,11 @@
 class CinemasController < ApplicationController
   before_action :set_cinema, only: [:show]
   def index
-    @cinemas = Cinema.all
+    if params[:query].present?
+      @cinemas = Cinema.search_by_name_and_address(params[:query])
+    else
+      @cinemas = Cinema.all
+    end
   end
 
   def show
