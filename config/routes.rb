@@ -5,11 +5,16 @@ Rails.application.routes.draw do
   get "profile", to: "pages#profile"
   
   resources :cinemas, only: [:index, :show] do
-    resources :reviews, only: [:new, :create]
+    resources :reviews, only: [:new, :create] do 
+      resources :comments, only: [:create, :destroy]
+      resources :votes, only: [:create, :destroy]
+    end
     resources :favourites, only: [:create]
   end
   resources :reviews, only: [:edit, :update, :destroy]
   resources :favourites, only: [:index, :destroy]
+
+  resources :notifications, only: [:index, :destroy]
 
   # get "favourites/index"
   # get "favourites/create"
@@ -21,6 +26,14 @@ Rails.application.routes.draw do
   # get "reviews/destroy"
   # get "cinemas/index"
   # get "cinemas/show"
+
+  # get "notifications/index"
+  # get "notifications/create"
+  # get "notifications/destroy"
+  # get "comments/create"
+  # get "comments/destroy"
+  # get "votes/create"
+  # get "votes/destroy"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
