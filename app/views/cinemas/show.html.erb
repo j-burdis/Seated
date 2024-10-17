@@ -5,12 +5,18 @@
         <h1> <%= @cinema.name %> </h1>
         <img src="<%= @cinema.image_url %>" alt="<%= @cinema.name %>">
         <div class="cinema-show-links">
-          <p class="review-new-btn">
-            <%= link_to "Add review", new_cinema_review_path(@cinema), class: 'review-new-btn' %>
-          </p>
-          <%= link_to cinema_path(@cinema), method: :post do %>
-            <%= image_tag "favourite-btn.png", alt: "Favourite button", class: "favourite-toggle-btn" %>
-          <% end %>
+          <div class="show-add-favourite">
+            <p class="review-new-btn">
+              <%= link_to "Add review", new_cinema_review_path(@cinema), class: 'review-new-btn' %>
+            </p>
+            <%= link_to cinema_path(@cinema), method: :post do %>
+              <i class="fa-regular fa-star favourite-toggle-btn"></i>
+              <%# swap with this when clicked --> <i class="fa-solid fa-star"></i> %>
+            <% end %>
+          </div>
+          <div class="show-back-btn">
+            <%= link_to "Back to results", request.referer || cinemas_path %>
+          </div>
         </div>
       </div>
       <div class="cinema-review-cards">

@@ -5,6 +5,7 @@
   flex-direction: column;
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
   margin-top: 16px;
+  color: #333;
 
   img {
     height: 200px;
@@ -12,30 +13,41 @@
     object-fit: cover;
   }
 
-  .cinema-show-links {
-    display: flex;
-    justify-content: space-between;
+  .cinema-show-links
+    .show-add-favourite {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      align-items: center;
+
+      a {
+        text-decoration: none;
+      }
+
+      .review-new-btn {
+        display: inline-block;
+        padding: 6px 12px;
+        color: #FBF7F5;
+        background-color: #333;
+        border-radius: 4px;
+        margin-bottom: 0;
+      }
+
+      .favourite-toggle-btn {
+        // height: 32px;
+        // width: 32px;
+        font-size: 32px;
+        color: #FF0000;
+        margin-right: 8px;
+      }
+    }
+
+  .show-back-btn {
     margin-top: 8px;
-    align-items: center;
+    margin-left: 8px;
 
     a {
       text-decoration: none;
-    }
-
-    .review-new-btn {
-      display: inline-block;
-      padding: 6px 12px;
-      color: white;
-      background-color: black;
-      border-radius: 4px;
-      margin-left: 8px;
-      margin-bottom: 0;
-    }
-
-    .favourite-toggle-btn {
-      height: 32px;
-      width: 32px;
-      margin-right: 8px;
     }
   }
 }
@@ -45,8 +57,9 @@
   flex-direction: column;
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
   padding-top: 8px;
-  padding-bottom: 24px;
+  padding-bottom: 16px;
   margin-top: 8px;
+  margin-bottom: 62.67px;
 
   h2 {
     padding-left: 8px;
