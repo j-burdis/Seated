@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     @review = @cinema.reviews.new(review_params)
     @review.user = current_user
     if @review.save
-      redirect_to cinema_path(@cinema.review), notice: 'Review added successfully.'
+      redirect_to cinema_path(@cinema), notice: 'Review added successfully.'
     else
       render :new, status: :unprocessable_entity
     end
