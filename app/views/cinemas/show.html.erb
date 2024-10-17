@@ -10,7 +10,8 @@
               <%= link_to "Add review", new_cinema_review_path(@cinema), class: 'review-new-btn' %>
             </p>
             <%= link_to cinema_path(@cinema), method: :post do %>
-              <%= image_tag "favourite-btn.png", alt: "Favourite button", class: "favourite-toggle-btn" %>
+              <i class="fa-regular fa-star favourite-toggle-btn"></i>
+              <%# swap with this when clicked --> <i class="fa-solid fa-star"></i> %>
             <% end %>
           </div>
           <div class="show-back-btn">

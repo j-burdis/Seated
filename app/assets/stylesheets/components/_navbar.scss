@@ -1,25 +1,25 @@
-.navbar {
-  justify-content: space-between;
+.header {
   background: #fbf7f5;
-  padding-top: 16px;
+  padding-top: 32px;
   padding-bottom: 8px;
 }
 
 .header-logo {
   display: flex;
+  justify-content: center;
   align-items: center;
 
   h1 {
     margin-top: 0px;
     margin-bottom: 0px;
     font-family: "Montserrat", sans-serif;
-    font-size: 28px;
+    font-size: 40px;
     font-weight: 700;
     font-style: normal;
   }
 
   .header-logo-seat {
-    width: 18px;
-    height: 22.5px;
+    width: 25px;
+    height: 32px;
   }
 }
