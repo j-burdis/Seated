@@ -2,6 +2,7 @@
   background: #fbf7f5;
   padding-top: 32px;
   padding-bottom: 8px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
 }
 
 .header-logo {
@@ -23,3 +24,10 @@
     height: 32px;
   }
 }
+
+// .header-logo-link {
+//   text-decoration: none;
+//   color: inherit;
+//   display: flex;
+//   align-items: center;
+// }
