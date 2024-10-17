@@ -25,6 +25,7 @@
             </div>
             <p> "<%= review.content %>" </p>
             <%# add in photo uploads here %>
+            <%#= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
             <div class="review-card-rating">
               <p> Rating: <%= review.rating %>/5 </p>
             </div>
