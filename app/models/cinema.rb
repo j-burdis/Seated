@@ -11,7 +11,7 @@ class Cinema < ApplicationRecord
       trigram: { threshold: 0.1 }
     }
 
-  validates :name, presence: true, length: { maximum: 30 }
+  validates :name, presence: true, length: { maximum: 50 }
   validates :address, presence: true
   validates :description, presence: true
   validates :average_rating, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 5, allow_nil: true }

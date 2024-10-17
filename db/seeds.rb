@@ -13,45 +13,772 @@ Cinema.destroy_all
 User.destroy_all
 
 cinema1 = Cinema.create!(
-  name: "Showcase Cinema De Lux",
-  address: "West Quay Plus, Southampton",
-  description: "A modern cinema with sofa chairs offering a wide selection of both IMAX and 3D films.",
-  average_rating: 4.9,
-  image_url: "https://lh3.googleusercontent.com/p/AF1QipNS50zUNIQdvsGhqEqA5nvAlr3kTXgMDxiuzlYf=s1360-w1360-h1020"
+  name: "Picturehouse Brixton",
+  address: "Coldharbour Lane, London, SW2 1JW",
+  description: "A vibrant cinema located in the heart of Brixton, known for its eclectic film selection.",
+  average_rating: 4.5,
+  image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
 )
 
 cinema2 = Cinema.create!(
-  name: "Vue Cinema Eastleigh",
-  address: "Swan center, Eastleigh",
-  description: "A modern cinema with IMAX and 3D experiences, great for blockbuster releases.",
-  average_rating: 4.2,
-  image_url: "https://lh3.googleusercontent.com/p/AF1QipNIHxQ5fJ1ZBmhhn20AddRaPd8rwz3Ee7yK1T8R=s1360-w1360-h1020"
+  name: "The Cameo Picturehouse",
+  address: "38 Home St, Edinburgh, EH3 9LZ",
+  description: "A historical cinema offering a mix of mainstream and independent films.",
+  average_rating: 4.6,
+  image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
 )
 
 cinema3 = Cinema.create!(
-  name: "Odeon Southampton",
-  address: "Leisure World, Southampton",
-  description: "An independent cinema specializing in art house and foreign films.",
-  average_rating: 4.8,
-  image_url: "https://www.dailyecho.co.uk/resources/images/10198865/?type=responsive-gallery-fullscreen"
+  name: "Picturehouse City Screen",
+  address: "Coney Street, York, YO1 9QL",
+  description: "A riverside cinema featuring a mix of films, from blockbusters to indie gems.",
+  average_rating: 4.7,
+  image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
 )
 
 cinema4 = Cinema.create!(
-  name: "Cineworld Whitley",
-  address: "Whiteley, Fareham",
-  description: "A family-friendly cinema with a variety of movies, from animations to action-packed hits.",
+  name: "Picturehouse Exeter",
+  address: "Gandy St, Exeter, EX4 3LS",
+  description: "A charming cinema with a focus on independent and art films.",
   average_rating: 4.5,
-  image_url: "https://lh3.googleusercontent.com/p/AF1QipN-WdVJUt3R8EdtPsGt6wbnxFqCCEDeSkyx7HAb=s1360-w1360-h1020"
+  image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
 )
 
 cinema5 = Cinema.create!(
-  name: "Vue Cinema Portsmouth",
-  address: "Gunwarf Quay, Portsmouth",
-  description: "An outdoor cinema by the sea, perfect for enjoying movies under the stars.",
-  average_rating: 4.3,
-  image_url: "https://lh3.googleusercontent.com/p/AF1QipNIMwU8q1lGLrL_xGu4Ty1XYNRWPpAsqyEwm-Yk=s1360-w1360-h1020"
+  name: "Picturehouse Finsbury Park",
+  address: "180 St John's Rd, London, N19 5QJ",
+  description: "A modern cinema with multiple screens, offering a diverse film lineup.",
+  average_rating: 4.4,
+  image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
 )
 
+cinema6 = Cinema.create!(
+  name: "Picturehouse Fulham Road",
+  address: "205 Fulham Rd, London, SW3 6HJ",
+  description: "A stylish cinema known for its exclusive screenings and events.",
+  average_rating: 4.3,
+  image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
+)
+
+cinema7 = Cinema.create!(
+  name: "Picturehouse Hackney",
+  address: "270 Mare St, London, E8 1HE",
+  description: "A bustling social hub with a lively atmosphere and great film selection.",
+  average_rating: 4.5,
+  image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
+)
+
+cinema9 = Cinema.create!(
+  name: "Picturehouse Stratford",
+  address: "Theatre Square, London, E15 1BX",
+  description: "A cinema located near the Olympic Park, showcasing a variety of films.",
+  average_rating: 4.5,
+  image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
+)
+
+cinema10 = Cinema.create!(
+  name: "The Regal Picturehouse",
+  address: "27-29 Clements Rd, Oxford, OX4 1PJ",
+  description: "A vintage cinema offering a charming atmosphere and a diverse film selection.",
+  average_rating: 4.4,
+  image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
+)
+
+cinema11 = Cinema.create!(
+  name: "The Ritzy Picturehouse ",
+  address: "160 Brixton Rd, London, SW9 8HA",
+  description: "One of the oldest cinemas in London, known for its vibrant community events.",
+  average_rating: 4.7,
+  image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
+)
+
+cinema12 = Cinema.create!(
+  name: "Picturehouse Tyneside",
+  address: "10-12 Pilgrim St, Newcastle upon Tyne, NE1 6SQ",
+  description: "A cinema that is part of a cultural complex, showcasing a range of films.",
+  average_rating: 4.6,
+  image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
+)
+
+cinema13 = Cinema.create!(
+  name: "Picturehouse West Norwood",
+  address: "449A Norwood Rd, London, SE27 9DQ",
+  description: "A community-focused cinema offering a unique selection of films.",
+  average_rating: 4.3,
+  image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
+)
+
+cinema14 = Cinema.create!(
+  name: "Picturehouse York",
+  address: "Coney St, York, YO1 9QL",
+  description: "A cultural hub in York, offering a blend of mainstream and independent films.",
+  average_rating: 4.5,
+  image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
+)
+
+cinema15 = Cinema.create!(
+  name: "Picturehouse Cinema City",
+  address: "St Andrews St, Norwich, NR2 4AD",
+  description: "A historic cinema located in the city center, showcasing a variety of films.",
+  average_rating: 4.4,
+  image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
+)
+
+cinema16 = Cinema.create!(
+  name: "Picturehouse Harbour Lights",
+  address: "12-14 Ocean Village, Southampton, SO14 3TL",
+  description: "A scenic cinema located by the waterfront, known for its community events.",
+  average_rating: 4.6,
+  image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
+)
+
+cinema17 = Cinema.create!(
+  name: "Phoenix Picturehouse",
+  address: "57 Walton St, Oxford, OX2 6AE",
+  description: "Known for its eclectic programming of art-house films.",
+  average_rating: 4.7,
+  image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
+)
+
+cinema26 = Cinema.create!(
+  name: "Vue Cinema Bournemouth",
+  address: "19-21 Commercial Road, Bournemouth, BH2 5RH",
+  description: "A modern cinema offering various films and comfortable seating.",
+  average_rating: 4.5,
+  image_url: "https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
+)
+
+cinema27 = Cinema.create!(
+  name: "Vue Cinema Cardiff",
+  address: "1-3, 4-6, 7-8 St. David's Way, Cardiff, CF10 2EL",
+  description: "Known for its excellent screen quality and sound system.",
+  average_rating: 4.2,
+  image_url: "https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
+)
+
+cinema28 = Cinema.create!(
+  name: "Vue Cinema Cheshire Oaks",
+  address: "Coliseum Leisure Park, Ellesmere Port, CH65 9HD",
+  description: "Offers a range of viewing experiences, including IMAX screenings.",
+  average_rating: 4.0,
+  image_url: "https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
+)
+
+cinema29 = Cinema.create!(
+  name: "Vue Cinema Edinburgh Omni Centre",
+  address: "9 Greenside Place, Edinburgh, EH1 3AA",
+  description: "A vibrant location close to the city center with a wide selection of films.",
+  average_rating: 4.4,
+  image_url: "https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
+)
+
+cinema30 = Cinema.create!(
+  name: "Vue Cinema Gateshead",
+  address: "MetroCentre, Gateshead, NE11 9YG",
+  description: "A popular cinema with modern amenities and a variety of films.",
+  average_rating: 4.3,
+  image_url: "https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
+)
+
+cinema31 = Cinema.create!(
+  name: "Vue Cinema Glasgow",
+  address: "Landsdowne House, 16-19, 16-19 Sauchiehall St, Glasgow, G2 3ER",
+  description: "Offers a diverse film selection in a central location.",
+  average_rating: 4.5,
+  image_url: "https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
+)
+
+cinema32 = Cinema.create!(
+  name: "Vue Cinema Leeds",
+  address: "The Light, The Headrow, Leeds, LS1 8TL",
+  description: "A vibrant cinema situated in a popular entertainment complex.",
+  average_rating: 4.4,
+  image_url: "https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
+)
+
+cinema33 = Cinema.create!(
+  name: "Vue Cinema Liverpool",
+  address: "Unit 3, 1-3, 1-3 Queens Square, Liverpool, L1 1RH",
+  description: "Located in the heart of Liverpool, offering a variety of films.",
+  average_rating: 4.3,
+  image_url: "https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
+)
+
+cinema34 = Cinema.create!(
+  name: "Vue Cinema Manchester",
+  address: "Lower Ground Floor, The Printworks, 27 Withy Grove, Manchester, M4 2BS",
+  description: "A modern cinema with advanced viewing technology.",
+  average_rating: 4.6,
+  image_url: "https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
+)
+
+cinema35 = Cinema.create!(
+  name: "Vue Cinema Milton Keynes",
+  address: "Midsummer Boulevard, Milton Keynes, MK9 3GB",
+  description: "Known for its family-friendly environment and various film choices.",
+  average_rating: 4.3,
+  image_url: "https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
+)
+
+cinema37 = Cinema.create!(
+  name: "Vue Cinema Newcastle",
+  address: "The Gate, 9-10 Newgate St, Newcastle upon Tyne, NE1 5TG",
+  description: "Located in the vibrant city center, Vue Newcastle offers a great range of films and comfortable viewing.",
+  average_rating: 4.5,
+  image_url: "https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
+)
+
+cinema38 = Cinema.create!(
+  name: "Vue Cinema Reading",
+  address: "The Oracle, Reading, RG1 2AG",
+  description: "A modern cinema situated in The Oracle shopping center, offering a diverse film selection.",
+  average_rating: 4.3,
+  image_url: "https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
+)
+
+cinema39 = Cinema.create!(
+  name: "Vue Cinema Sheffield",
+  address: "Valley Centertainment, 18, 20 Broughton Lane, Sheffield, S9 2EP",
+  description: "Enjoy a great cinematic experience in the heart of Sheffield's entertainment district.",
+  average_rating: 4.4,
+  image_url: "https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
+)
+
+cinema40 = Cinema.create!(
+  name: "Vue Cinema Stratford",
+  address: "The Theatre, Westfield Stratford City, 1A Montfichet Rd, London, E20 1EJ",
+  description: "A key feature of the Westfield Stratford City complex, providing a range of viewing options.",
+  average_rating: 4.6,
+  image_url: "https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
+)
+
+cinema41 = Cinema.create!(
+  name: "Vue Cinema Walthamstow",
+  address: "The Mall, 4, 5, 6, 7 Selborne Walk, Walthamstow, London, E17 7JH",
+  description: "Situated in the heart of Walthamstow, Vue offers a great cinematic experience with multiple screens.",
+  average_rating: 4.4,
+  image_url: "https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
+)
+
+cinema42 = Cinema.create!(
+  name: "Vue Cinema Westfield White City",
+  address: "Westfield London, Ariel Way, White City, London, W12 7GF",
+  description: "Located in the bustling Westfield shopping center, Vue White City is perfect for a movie day out.",
+  average_rating: 4.5,
+  image_url: "https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
+)
+
+cinema43 = Cinema.create!(
+  name: "Vue Cinema Westwood Cross",
+  address: "Westwood Cross, Broadstairs Road, Kent, CT10 2BF",
+  description: "This cinema offers a variety of films in a comfortable environment, with ample parking nearby.",
+  average_rating: 4.3,
+  image_url: "https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
+)
+
+cinema44 = Cinema.create!(
+  name: "Vue Cinema York",
+  address: "Foss Islands Road, York, YO31 7UL",
+  description: "Vue York is located close to the city center, offering an excellent choice of films.",
+  average_rating: 4.6,
+  image_url: "https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
+)
+
+cinema45 = Cinema.create!(
+  name: "Vue Cinema Basingstoke",
+  address: "Festival Place, Basingstoke, RG21 7LJ",
+  description: "Located in the shopping center, Vue Basingstoke is an ideal spot for movie lovers.",
+  average_rating: 4.4,
+  image_url: "https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
+)
+
+cinema46 = Cinema.create!(
+  name: "Vue Cinema Blackburn",
+  address: "The Mall Blackburn, 1-3 Darwen St, Blackburn, BB2 2DT",
+  description: "Vue Blackburn offers a comfortable setting to enjoy the latest films.",
+  average_rating: 4.2,
+  image_url: "https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
+)
+
+cinema47 = Cinema.create!(
+  name: 'Odeon Leicester Square',
+  address: '24-26 Leicester Square, London, WC2H 7JY',
+  description: 'An iconic cinema known for hosting film premieres and events, featuring luxury seating and state-of-the-art technology.',
+  average_rating: nil,
+  image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
+)
+
+cinema48 = Cinema.create!(
+  name: 'Odeon BFI IMAX',
+  address: '1 Charlie Chaplin Walk, London, SE1 8XR',
+  description: 'The UK\'s largest cinema screen, known for its immersive experience and IMAX films.',
+  average_rating: nil,
+  image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
+)
+
+cinema49 = Cinema.create!(
+  name: 'Odeon Kingston',
+  address: 'The Rotunda, Clarence St, Kingston upon Thames, KT1 1QJ',
+  description: 'Located in the heart of Kingston, this cinema offers a variety of films with comfortable seating.',
+  average_rating: nil,
+  image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
+)
+
+cinema50 = Cinema.create!(
+  name: 'Odeon Manchester',
+  address: 'The Printworks, 27 Withy Grove, Manchester, M4 2BS',
+  description: 'A vibrant cinema situated in The Printworks, featuring the latest releases and luxury seating.',
+  average_rating: nil,
+  image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
+)
+
+cinema51 = Cinema.create!(
+  name: 'Odeon Liverpool',
+  address: 'Unit 3, Liverpool One, 14-16, Wall Street, Liverpool, L1 8JQ',
+  description: 'A modern cinema in the heart of Liverpool offering the latest films and an enjoyable experience.',
+  average_rating: nil,
+  image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
+)
+
+cinema52 = Cinema.create!(
+  name: 'Odeon Birmingham',
+  address: '5-6, The Arcadian, Hurst St, Birmingham, B5 4TD',
+  description: 'A central location for film lovers in Birmingham, known for its comfortable seating and variety of films.',
+  average_rating: nil,
+  image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
+)
+
+cinema53 = Cinema.create!(
+  name: 'Odeon Leeds-Bradford',
+  address: 'Cineworld, Thornbury, Bradford, BD3 8HX',
+  description: 'A popular cinema destination for those in the Leeds and Bradford area, featuring a range of films.',
+  average_rating: nil,
+  image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
+)
+
+cinema55 = Cinema.create!(
+  name: 'Odeon Greenwich',
+  address: 'Duncan Rd, Greenwich, London, SE10 9SW',
+  description: 'A modern cinema with the latest technology, offering a great selection of films.',
+  average_rating: nil,
+  image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
+)
+
+cinema56 = Cinema.create!(
+  name: 'Odeon Southend',
+  address: '17-19, The Victoria Shopping Centre, Southend-on-Sea, SS2 5SP',
+  description: 'A popular spot for moviegoers in Southend, featuring a wide selection of films and comfortable seating.',
+  average_rating: nil,
+  image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
+)
+
+cinema57 = Cinema.create!(
+  name: 'Odeon St Albans',
+  address: 'St. Albans City Centre, 9 St. Peters St, St Albans, AL1 3DH',
+  description: 'Conveniently located in St. Albans, this cinema offers a range of films in a comfortable setting.',
+  average_rating: nil,
+  image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
+)
+
+cinema58 = Cinema.create!(
+  name: 'Odeon Chatham',
+  address: '1-3, Chatham Maritime, Chatham, ME4 4LL',
+  description: 'This cinema provides a great experience with the latest releases and comfortable seating.',
+  average_rating: nil,
+  image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
+)
+
+cinema59 = Cinema.create!(
+  name: 'Odeon Kingston',
+  address: 'The Rotunda, Clarence St, Kingston upon Thames, KT1 1QJ',
+  description: 'This cinema offers a great experience with the latest films in a comfortable environment.',
+  average_rating: nil,
+  image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
+)
+
+cinema60 = Cinema.create!(
+  name: 'Odeon Swindon',
+  address: '1-2, Theatre Square, Swindon, SN1 1QN',
+  description: 'A cinema that caters to all film lovers, offering a variety of films in a modern setting.',
+  average_rating: nil,
+  image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
+)
+
+cinema61 = Cinema.create!(
+  name: "ODEON Brighton",
+  address: "Fifth Avenue, Brighton, BN1 1HL",
+  description: "Enjoy a premium cinema experience with luxury seating and the latest blockbusters.",
+  average_rating: 4.6,
+  image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
+)
+
+cinema62 = Cinema.create!(
+  name: "ODEON Cardiff",
+  address: "Hemingway Road, Cardiff, CF10 1FG",
+  description: "A modern cinema with all the latest films and an extensive snack bar.",
+  average_rating: 4.4,
+  image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
+)
+
+cinema63 = Cinema.create!(
+  name: "ODEON Derby",
+  address: "London Road, Derby, DE24 8UQ",
+  description: "State-of-the-art screens and a variety of food options available.",
+  average_rating: 4.3,
+  image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
+)
+
+cinema64 = Cinema.create!(
+  name: "ODEON Edinburgh",
+  address: "Lothian Road, Edinburgh, EH3 9WJ",
+  description: "Located in the vibrant city center, featuring the latest films and comfortable seating.",
+  average_rating: 4.5,
+  image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
+)
+
+cinema65 = Cinema.create!(
+  name: "ODEON Kingston",
+  address: "High Street, Kingston upon Thames, KT1 1EE",
+  description: "A convenient location with a variety of films and a comfortable environment.",
+  average_rating: 4.4,
+  image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
+)
+
+cinema66 = Cinema.create!(
+  name: "ODEON Liverpool ONE",
+  address: "5, 7, 9, 11, 13, 15, 17, 19 and 21, South John Street, Liverpool, L1 8JQ",
+  description: "The ultimate cinematic experience in the heart of Liverpool with multiple screens.",
+  average_rating: 4.6,
+  image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
+)
+
+cinema67 = Cinema.create!(
+  name: "ODEON Manchester",
+  address: "Deansgate, Manchester, M3 4LQ",
+  description: "A central location featuring the latest films and luxury seating.",
+  average_rating: 4.5,
+  image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
+)
+
+cinema68 = Cinema.create!(
+  name: "ODEON Milton Keynes",
+  address: "Midsummer Blvd, Milton Keynes, MK9 3GB",
+  description: "Featuring a wide selection of films and modern amenities.",
+  average_rating: 4.4,
+  image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
+)
+
+cinema69 = Cinema.create!(
+  name: "ODEON Nottingham",
+  address: "3, 5, 7, 9, 11, 13, 15, 17 and 19, Upper Parliament Street, Nottingham, NG1 2AN",
+  description: "An iconic cinema with the latest technology and a wide variety of films.",
+  average_rating: 4.5,
+  image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
+)
+
+cinema70 = Cinema.create!(
+  name: "ODEON Sheffield",
+  address: "Barker's Pool, Sheffield, S1 2JA",
+  description: "Located in the city center with a great selection of films and comfortable seating.",
+  average_rating: 4.3,
+  image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
+)
+
+cinema71 = Cinema.create!(
+  name: "ODEON Bournemouth",
+  address: "Sovereign Centre, Boscombe, Bournemouth, BH5 1AA",
+  description: "Located in the heart of Boscombe, featuring comfortable seating and a variety of films.",
+  average_rating: 4.5,
+  image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
+)
+
+cinema72 = Cinema.create!(
+  name: "Everyman Cheltenham",
+  address: "Regent Arcade Regent Street, Cheltenham, GL50 1EU",
+  description: "Tivoli Cheltenham has now joined the Everyman family, offering a new food and drink menu and Everyman hospitality.",
+  average_rating: nil,
+  image_url: "https://i.ytimg.com/vi/1ml4hLVjAw4/maxresdefault.jpg"
+)
+
+cinema73 = Cinema.create!(
+  name: "Everyman Winchester",
+  address: "Southgate Street, Winchester, SO23 9EG",
+  description: "A Grade II listed chapel converted into a stylish cinema, featuring two screens and a cosy bar.",
+  average_rating: nil,
+  image_url: "https://i.ytimg.com/vi/1ml4hLVjAw4/maxresdefault.jpg"
+)
+
+cinema74 = Cinema.create!(
+  name: "Everyman Leeds",
+  address: "The Light, The Headrow, Leeds, LS1 8TL",
+  description: "Located in a vibrant area, offering a unique cinema experience with a bar and restaurant.",
+  average_rating: nil,
+  image_url: "https://i.ytimg.com/vi/1ml4hLVjAw4/maxresdefault.jpg"
+)
+
+cinema75 = Cinema.create!(
+  name: "Everyman Hampstead",
+  address: "163 Haverstock Hill, Hampstead, London, NW3 4RP",
+  description: "Situated in a charming area, this cinema features luxurious seating and a relaxed atmosphere.",
+  average_rating: nil,
+  image_url: "https://i.ytimg.com/vi/1ml4hLVjAw4/maxresdefault.jpg"
+)
+
+cinema76 = Cinema.create!(
+  name: "Everyman Islington",
+  address: "Screen on the Green, 83 Upper Street, Islington, London, N1 0NP",
+  description: "A modern cinema experience in the heart of Islington, known for its comfortable seating.",
+  average_rating: nil,
+  image_url: "https://i.ytimg.com/vi/1ml4hLVjAw4/maxresdefault.jpg"
+)
+
+cinema77 = Cinema.create!(
+  name: "Everyman Baker Street",
+  address: "96 Baker Street, London, NW1 6XL",
+  description: "A stylish cinema featuring a bar and a unique cinema experience in the heart of London.",
+  average_rating: nil,
+  image_url: "https://i.ytimg.com/vi/1ml4hLVjAw4/maxresdefault.jpg"
+)
+
+cinema78 = Cinema.create!(
+  name: "Everyman Crystal Palace",
+  address: "25 Church Road, Crystal Palace, London, SE19 2TF",
+  description: "Offering a relaxed atmosphere with plush seating and gourmet food options.",
+  average_rating: nil,
+  image_url: "https://i.ytimg.com/vi/1ml4hLVjAw4/maxresdefault.jpg"
+)
+
+cinema79 = Cinema.create!(
+  name: "Everyman King's Cross",
+  address: "The Regent, 32-34 King's Boulevard, London, N1C 4AX",
+  description: "A modern cinema experience located near King's Cross with luxury seating and dining options.",
+  average_rating: nil,
+  image_url: "https://i.ytimg.com/vi/1ml4hLVjAw4/maxresdefault.jpg"
+)
+
+cinema80 = Cinema.create!(
+  name: "Everyman Manchester",
+  address: "House 4, 20-24 Deansgate, Manchester, M3 3WR",
+  description: "Combining a love for film and food, this cinema offers a unique dining experience.",
+  average_rating: nil,
+  image_url: "https://i.ytimg.com/vi/1ml4hLVjAw4/maxresdefault.jpg"
+)
+
+cinema81 = Cinema.create!(
+  name: "Everyman Liverpool",
+  address: "Woolton Cinema, 47-49 Allerton Road, Liverpool, L18 1LN",
+  description: "A charming cinema with a history, offering a unique and stylish experience.",
+  average_rating: nil,
+  image_url: "https://i.ytimg.com/vi/1ml4hLVjAw4/maxresdefault.jpg"
+)
+
+cinema82 = Cinema.create!(
+  name: "Everyman Barnet",
+  address: "Barnet, London, EN5 5TW",
+  description: "Located in a bustling area, providing a comfortable and unique cinema experience.",
+  average_rating: nil,
+  image_url: "https://i.ytimg.com/vi/1ml4hLVjAw4/maxresdefault.jpg"
+)
+
+cinema83 = Cinema.create!(
+  name: "Everyman Basingstoke",
+  address: "Festival Place, Basingstoke, RG21 7BF",
+  description: "A modern cinema that offers a luxurious viewing experience and a great selection of food.",
+  average_rating: nil,
+  image_url: "https://i.ytimg.com/vi/1ml4hLVjAw4/maxresdefault.jpg"
+)
+
+cinema84 = Cinema.create!(
+  name: "Everyman Stratford",
+  address: "The Broadway, Stratford, London, E15 4BQ",
+  description: "Featuring a range of films in a stylish environment, offering an enhanced cinema experience.",
+  average_rating: nil,
+  image_url: "https://i.ytimg.com/vi/1ml4hLVjAw4/maxresdefault.jpg"
+)
+
+cinema85 = Cinema.create!(
+  name: "Showcase Cinema de Lux Nottingham",
+  address: "Redfield Way, Lenton, Nottingham, England NG7 2UW",
+  description: "Experience movies in luxury at Showcase Cinema de Lux Nottingham with cutting-edge technology.",
+  average_rating: 4.5,
+  image_url: "https://images.vouchercloud.com/image/upload/f_auto,fl_strip_profile,w_628,c_crop/w_620,h_378,c_fill/showcase_cinema_de_lux_premiumofferimage_1.jpg"
+)
+
+cinema86 = Cinema.create!(
+  name: "Showcase Cinema de Lux Leicester",
+  address: "7 Highcross Lane, Leicester, England LE1 4SD",
+  description: "Showcase Cinema de Lux Leicester offers an exceptional movie-going experience.",
+  average_rating: 4.2,
+  image_url: "https://images.vouchercloud.com/image/upload/f_auto,fl_strip_profile,w_628,c_crop/w_620,h_378,c_fill/showcase_cinema_de_lux_premiumofferimage_1.jpg"
+)
+
+cinema87 = Cinema.create!(
+  name: "Showcase Cinema de Lux Reading",
+  address: "Loddon Bridge, Reading Road, Winnersh, Wokingham, England RG41 5HG",
+  description: "Enjoy the latest films in a luxurious environment at Showcase Cinema de Lux Reading.",
+  average_rating: 4.3,
+  image_url: "https://images.vouchercloud.com/image/upload/f_auto,fl_strip_profile,w_628,c_crop/w_620,h_378,c_fill/showcase_cinema_de_lux_premiumofferimage_1.jpg"
+)
+
+cinema88 = Cinema.create!(
+  name: "Showcase Cinema de Lux Bristol",
+  address: "Bristol City Centre, Cabot Circus, Bristol, England BS1 3BX",
+  description: "Experience the latest films at Showcase Cinema de Lux in the heart of Bristol.",
+  average_rating: 4.4,
+  image_url: "https://images.vouchercloud.com/image/upload/f_auto,fl_strip_profile,w_628,c_crop/w_620,h_378,c_fill/showcase_cinema_de_lux_premiumofferimage_1.jpg"
+)
+
+cinema89 = Cinema.create!(
+  name: "Showcase Cinema de Lux Newcastle",
+  address: "Intu Eldon Square, Newcastle, England NE1 7XG",
+  description: "Showcase Cinema de Lux Newcastle offers the ultimate luxury cinema experience.",
+  average_rating: 4.6,
+  image_url: "https://images.vouchercloud.com/image/upload/f_auto,fl_strip_profile,w_628,c_crop/w_620,h_378,c_fill/showcase_cinema_de_lux_premiumofferimage_1.jpg"
+)
+
+cinema90 = Cinema.create!(
+  name: "Showcase Cinema de Lux Coventry",
+  address: "Arena Park Shopping Centre, Coventry, England CV6 6AS",
+  description: "Watch the latest movies at Showcase Cinema de Lux Coventry in a relaxed setting.",
+  average_rating: 4.1,
+  image_url: "https://images.vouchercloud.com/image/upload/f_auto,fl_strip_profile,w_628,c_crop/w_620,h_378,c_fill/showcase_cinema_de_lux_premiumofferimage_1.jpg"
+)
+
+cinema91 = Cinema.create!(
+  name: "Showcase Cinema de Lux Dudley",
+  address: "Brierley Hill, Dudley, England DY5 1SR",
+  description: "Enjoy a unique cinema experience at Showcase Cinema de Lux Dudley.",
+  average_rating: 4.0,
+  image_url: "https://images.vouchercloud.com/image/upload/f_auto,fl_strip_profile,w_628,c_crop/w_620,h_378,c_fill/showcase_cinema_de_lux_premiumofferimage_1.jpg"
+)
+
+cinema92 = Cinema.create!(
+  name: "Showcase Cinema de Lux Walsall",
+  address: "Crown Wharf Retail Park, Walsall, England WS1 4SY",
+  description: "Showcase Cinema de Lux Walsall combines comfort and cutting-edge cinema technology.",
+  average_rating: 4.3,
+  image_url: "https://images.vouchercloud.com/image/upload/f_auto,fl_strip_profile,w_628,c_crop/w_620,h_378,c_fill/showcase_cinema_de_lux_premiumofferimage_1.jpg"
+)
+
+cinema93 = Cinema.create!(
+  name: "Showcase Cinema de Lux Manchester",
+  address: "The Printworks, Manchester, England M4 2BS",
+  description: "Experience luxury viewing at Showcase Cinema de Lux Manchester.",
+  average_rating: 4.5,
+  image_url: "https://images.vouchercloud.com/image/upload/f_auto,fl_strip_profile,w_628,c_crop/w_620,h_378,c_fill/showcase_cinema_de_lux_premiumofferimage_1.jpg"
+)
+
+cinema94 = Cinema.create!(
+  name: "Showcase Cinema de Lux Glasgow",
+  address: "The Forge Shopping Centre, Glasgow, Scotland G31 4EB",
+  description: "Showcase Cinema de Lux Glasgow offers a premium film experience in a vibrant location.",
+  average_rating: 4.2,
+  image_url: "https://images.vouchercloud.com/image/upload/f_auto,fl_strip_profile,w_628,c_crop/w_620,h_378,c_fill/showcase_cinema_de_lux_premiumofferimage_1.jpg"
+)
+
+cinema95 = Cinema.create!(
+  name: 'Curzon Bloomsbury',
+  address: 'The Brunswick Centre, London, WC1N 1AW',
+  description: 'Welcoming cinema with a café and bar.',
+  average_rating: 4.5,
+  image_url: 'https://static.standard.co.uk/2022/11/30/11/newFile-13.jpg?width=1200&auto=webp&quality=75'
+)
+
+cinema96 = Cinema.create!(
+  name: 'Curzon Camden',
+  address: '96-98 Camden High St, London, NW1 0LT',
+  description: 'A vibrant spot featuring independent films.',
+  average_rating: 4.6,
+  image_url: 'https://static.standard.co.uk/2022/11/30/11/newFile-13.jpg?width=1200&auto=webp&quality=75'
+)
+
+cinema97 = Cinema.create!(
+  name: 'Curzon Canterbury',
+  address: 'Riverside, Canterbury, CT1 1XJ',
+  description: 'Located by the river, showcasing the best films.',
+  average_rating: 4.7,
+  image_url: 'https://static.standard.co.uk/2022/11/30/11/newFile-13.jpg?width=1200&auto=webp&quality=75'
+)
+
+cinema98 = Cinema.create!(
+  name: 'Curzon Colchester',
+  address: 'Colchester, CO1 1YH',
+  description: 'Independent cinema with a unique charm.',
+  average_rating: 4.5,
+  image_url: 'https://static.standard.co.uk/2022/11/30/11/newFile-13.jpg?width=1200&auto=webp&quality=75'
+)
+
+cinema99 = Cinema.create!(
+  name: 'Curzon Hoxton',
+  address: '106-108 Hoxton St, London, N1 6LP',
+  description: 'Quirky venue for film lovers.',
+  average_rating: 4.8,
+  image_url: 'https://static.standard.co.uk/2022/11/30/11/newFile-13.jpg?width=1200&auto=webp&quality=75'
+)
+
+cinema100 = Cinema.create!(
+  name: 'Curzon Kingston',
+  address: 'The Rotunda, Kingston upon Thames, KT1 1QJ',
+  description: 'Cinema with great local eateries nearby.',
+  average_rating: 4.4,
+  image_url: 'https://static.standard.co.uk/2022/11/30/11/newFile-13.jpg?width=1200&auto=webp&quality=75'
+)
+
+cinema101 = Cinema.create!(
+  name: 'Curzon Mayfair',
+  address: '38 Curzon St, Mayfair, London, W1J 7TX',
+  description: 'Historic cinema known for its luxurious screenings.',
+  average_rating: 4.6,
+  image_url: 'https://static.standard.co.uk/2022/11/30/11/newFile-13.jpg?width=1200&auto=webp&quality=75'
+)
+
+cinema102 = Cinema.create!(
+  name: 'Curzon Oxford',
+  address: 'The Old Fire Station, 40 George St, Oxford, OX1 2AQ',
+  description: 'Independent cinema with a vibrant atmosphere.',
+  average_rating: 4.7,
+  image_url: 'https://static.standard.co.uk/2022/11/30/11/newFile-13.jpg?width=1200&auto=webp&quality=75'
+)
+
+cinema103 = Cinema.create!(
+  name: 'Curzon Richmond',
+  address: '3 Water Ln, Richmond, TW9 1TJ',
+  description: 'Charming cinema with local dining options.',
+  average_rating: 4.5,
+  image_url: 'https://static.standard.co.uk/2022/11/30/11/newFile-13.jpg?width=1200&auto=webp&quality=75'
+)
+
+cinema104 = Cinema.create!(
+  name: 'Curzon Sheffield',
+  address: 'The Moor, Sheffield, S1 4PF',
+  description: 'A hub for film enthusiasts in Sheffield.',
+  average_rating: 4.6,
+  image_url: 'https://static.standard.co.uk/2022/11/30/11/newFile-13.jpg?width=1200&auto=webp&quality=75'
+)
+
+cinema105 = Cinema.create!(
+  name: 'Curzon Soho',
+  address: '38 Shaftesbury Ave, Soho, London, W1D 7ER',
+  description: 'In the heart of Soho, perfect for indie films.',
+  average_rating: 4.6,
+  image_url: 'https://static.standard.co.uk/2022/11/30/11/newFile-13.jpg?width=1200&auto=webp&quality=75'
+)
+
+cinema106 = Cinema.create!(
+  name: 'Curzon Victoria',
+  address: '58 Victoria St, Westminster, London, SW1E 6QZ',
+  description: 'Stylish venue with a premium feel.',
+  average_rating: 4.5,
+  image_url: 'https://static.standard.co.uk/2022/11/30/11/newFile-13.jpg?width=1200&auto=webp&quality=75'
+)
+
+cinema107 = Cinema.create!(
+  name: 'Curzon Wimbledon',
+  address: '5 The Broadway, Wimbledon, London, SW19 1RQ',
+  description: 'Local cinema with a welcoming atmosphere.',
+  average_rating: 4.4,
+  image_url: 'https://static.standard.co.uk/2022/11/30/11/newFile-13.jpg?width=1200&auto=webp&quality=75'
+)
 
 puts "Cinema table populated"
 
