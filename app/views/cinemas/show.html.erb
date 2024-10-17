@@ -1,41 +1,84 @@
 <div class="container">
   <div class="row">
     <div class="col">
+
       <div class="cinema-show-card">
+
         <h1> <%= @cinema.name %> </h1>
         <img src="<%= @cinema.image_url %>" alt="<%= @cinema.name %>">
+
         <div class="cinema-show-links">
+
           <div class="show-add-favourite">
+
             <p class="review-new-btn">
               <%= link_to "Add review", new_cinema_review_path(@cinema), class: 'review-new-btn' %>
             </p>
+
             <%= link_to cinema_path(@cinema), method: :post do %>
               <i class="fa-regular fa-star favourite-toggle-btn"></i>
               <%# swap with this when clicked --> <i class="fa-solid fa-star"></i> %>
             <% end %>
+
           </div>
+
           <div class="show-back-btn">
             <%= link_to "Back to results", request.referer || cinemas_path %>
           </div>
+
         </div>
+
       </div>
+
       <div class="cinema-review-cards">
         <h2> Our community </h2>
+
         <% @cinema.reviews.each do |review| %>
           <div class="cinema-review-card">
             <p> <%= review.user.username %> </p>
+
             <div class="review-screen-details">
               <p> Screen: <%= review.screen %> </p>
               <p> Seat: <%= review.seat %> </p>
               <p> Best seat: <%= review.pref_seat %> </p>
             </div>
+
             <p> "<%= review.content %>" </p>
             <%# add in photo uploads here %>
             <div class="review-card-rating">
               <p> Rating: <%= review.rating %>/5 </p>
             </div>
+
+            <% if review.user != current_user %>
+              <div class="review-vote">
+                <% if current_user.votes.exists?(review: review) %>
+                  <%= button_to 'Remove Vote', cinema_review_vote_path(@cinema, review, review.votes.find_by(user: current_user)), method: :delete, class: 'btn btn-danger' %>
+                <% else %>
+                  <%= button_to 'Vote', cinema_review_votes_path(@cinema, review), method: :post, class: 'btn btn-primary' %>
+                <% end %>
+                <p> Votes: <%= review.votes.count %> </p> 
+              </div>
+            <% end %>
+
+            <div id="comments-list-<%= review.id %>">
+              <h3>Comments</h3>
+              <div id="comments-<%= review.id %>">
+                <%#= render review.comments %>
+                <%= render partial: 'comments/comment', collection: review.comments, as: :comment %>
+              </div>
+            </div>
+              <%= form_with(model: [@cinema, review, Comment.new], local: false) do |form| %>
+                <div class="form-group">
+                  <%= form.label :content %>
+                  <%= form.text_area :content, rows: 3 %>
+                </div>
+                <%= form.submit 'Add Comment', class: 'btn btn-primary' %>
+              <% end %>
+            
+
           </div>
         <% end %>
+
       </div>
     </div>
   </div>

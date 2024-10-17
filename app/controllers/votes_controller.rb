@@ -3,18 +3,18 @@ class VotesController < ApplicationController
   before_action :set_review, only: %i[create destroy]
   before_action :set_cinema, only: %i[create destroy]
 
-  def create # rubocop:disable Metrics/MethodLength
+  def create # rubocop:disable Metrics/MethodLength,Lint/RedundantCopDisableDirective
     @vote = Vote.new
     @vote.review = @review
     @vote.user = current_user
 
-    @notification = Notification.new
-    @notification.vote = @vote
-    @notification.user = @review.user
+    # @notification = Notification.new
+    # @notification.vote = @vote
+    # @notification.user = @review.user
     # @notification = Notification.new(vote: @vote, user: @review.user)
 
     if @vote.save
-      @notification.save
+      # @notification.save
       redirect_to cinema_path(@cinema), notice: 'Vote added'
     else
       redirect_to cinema_path(@cinema), alert: 'Could not add vote'
@@ -29,6 +29,8 @@ class VotesController < ApplicationController
     else
       redirect_to cinema_path(@cinema), alert: 'Could not remove vote'
     end
+    # rescue ActiveRecord::RecordNotFound
+    #   redirect_to cinema_path(@cinema), alert: 'Vote not found'
   end
 
   private
