@@ -12,8 +12,8 @@ class Cinema < ApplicationRecord
   #   reviews.average(:rating).to_f.round(2) || 0.0
   # end
 
-  geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
+  # geocoded_by :address
+  # after_validation :geocode, if: :will_save_change_to_address?
 
   include PgSearch::Model
 
