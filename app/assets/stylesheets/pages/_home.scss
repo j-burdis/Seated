@@ -24,6 +24,11 @@ body {
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     }
 
+    .seated-banner-text {
+      font-family: $logo-font;
+      font-weight: 700;
+    }
+
     a {
       display: inline-block;
       padding: 10px 20px;
@@ -61,20 +66,49 @@ body {
 
   .btn-primary {
     color: #FBF7F5;
-    background-color: #FF0000;
+    background-color: rgb(152, 33, 44);
     border: none;
   }
 }
 
-.home-map {
-  width: 100%;
-  overflow: hidden;
+.home-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 8px;
 
-  img {
-    height: 200px;
-    width: 100%;
-    display: block;
+  .home-login-btn {
+    margin-top: 24px;
+
+    .btn-primary {
+      display: block;
+      color: #FBF7F5;
+      background-color: rgb(152, 33, 44);
+      border-color: rgb(152, 33, 44);
+    }
+  }
+
+  .home-signup-btn {
+    p {
+      text-align: center;
+      margin-top: 24px;
+      margin-bottom: 4px;
+    }
+
+    .btn-success {
+      display: block;
+      color: #FBF7F5;
+      background-color: rgb(152, 33, 44);
+      border-color: rgb(152, 33, 44);
+      
+    }
+  }
+
+  .btn-danger {
+    color: #333;
+    background-color: #FBF7F5;
+    border-color: #FBF7F5;
+    padding: 0;
   }
 }
 
@@ -87,6 +121,10 @@ body {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 8px;
+  }
+
+  h2 {
+    text-align: center;
   }
 
   p {
