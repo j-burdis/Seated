@@ -33,38 +33,43 @@
       <div class="cinema-review-cards">
         <h2> Our community </h2>
 
-        <% @cinema.reviews.each do |review| %>
+        <% @reviews.each do |review| %>
           <div class="cinema-review-card">
             <p> <%= review.user.username %> </p>
 
             <div class="review-screen-details">
-              <p> Screen: <%= review.screen %> </p>
-              <p> Seat: <%= review.seat %> </p>
-              <p> Best seat: <%= review.pref_seat %> </p>
+              <p> Screen: <span class="review-form-data"><strong><%= review.screen %></strong></span> </p>
+              <p> Seat: <span class="review-form-data"><strong><%= review.seat %></strong></span> </p>
+              <p> Best seat: <span class="review-form-data"><strong><%= review.pref_seat %></strong></span> </p>
             </div>
 
-            <p> "<%= review.content %>" </p>
-            <%# add in photo uploads here %>
             <div class="review-card-rating">
-              <p> Rating: <%= review.rating %>/5 </p>
+              <p> Rating: <span class="review-form-data"><strong><%= review.rating %></strong></span>/5 </p>
+            </div>
+
+            <div class="review-card-content">
+              <p> "<%= review.content %>" </p>
+              <%# add in photo uploads here %>
             </div>
 
             <% if review.user != current_user %>
-              <div class="review-vote">
+              <div class="review-vote" data-controller="reset-form">
                 <div class="review-vote-arrow">
                   <% if current_user.votes.exists?(review: review) %>
-                    <%= button_to 'Remove Vote', cinema_review_vote_path(@cinema, review, review.votes.find_by(user: current_user)), method: :delete, remote: true, class: 'btn btn-danger' %>
+                    <%= button_to 'unvote', cinema_review_vote_path(@cinema, review, review.votes.find_by(user: current_user)), 
+                    method: :delete, remote: true, class: 'btn btn-danger' %>
                     <%#= link_to do %>
                         <%# <i class="fa-solid fa-sort-down"></i> %>
                     <%# end, cinema_review_vote_path(@cinema, review, review.votes.find_by(user: current_user)), method: :delete, class: 'vote-button' %>
                   <% else %>
-                    <%= button_to 'Vote', cinema_review_votes_path(@cinema, review), method: :post, remote: true, class: 'btn btn-primary' %>
+                    <%= button_to 'upvote', cinema_review_votes_path(@cinema, review), 
+                    method: :post, remote: true, class: 'btn btn-primary' %>
                     <%#= link_to do %>
                         <%# <i class="fa-solid fa-sort-up"></i> %>
                     <%# end, cinema_review_votes_path(@cinema, review), method: :post, class: 'vote-button' %>
                   <% end %>
-                  <i class="fa-solid fa-sort-down vote-button"></i>
-                  <i class="fa-solid fa-sort-up vote-button"></i>
+                  <%# <i class="fa-solid fa-sort-down vote-button"></i> %>
+                  <%# <i class="fa-solid fa-sort-up vote-button"></i> %>
                 </div>
                 <div class="review-vote-count">
                   <p> <strong>(<%= review.votes.count %>)</strong> </p>

@@ -13,22 +13,32 @@ class VotesController < ApplicationController
     # @notification.user = @review.user
     # @notification = Notification.new(vote: @vote, user: @review.user)
 
-    if @vote.save
-      # @notification.save
-      redirect_to cinema_path(@cinema), notice: 'Vote added'
-    else
-      redirect_to cinema_path(@cinema), alert: 'Could not add vote'
-    end
+    return unless @vote.save
+
+    # @notification.save
+    redirect_to cinema_path(@cinema)
+
+    # if @vote.save
+    #   # @notification.save
+    #   redirect_to cinema_path(@cinema), notice: 'Could not add vote'
+    # else
+    #   redirect_to cinema_path(@cinema), alert: 'Could not add vote'
+    # end
   end
 
   def destroy
     @vote = Vote.find(params[:id])
-    if @vote.user == current_user
-      @vote.destroy
-      redirect_to cinema_path(@cinema), notice: 'Vote removed'
-    else
-      redirect_to cinema_path(@cinema), alert: 'Could not remove vote'
-    end
+    return unless @vote.user == current_user
+
+    @vote.destroy
+    redirect_to cinema_path(@cinema)
+
+    # if @vote.user == current_user
+    #   @vote.destroy
+    #   redirect_to cinema_path(@cinema), notice: 'Vote removed'
+    # else
+    #   redirect_to cinema_path(@cinema), alert: 'Could not remove vote'
+    # end
     # rescue ActiveRecord::RecordNotFound
     #   redirect_to cinema_path(@cinema), alert: 'Vote not found'
   end
