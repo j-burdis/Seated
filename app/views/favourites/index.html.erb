@@ -3,27 +3,29 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <div class="favourites-cinema-list-card">
-        <h1> List of Favourite Cinemas </h1>
-          <div class="favourite-cinema-card">
-            <%# add in cinema name here %>
-            <div class="favourite-cinema-title">
-              <h3>Name of cinema</h3>
 
-              <%# remove icon %>
+
+    <div class="favourites-cinema-list-card">
+      <h1>List of Favourite Cinemas</h1>
+      <% @favourites.each do |favourite| %>
+        <div class="favourite-cinema-card">
+          <div class="favourite-cinema-title">
+            <h3><%= favourite.cinema.name %></h3>
+            <%#= button_to cinema_favourite_path(favourite.cinema, favourite), method: :delete, remote: true, class: 'remove-favourite-btn' do %>
               <i class="fa-solid fa-x"></i>
-            </div>
-
-            <div class="favourite-cinema-image-card">
-              <%# add photos here %>
-              <img src="https://leicestersquare.london/imager/images/6390/Vue-Cinema-GVs005_b8686bae47d62ae0d51d3cfea027ccdf.webp" alt="#">
-              <div class="favourite-card-description">
-                <%# add in description here %>
-                <p> Description: "Fantastic cinema! Lots of great seats! And 2-for-1 tickets on Wednesdays"  </p>
-              </div>
+            <%# end %>
+          </div>
+          <div class="favourite-cinema-image-card">
+            <img src="<%= favourite.cinema.image_url %>" alt="<%= favourite.cinema.name %>">
+            <div class="favourite-card-description">
+              <p><%= favourite.cinema.description %></p>
             </div>
           </div>
-      </div>
+        </div>
+      <% end %>
+    </div>
+
+
     </div>
   </div>
 </div>
