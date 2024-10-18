@@ -1,9 +1,9 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  # skip_before_action :authenticate_user!, only: [:home]
   def map
     @cinemas = Cinema.all
 
-    # The `geocoded` scope filters only flats with coordinates
+    # The `geocoded` scope filters only cinemas with coordinates
     @markers = @cinemas.geocoded.map do |cinema|
       {
         lat: cinema.latitude,
@@ -13,6 +13,7 @@ class PagesController < ApplicationController
       }
     end
   end
+
   def home
   end
 
