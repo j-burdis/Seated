@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: %i[edit update destroy]
 
   def new
-    @review = @cinema.reviews.new
+    @review = Review.new
   end
 
   def create
@@ -39,7 +39,7 @@ class ReviewsController < ApplicationController
   end
 
   def set_review
-    @review = @cinema.reviews.find(params[:id])
+    @review = Review.find(params[:id])
   end
 
   def review_params
