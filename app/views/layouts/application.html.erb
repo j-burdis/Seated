@@ -26,11 +26,15 @@
   </head>
 
   <body>
-    <%= render "shared/header" %>
+    <% unless current_page?(new_user_session_path) %>
+      <%= render "shared/header" %>
+    <% end %>
     <%= render "shared/flashes" %>
 
     <%= yield %>
 
-    <%= render "shared/bottom_navbar" %>
+    <% unless current_page?(new_user_session_path) %>
+      <%= render "shared/bottom_navbar" %>
+    <% end %>
   </body>
 </html>
