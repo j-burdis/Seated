@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     @review = @cinema.reviews.new(review_params)
     @review.user = current_user
     if @review.save
-      redirect_to cinema_path(@cinema), notice: 'Review added successfully.'
+      redirect_to cinema_path(@cinema)
     else
       render :new, status: :unprocessable_entity
     end
@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(review_params)
-      redirect_to cinema_path(@cinema), notice: 'Review updated successfully.'
+      redirect_to cinema_path(@cinema)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -29,7 +29,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    redirect_to cinema_path(@cinema), notice: 'Review deleted successfully.'
+    redirect_to cinema_path(@cinema)
   end
 
   private
