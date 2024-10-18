@@ -2,28 +2,35 @@
 <nav class="bottom_navbar navbar-light bg-light navbar-expand fixed-bottom">
   <div class="container-fluid d-flex justify-content-around">
 
+    <%# Home  button %>
+    <%= link_to root_path, class: "bottom_navbar-link" do %>
+      <i class="fa-solid fa-house"></i>
+    <% end %>
+
+    <%#  Search button %>
+    <%= link_to cinemas_path, class: "bottom_navbar-link" do %>
+      <i class="fas fa-search"></i>
+    <% end %>
+
     <%# Favourites button %>
     <%= link_to favourites_path, class: "bottom_navbar-link" do %>
       <i class="fas fa-star"></i>
     <% end %>
 
-    <%#  Search button %>
-    <%= link_to root_path, class: "bottom_navbar-link" do %>
-      <i class="fas fa-search"></i>
-    <% end %>
-
+    <%# Map button%>
     <%= link_to map_path, class: "bottom_navbar-link" do %>
       <i class="fa-solid fa-map"></i>
-    <% end %>
-
-    <%# Notifications button %>
-    <%= link_to notifications_path, class: "bottom_navbar-link" do %>
-      <i class="fas fa-bell"></i>
     <% end %>
 
     <%#  Profile buton %>
     <%= link_to profile_path, class: "bottom_navbar-link" do %>
       <i class="fas fa-user"></i>
     <% end %>
+
+    <%# Notifications button %>
+    <%#= link_to notifications_path, class: "bottom_navbar-link" do %>
+      <%# <i class="fas fa-bell"></i> %>
+    <%# end %>
+
   </div>
 </nav>

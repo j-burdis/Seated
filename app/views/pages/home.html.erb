@@ -1,6 +1,6 @@
 <div class="home-banner">
   <div class="home-banner-text">
-    <h1>Welcome to <strong>Seated</strong>!</h1>
+    <h1>Welcome to <span class="seated-banner-text">Seated</span></h1>
     <%= link_to "All cinemas", cinemas_path %>
   </div>    
 </div>
@@ -19,18 +19,30 @@
         <% end %>
       </div>
 
-      <div id="map" class="home-map">
-        <%= image_tag "temp-maps.jpg"%>
+      <div class="home-login">
+        <% if user_signed_in? %>
+          <p>Welcome, <%= current_user.username %>!</p>
+          <%= button_to 'Log Out', destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+        <% else %>
+          <div class="home-login-btn">
+            <%= link_to 'Log In', new_user_session_path, class: "btn btn-primary" %>
+          </div>
+          <div class="home-signup-btn">
+            <p>Don't have an account?</p>
+            <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-success" %>
+          </div>
+        <% end %>
       </div>
 
       <div class="home-about">
-        <h1>About us</h1>
-        <p>
-          Seated is your go-to app for cinema seat reviews. Whether you're looking for the best spot in the house or want to avoid a bad seat, Seated has got you covered. Read reviews from fellow moviegoers, leave your own, and engage with the community through comments and votes. Our mission is to enhance your movie-watching experience by ensuring you always find the perfect seat.
-        </p>
-        <p>
-          Join our community of cinema enthusiasts and never settle for a subpar seat again. With Seated, every seat is just a review away.
-        </p>
+        <h1><strong>Our Mission</strong></h1>
+        <%# <h2><strong>Our Community</strong></h2> %>
+          <p>Seated is powered by a passionate community of movie lovers who share their seating experiences.
+             Our mission is driven by you.</p>
+          <p>By sharing your seat reviews and experiences, you help others find the perfect spot in every cinema.</p>
+          <p>We believe in transparency, community, and empowering moviegoers with real user feedback.</p>
+          <p>Seated is built on sharing honest reviews and tips that help everyone have a better cinema experience.</p>
+          <p>Join us and never settle for a bad seat again.</p>
       </div>
 
     </div>
