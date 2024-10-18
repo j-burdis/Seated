@@ -1,0 +1,19 @@
+<div id="comments-list-<%= review.id %>">
+              <h3>Comments</h3>
+              <div id="comments-<%= review.id %>">
+                <%#= render review.comments %>
+                <%= render partial: 'comments/comment', collection: review.comments, as: :comment %>
+              </div>
+            </div>
+              
+            <%= simple_form_for [@cinema, review, Comment.new], 
+                html: { class: "d-flex", data: { controller: "reset-form", 
+                action: "turbo:submit-end->reset-form#reset" } } do |form| %>
+  
+                <%= form.input :content, as: :text, 
+                label: "Your Comment", input_html: { rows: 3 }, wrapper: false %>
+  
+                <%= form.button :submit, 'Add Comment', 
+                class: 'btn btn-primary' %>
+
+            <% end %>

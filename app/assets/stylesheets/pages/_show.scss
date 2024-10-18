@@ -83,11 +83,50 @@
     .review-screen-details {
       display: flex;
       justify-content: space-between;
+    
+      .review-form-data{
+        color: #FF0000;
+      }
     }
 
     .review-card-rating {
       display: flex;
-      justify-content: center;
+      justify-content: start;
+
+      .review-form-data{
+        color: #FF0000;
+      }
+    }
+
+    .review-card-content {
+      text-align: center;
     }
   }
+
+  .review-vote {
+    display: flex;
+    align-items: center;
+
+    .review-vote-count {
+      padding-left: 8px;
+      color: #333;
+    }
+  
+  .vote-button {
+    color: #FF0000;
+    font-size: 32px;
+  }
+
+  .btn-primary {
+    color: #FBF7F5;
+    background-color: #FF0000;
+    border-color: #FF0000;
+  }
+
+  .btn-danger {
+    color: #FBF7F5;
+    background-color: #333;
+    border-color: #333;
+  }
+  }  
 }

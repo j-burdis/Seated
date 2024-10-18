@@ -3,14 +3,14 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: %i[edit update destroy]
 
   def new
-    @review = @cinema.reviews.new
+    @review = Review.new
   end
 
   def create
     @review = @cinema.reviews.new(review_params)
     @review.user = current_user
     if @review.save
-      redirect_to cinema_path(@cinema.review), notice: 'Review added successfully.'
+      redirect_to cinema_path(@cinema)
     else
       render :new, status: :unprocessable_entity
     end
@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(review_params)
-      redirect_to cinema_path(@cinema), notice: 'Review updated successfully.'
+      redirect_to cinema_path(@cinema)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -29,7 +29,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    redirect_to cinema_path(@cinema), notice: 'Review deleted successfully.'
+    redirect_to cinema_path(@cinema)
   end
 
   private
@@ -39,7 +39,7 @@ class ReviewsController < ApplicationController
   end
 
   def set_review
-    @review = @cinema.reviews.find(params[:id])
+    @review = Review.find(params[:id])
   end
 
   def review_params
