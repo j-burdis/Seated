@@ -397,14 +397,6 @@ cinema60 = Cinema.create!(
   image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
 )
 
-# cinema61 = Cinema.create!(
-#   name: "ODEON Brighton",
-#   address: "Fifth Avenue, Brighton, BN1 1HL",
-#   description: "Enjoy a premium cinema experience with luxury seating and the latest blockbusters.",
-#   average_rating: 4.6,
-#   image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
-# )
-
 cinema62 = Cinema.create!(
   name: "ODEON Cardiff",
   address: "Hemingway Road, Cardiff, CF10 1FG",
@@ -785,17 +777,17 @@ users = [jon, temi, harvi, shan]
 puts "User table populated"
 
 cinemas = [
-  cinema1, cinema2, cinema3, cinema4, cinema5, cinema6, cinema7, cinema9, cinema10, 
-  cinema11, cinema12, cinema13, cinema14, cinema15, cinema16, cinema17, cinema26, 
-  cinema27, cinema28, cinema29, cinema30, cinema31, cinema32, cinema33, cinema34, 
-  cinema35, cinema37, cinema38, cinema39, cinema40, cinema41, cinema42, cinema43, 
-  cinema44, cinema45, cinema46, cinema47, cinema48, cinema49, cinema50, cinema51, 
-  cinema52, cinema53, cinema55, cinema56, cinema57, cinema58, cinema60, 
-  cinema61, cinema62, cinema63, cinema64, cinema65, cinema66, cinema67, cinema68, 
-  cinema69, cinema70, cinema71, cinema72, cinema73, cinema74, cinema75, cinema76, 
-  cinema77, cinema78, cinema79, cinema80, cinema81, cinema82, cinema83, cinema84, 
-  cinema85, cinema86, cinema87, cinema88, cinema89, cinema90, cinema91, cinema92, 
-  cinema93, cinema94, cinema95, cinema96, cinema97, cinema98, cinema99, cinema100, 
+  cinema1, cinema2, cinema3, cinema4, cinema5, cinema6, cinema7, cinema9, cinema10,
+  cinema11, cinema12, cinema13, cinema14, cinema15, cinema16, cinema17, cinema26,
+  cinema27, cinema28, cinema29, cinema30, cinema31, cinema32, cinema33, cinema34,
+  cinema35, cinema37, cinema38, cinema39, cinema40, cinema41, cinema42, cinema43,
+  cinema44, cinema45, cinema46, cinema47, cinema48, cinema49, cinema50, cinema51,
+  cinema52, cinema53, cinema55, cinema56, cinema57, cinema58, cinema60, cinema62,
+  cinema63, cinema64, cinema65, cinema66, cinema67, cinema68,
+  cinema69, cinema70, cinema71, cinema72, cinema73, cinema74, cinema75, cinema76,
+  cinema77, cinema78, cinema79, cinema80, cinema81, cinema82, cinema83, cinema84,
+  cinema85, cinema86, cinema87, cinema88, cinema89, cinema90, cinema91, cinema92,
+  cinema93, cinema94, cinema95, cinema96, cinema97, cinema98, cinema99, cinema100,
   cinema101, cinema102, cinema103, cinema104, cinema105, cinema106, cinema107
 ]
 
@@ -835,10 +827,10 @@ review_contents = [
 
 cinemas.each do |cinema|
   # Choose a random number of reviews for each cinema (between 2 and 4)
-  number_of_reviews = [2, 3, 4].sample 
+  number_of_reviews = [2, 3, 4].sample
 
   # Ensure we don't exceed the number of unique users available
-  number_of_reviews = [number_of_reviews, users.size].min 
+  number_of_reviews = [number_of_reviews, users.size].min
 
   # Shuffle the users and select a unique subset based on the number of reviews
   selected_users = users.shuffle.first(number_of_reviews)
@@ -850,7 +842,7 @@ cinemas.each do |cinema|
     # review_contents.delete(content) # Remove the used content to avoid duplicates
 
     Review.create!(
-      screen: rand(1..5), 
+      screen: rand(1..5),
       seat: "#{('A'..'H').to_a.sample}#{rand(1..20)}",
       pref_seat: "#{('A'..'H').to_a.sample}#{rand(1..20)}",
       content: content,
