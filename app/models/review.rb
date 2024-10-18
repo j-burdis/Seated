@@ -1,7 +1,7 @@
 class Review < ApplicationRecord
   belongs_to :cinema
   belongs_to :user
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :votes
   # has_many_attached :image_url
 

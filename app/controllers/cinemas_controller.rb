@@ -9,7 +9,7 @@ class CinemasController < ApplicationController
   end
 
   def show
-    @reviews = @cinema.reviews
+    @reviews = @cinema.reviews.order(created_at: :desc)
   end
 
   private

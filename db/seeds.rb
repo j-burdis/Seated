@@ -7,7 +7,8 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-
+Vote.destroy_all
+Comment.destroy_all
 Review.destroy_all
 Cinema.destroy_all
 User.destroy_all
@@ -384,14 +385,6 @@ cinema58 = Cinema.create!(
   name: 'Odeon Chatham',
   address: '1-3, Chatham Maritime, Chatham, ME4 4LL',
   description: 'This cinema provides a great experience with the latest releases and comfortable seating.',
-  average_rating: nil,
-  image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
-)
-
-cinema59 = Cinema.create!(
-  name: 'Odeon Kingston',
-  address: 'The Rotunda, Clarence St, Kingston upon Thames, KT1 1QJ',
-  description: 'This cinema offers a great experience with the latest films in a comfortable environment.',
   average_rating: nil,
   image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
 )
@@ -782,62 +775,91 @@ cinema107 = Cinema.create!(
 
 puts "Cinema table populated"
 
-jon = User.create!(email: 'jon@jon.com', password: 'password', username: "jon")
+jon = User.create!(email: 'jon@jon.com', password: 'password', username: "just_jon")
 temi = User.create!(email: 'temi@tayo.com', password: 'password', username: "tee")
+harvi = User.create!(email: 'harvi@max.com', password: 'password', username: "mr_singh")
+shan = User.create!(email: 'shan@shan.com', password: 'password', username: "bambambaluyos")
+
+users = [jon, temi, harvi, shan]
 
 puts "User table populated"
 
-Review.create!([
-  {
-    screen: 1,
-    seat: 'A10',
-    pref_seat: 'A10',
-    content: 'Great experience, comfortable seating!',
-    rating: 4.5,
-    # image_url: 'https://example.com/review1.jpg',
-    cinema_id: cinema1.id,
-    user_id: jon.id
-  },
-  {
-    screen: 2,
-    seat: 'B5',
-    pref_seat: 'H5',
-    content: 'The movie was amazing, but the seats were too close to the screen.',
-    rating: 3.8,
-    # image_url: 'https://example.com/review2.jpg',
-    cinema_id: cinema2.id,
-    user_id: temi.id
-  },
-  {
-    screen: 3,
-    seat: 'C12',
-    pref_seat: 'C12',
-    content: 'Excellent sound system, great ambience!',
-    rating: 5.0,
-    # image_url: 'https://example.com/review3.jpg',
-    cinema_id: cinema1.id,
-    user_id: temi.id
-  },
-  {
-    screen: 1,
-    seat: 'D20',
-    pref_seat: 'F15',
-    content: 'Seats were uncomfortable and the air conditioning was too cold.',
-    rating: 2.5,
-    # image_url: 'https://example.com/review4.jpg',
-    cinema_id: cinema2.id,
-    user_id: jon.id
-  },
-  {
-    screen: 4,
-    seat: 'A10',
-    pref_seat: 'A10',
-    content: 'Loved the 3D experience. Truly immersive!',
-    rating: 4.9,
-    # image_url: 'https://example.com/review5.jpg',
-    cinema_id: cinema1.id,
-    user_id: temi.id
-  }
-])
+cinemas = [
+  cinema1, cinema2, cinema3, cinema4, cinema5, cinema6, cinema7, cinema9, cinema10, 
+  cinema11, cinema12, cinema13, cinema14, cinema15, cinema16, cinema17, cinema26, 
+  cinema27, cinema28, cinema29, cinema30, cinema31, cinema32, cinema33, cinema34, 
+  cinema35, cinema37, cinema38, cinema39, cinema40, cinema41, cinema42, cinema43, 
+  cinema44, cinema45, cinema46, cinema47, cinema48, cinema49, cinema50, cinema51, 
+  cinema52, cinema53, cinema55, cinema56, cinema57, cinema58, cinema60, 
+  cinema61, cinema62, cinema63, cinema64, cinema65, cinema66, cinema67, cinema68, 
+  cinema69, cinema70, cinema71, cinema72, cinema73, cinema74, cinema75, cinema76, 
+  cinema77, cinema78, cinema79, cinema80, cinema81, cinema82, cinema83, cinema84, 
+  cinema85, cinema86, cinema87, cinema88, cinema89, cinema90, cinema91, cinema92, 
+  cinema93, cinema94, cinema95, cinema96, cinema97, cinema98, cinema99, cinema100, 
+  cinema101, cinema102, cinema103, cinema104, cinema105, cinema106, cinema107
+]
+
+review_contents = [
+  "An amazing cinema! The staff was friendly and the atmosphere was welcoming.",
+  "Great experience overall! The seating was comfortable and the movie selection was excellent.",
+  "I loved the sound quality in this cinema. It made the movie feel so immersive!",
+  "The snacks were delicious, and the cinema was clean and well-maintained.",
+  "Fantastic service! The staff went out of their way to make our visit enjoyable.",
+  "I will definitely return! The cinema had a great vibe and fantastic screens.",
+  "What a great experience! The layout was perfect, making it easy to find our seats.",
+  "The movie selection was impressive, with all the latest releases available.",
+  "A clean and friendly environment! I highly recommend this cinema to everyone.",
+  "The reclining seats were a game changer for my movie night!",
+  "Awesome sound and picture quality! It made the film so much more enjoyable.",
+  "The staff was very helpful when we needed assistance. Great customer service!",
+  "What a fantastic experience! I felt like I was part of the movie.",
+  "The popcorn was fresh and perfectly salted. I could not get enough!",
+  "Loved the atmosphere! The lighting and decor were so inviting.",
+  "It is my new favorite cinema! I am already planning my next visit.",
+  "The location is perfect, making it easy to get to and from the cinema.",
+  "Loved the comfortable seating. I was able to enjoy the entire film without discomfort.",
+  "The ticket prices were reasonable for such a great experience.",
+  "I appreciated the cleanliness of the restrooms and lobby area.",
+  "This cinema has become my go-to spot for movie nights with friends.",
+  "The pre-show entertainment was enjoyable and made waiting more fun.",
+  "I can not wait to come back! The whole experience was delightful.",
+  "The 3D experience here is exceptional! Worth every penny.",
+  "I enjoyed every moment in this cinema. A wonderful outing!",
+  "The seats were uncomfortable, and the movie started late. I won't be returning anytime soon.",
+  "Terrible service! The staff were rude, and the popcorn was stale. Very disappointing experience.",
+  "The cinema was overcrowded and noisy, making it hard to enjoy the film. Not worth the visit.",
+  "Average experience, but the ticket prices are a bit high for the quality.",
+  "The screen quality was subpar, and I couldn't focus on the movie.",
+  "I was unhappy with the cleanliness. The floors were sticky, and it was off-putting."
+]
+
+cinemas.each do |cinema|
+  # Choose a random number of reviews for each cinema (between 2 and 4)
+  number_of_reviews = [2, 3, 4].sample 
+
+  # Ensure we don't exceed the number of unique users available
+  number_of_reviews = [number_of_reviews, users.size].min 
+
+  # Shuffle the users and select a unique subset based on the number of reviews
+  selected_users = users.shuffle.first(number_of_reviews)
+
+  # Create reviews for each selected user
+  selected_users.each do |user|
+    # Select unique review content for each review
+    content = review_contents.sample
+    # review_contents.delete(content) # Remove the used content to avoid duplicates
+
+    Review.create!(
+      screen: rand(1..5), 
+      seat: "#{('A'..'H').to_a.sample}#{rand(1..20)}",
+      pref_seat: "#{('A'..'H').to_a.sample}#{rand(1..20)}",
+      content: content,
+      rating: rand(3.5..5.0).round(1),
+      cinema_id: cinema.id,
+      user_id: user.id
+    )
+  end
+end
+
 
 puts "Review table populated"
