@@ -404,13 +404,13 @@ cinema60 = Cinema.create!(
   image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
 )
 
-cinema61 = Cinema.create!(
-  name: "ODEON Brighton",
-  address: "Fifth Avenue, Brighton, BN1 1HL",
-  description: "Enjoy a premium cinema experience with luxury seating and the latest blockbusters.",
-  average_rating: 4.6,
-  image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
-)
+# cinema61 = Cinema.create!(
+#   name: "ODEON Brighton",
+#   address: "Fifth Avenue, Brighton, BN1 1HL",
+#   description: "Enjoy a premium cinema experience with luxury seating and the latest blockbusters.",
+#   average_rating: 4.6,
+#   image_url: 'https://www.opia.com/wp-content/uploads/2022/10/Odeon.png'
+# )
 
 cinema62 = Cinema.create!(
   name: "ODEON Cardiff",
@@ -841,4 +841,3 @@ Review.create!([
 ])
 
 puts "Review table populated"
-
