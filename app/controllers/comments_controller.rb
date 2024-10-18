@@ -18,13 +18,13 @@ class CommentsController < ApplicationController
       # redirect_to cinema_path(@cinema), notice: 'Comment added'
       respond_to do |format|
         format.turbo_stream
-        format.html { redirect_to cinema_path(@cinema), notice: 'Comment was successfully created.' }
+        format.html { redirect_to cinema_path(@cinema) }
       end
     else
       # redirect_to cinema_path(@cinema), alert: 'Could not add comment'
       respond_to do |format|
         format.turbo_stream
-        format.html { redirect_to cinema_path(@cinema), alert: 'Comment could not be created.' }
+        format.html { redirect_to cinema_path(@cinema) }
       end
     end
   end
