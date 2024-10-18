@@ -51,31 +51,27 @@
 
             <% if review.user != current_user %>
               <div class="review-vote">
-                <% if current_user.votes.exists?(review: review) %>
-                  <%= button_to 'Remove Vote', cinema_review_vote_path(@cinema, review, review.votes.find_by(user: current_user)), method: :delete, class: 'btn btn-danger' %>
-                <% else %>
-                  <%= button_to 'Vote', cinema_review_votes_path(@cinema, review), method: :post, class: 'btn btn-primary' %>
-                <% end %>
-                <p> Votes: <%= review.votes.count %> </p> 
+                <div class="review-vote-arrow">
+                  <% if current_user.votes.exists?(review: review) %>
+                    <%= button_to 'Remove Vote', cinema_review_vote_path(@cinema, review, review.votes.find_by(user: current_user)), method: :delete, remote: true, class: 'btn btn-danger' %>
+                    <%#= link_to do %>
+                        <%# <i class="fa-solid fa-sort-down"></i> %>
+                    <%# end, cinema_review_vote_path(@cinema, review, review.votes.find_by(user: current_user)), method: :delete, class: 'vote-button' %>
+                  <% else %>
+                    <%= button_to 'Vote', cinema_review_votes_path(@cinema, review), method: :post, remote: true, class: 'btn btn-primary' %>
+                    <%#= link_to do %>
+                        <%# <i class="fa-solid fa-sort-up"></i> %>
+                    <%# end, cinema_review_votes_path(@cinema, review), method: :post, class: 'vote-button' %>
+                  <% end %>
+                  <i class="fa-solid fa-sort-down vote-button"></i>
+                  <i class="fa-solid fa-sort-up vote-button"></i>
+                </div>
+                <div class="review-vote-count">
+                  <p> <strong>(<%= review.votes.count %>)</strong> </p>
+                </div>
               </div>
             <% end %>
-
-            <div id="comments-list-<%= review.id %>">
-              <h3>Comments</h3>
-              <div id="comments-<%= review.id %>">
-                <%#= render review.comments %>
-                <%= render partial: 'comments/comment', collection: review.comments, as: :comment %>
-              </div>
-            </div>
-              <%= form_with(model: [@cinema, review, Comment.new], local: false) do |form| %>
-                <div class="form-group">
-                  <%= form.label :content %>
-                  <%= form.text_area :content, rows: 3 %>
-                </div>
-                <%= form.submit 'Add Comment', class: 'btn btn-primary' %>
-              <% end %>
-            
-
+            <%# comments %>
           </div>
         <% end %>
 

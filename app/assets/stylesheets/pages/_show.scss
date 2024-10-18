@@ -84,4 +84,19 @@
       justify-content: center;
     }
   }
+
+  .review-vote {
+    display: flex;
+    align-items: center;
+
+    .review-vote-count {
+      padding-left: 8px;
+      color: #333;
+    }
+  
+  .vote-button {
+    color: #FF0000;
+    font-size: 32px;
+  }
+  }  
 }
