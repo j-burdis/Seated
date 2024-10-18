@@ -1,8 +1,19 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="reset-form"
 export default class extends Controller {
+  static targets = [
+    "star"
+  ]
+
   connect() {
-    console.log("favourite connected")
+    // this.element.textContent = "Hello World!"
+
+  }
+
+  toggle(event) {
+    event.currentTarget.classList.toggle("fa-regular");
+    event.currentTarget.classList.toggle("fa-solid");
+    // event.currentTarget.parentElement.style.pointerEvents = "none";
+    // console.log(event.currentTarget.parentElement)
   }
 }

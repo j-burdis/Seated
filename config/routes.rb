@@ -1,19 +1,20 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users
   root to: "pages#home"
   get "profile", to: "pages#profile"
   get "map", to: "pages#map"
-  
+
   resources :cinemas, only: [:index, :show] do
-    resources :reviews, only: [:new, :create] do 
+
+    resources :reviews, only: [:new, :create] do
       resources :comments, only: [:create, :destroy]
       resources :votes, only: [:create, :destroy]
     end
-    resources :favourites, only: [:create]
+    resources :favourites, only: [:create, :destroy]
   end
   resources :reviews, only: [:edit, :update, :destroy]
-  resources :favourites, only: [:index, :destroy]
+  resources :favourites, only: [:index]
 
   resources :notifications, only: [:index, :destroy]
 
