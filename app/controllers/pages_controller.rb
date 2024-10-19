@@ -15,6 +15,15 @@ class PagesController < ApplicationController
   end
 
   def home
+    @best_cinemas = Cinema.joins(:reviews)
+                          .group('cinemas.id')
+                          .select('cinemas.*, AVG(reviews.rating) AS average_rating')
+                          .order('AVG(reviews.rating) DESC')
+                          .limit(3)
+
+    @recent_reviews = Review.includes(:cinema, :user)
+                            .order(created_at: :desc)
+                            .limit(3)
   end
 
   def profile

@@ -1,39 +1,82 @@
 <div class="home-banner">
-  <div class="home-banner-text">
-    <h1>We can all be <span class="seated-banner-text">Seated</span></h1>
-    <%= link_to "All cinemas", cinemas_path %>
-  </div>
-</div>
+  <%# <div class="home-banner-text"> %>
+    <%# <h1>We can all be <span class="seated-banner-text">Seated</span></h1> %>
+    <%# <%= link_to "All cinemas", cinemas_path %> %>
+  <%# </div> %>
 
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="home-search">
-        <h1> Near you </h1>
-        <%= form_tag cinemas_path, method: :get, class: "d-flex" do %>
-          <%= text_field_tag :query,
-                              params[:query],
-                              class: "form-control",
-                              placeholder: "Where are you off to?" %>
-          <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-        <% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+
+        <div class="home-contents">
+
+          <div class="home-welcome-message">
+            <% if user_signed_in? %>
+              <p>Welcome, <%= current_user.username %>!</p>
+            <%  end %>
+          </div>
+
+          <div class="home-top-picks">
+            <h2>Our top picks</h2>
+            <% @best_cinemas.each do |cinema| %>
+              <div class="top-pick-card">
+                <img src="<%= cinema.image_url %>" />
+                <div class="top-pick-details">
+                  <h4> <%= cinema.name %> </h4>
+                  <p> <%= cinema.address %> </p>
+                  <p> Average rating: <%= cinema.average_rating.present? ? cinema.average_rating.round(2) : 'No reviews yet' %> </p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="home-banner-text">
+            <h1>We can all be <span class="seated-banner-text">Seated</span></h1>
+            <%= link_to "Find seats", cinemas_path %>
+          </div>
+
+          <div class="home-recent-reviews">
+            <h2>Recent Reviews</h2>
+            <% @recent_reviews.each do |review| %>
+              <div class="cinema-review-card">
+                <div class="recent-user-date">
+                  <p><%= review.user.username %></p>
+                  <p> <%= review.created_at.strftime("%B %d, %Y") %> </p>
+                </div>
+                <div class="recent-name-rating">
+                  <p><strong><%= review.cinema.name %></strong></p>
+                  <div class="review-card-rating">
+                    <p>Rating: <span class="review-form-data"><strong><%= review.rating %></strong></span>/5</p>
+                  </div>
+                </div>
+                <div class="review-screen-details">
+                  <p>Screen: <span class="review-form-data"><strong><%= review.screen %></strong></span></p>
+                  <p>Seat: <span class="review-form-data"><strong><%= review.seat %></strong></span></p>
+                  <p>Best seat: <span class="review-form-data"><strong><%= review.pref_seat %></strong></span></p>
+                </div>
+                <div class="review-card-content">
+                  <p>"<%= review.content %>"</p>
+                </div>
+              </div>
+            <% end %>
+
+          </div>
+
+          <div class="home-about">
+            <h1><strong>Our Mission</strong></h1>
+              <p>Seated is powered by a passionate community of movie lovers who share their seating experiences.
+                Our mission is driven by you.</p>
+              <p>By sharing your seat reviews and experiences, you help others find the perfect spot in every cinema.</p>
+              <p>We believe in transparency, community, and empowering moviegoers with real user feedback.</p>
+              <p>Seated is built on sharing honest reviews and tips that help everyone have a better cinema experience.</p>
+              <p>It's time to take a seat!</p>
+          </div>
+        </div>
+
       </div>
-
-      <div class="home-about">
-        <h1><strong>Our Mission</strong></h1>
-        <%# <h2><strong>Our Community</strong></h2> %>
-          <p>Seated is powered by a passionate community of movie lovers who share their seating experiences.
-             Our mission is driven by you.</p>
-          <p>By sharing your seat reviews and experiences, you help others find the perfect spot in every cinema.</p>
-          <p>We believe in transparency, community, and empowering moviegoers with real user feedback.</p>
-          <p>Seated is built on sharing honest reviews and tips that help everyone have a better cinema experience.</p>
-          <p>Join us and never settle for a bad seat again.</p>
-      </div>
-
     </div>
   </div>
 </div>
-
 <%# Add the necessary JavaScript libraries for the map %>
 <%# <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap", async: true, defer: true %>
 <%# <%= javascript_include_tag "map"  %>
