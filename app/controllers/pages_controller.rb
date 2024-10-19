@@ -28,4 +28,8 @@ class PagesController < ApplicationController
 
   def profile
   end
+
+  # def top_rated
+  #   @top_cinemas = current_user.top_rated_cinemas(3)
+  # end
 end
