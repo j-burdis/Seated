@@ -74,33 +74,9 @@
   .cinema-review-card {
     padding: 16px;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 12px;
-
-    p {
-      margin-bottom: 0;
-    }
-
-    .review-screen-details {
-      display: flex;
-      justify-content: space-between;
-    
-      .review-form-data{
-        color: #FF0000;
-      }
-    }
-
-    .review-card-rating {
-      display: flex;
-      justify-content: start;
-
-      .review-form-data{
-        color: #FF0000;
-      }
-    }
-
-    .review-card-content {
-      text-align: center;
-    }
+    color: #333;
+    margin-bottom: 0;
+    margin-top: 12px;
   }
 
   .review-vote {

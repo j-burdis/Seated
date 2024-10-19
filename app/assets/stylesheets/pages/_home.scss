@@ -137,45 +137,46 @@ body {
   }
 
   .cinema-review-card {
-    padding: 8px 16px;
-    margin-bottom: 12px;
     background-color: rgba(152, 33, 44, 0.65);
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-    margin: 8px 0;
-    color: #FBF7F5;
+  }
+}
 
-    .recent-user-date, .recent-name-rating{
-      display: flex;
-      justify-content: space-between;
+.cinema-review-card {
+  padding: 8px 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  margin: 8px 0;
+  color: #FBF7F5;
+
+  .recent-user-date, .recent-name-rating{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  .review-card-rating {
+    display: flex;
+    justify-content: start;
+
+    .review-form-data{
+      color: #FF0000;
     }
+  }
 
-    p {
-      margin-bottom: 0;
+  .review-screen-details {
+    display: flex;
+    justify-content: space-between;
+  
+    .review-form-data{
+      color: #FF0000;
     }
+  }
 
-    .review-card-rating {
-      display: flex;
-      justify-content: start;
-
-      .review-form-data{
-        color: #FF0000;
-      }
-    }
-
-    .review-screen-details {
-      display: flex;
-      justify-content: space-between;
-    
-      .review-form-data{
-        color: #FF0000;
-      }
-    }
-
-    
-
-    .review-card-content {
-      text-align: center;
-    }
+  .review-card-content {
+    text-align: center;
   }
 }
 

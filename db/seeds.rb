@@ -19,7 +19,7 @@ cinema1 = Cinema.create!(
   name: "Picturehouse Brixton",
   address: "Coldharbour Lane, London, SW2 1JW",
   description: "A vibrant cinema located in the heart of Brixton, known for its eclectic film selection.",
-  average_rating: 4.5,
+  average_rating: nil,
   image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
 )
 
@@ -27,7 +27,7 @@ cinema2 = Cinema.create!(
   name: "Picturehouse Finsbury Park",
   address: "180 St John's Rd, London, N19 5QJ",
   description: "A modern cinema with multiple screens, offering a diverse film lineup.",
-  average_rating: 4.4,
+  average_rating: nil,
   image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
 )
 
@@ -35,7 +35,7 @@ cinema3 = Cinema.create!(
   name: "Picturehouse Fulham Road",
   address: "205 Fulham Rd, London, SW3 6HJ",
   description: "A stylish cinema known for its exclusive screenings and events.",
-  average_rating: 4.3,
+  average_rating: nil,
   image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
 )
 
@@ -43,7 +43,7 @@ cinema4 = Cinema.create!(
   name: "Picturehouse Hackney",
   address: "270 Mare St, London, E8 1HE",
   description: "A bustling social hub with a lively atmosphere and great film selection.",
-  average_rating: 4.5,
+  average_rating: nil,
   image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
 )
 
@@ -51,7 +51,7 @@ cinema5 = Cinema.create!(
   name: "Picturehouse Stratford",
   address: "Theatre Square, London, E15 1BX",
   description: "A cinema located near the Olympic Park, showcasing a variety of films.",
-  average_rating: 4.5,
+  average_rating: nil,
   image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
 )
 
@@ -59,7 +59,7 @@ cinema6 = Cinema.create!(
   name: "The Ritzy Picturehouse",
   address: "160 Brixton Rd, London, SW9 8HA",
   description: "One of the oldest cinemas in London, known for its vibrant community events.",
-  average_rating: 4.7,
+  average_rating: nil,
   image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
 )
 
@@ -67,7 +67,7 @@ cinema7 = Cinema.create!(
   name: "Picturehouse West Norwood",
   address: "449A Norwood Rd, London, SE27 9DQ",
   description: "A community-focused cinema offering a unique selection of films.",
-  average_rating: 4.3,
+  average_rating: nil,
   image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
 )
 
@@ -75,7 +75,7 @@ cinema8 = Cinema.create!(
   name: "Vue Cinema Stratford",
   address: "The Theatre, Westfield Stratford City, 1A Montfichet Rd, London, E20 1EJ",
   description: "A key feature of the Westfield Stratford City complex, providing a range of viewing options.",
-  average_rating: 4.6,
+  average_rating: nil,
   image_url: "https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
 )
 
@@ -83,7 +83,7 @@ cinema9 = Cinema.create!(
   name: "Vue Cinema Walthamstow",
   address: "The Mall, 4, 5, 6, 7 Selborne Walk, Walthamstow, London, E17 7JH",
   description: "Situated in the heart of Walthamstow, Vue offers a great cinematic experience with multiple screens.",
-  average_rating: 4.4,
+  average_rating: nil,
   image_url: "https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
 )
 
@@ -91,7 +91,7 @@ cinema10 = Cinema.create!(
   name: "Vue Cinema Westfield White City",
   address: "Westfield London, Ariel Way, White City, London, W12 7GF",
   description: "Located in the bustling Westfield shopping center, Vue White City is perfect for a movie day out.",
-  average_rating: 4.5,
+  average_rating: nil,
   image_url: "https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
 )
 
@@ -179,7 +179,7 @@ cinema21 = Cinema.create!(
   name: "Curzon Bloomsbury",
   address: "The Brunswick Centre, London, WC1N 1AW",
   description: "Welcoming cinema with a café and bar.",
-  average_rating: 4.5,
+  average_rating: nil,
   image_url: "https://static.standard.co.uk/2022/11/30/11/newFile-13.jpg?width=1200&auto=webp&quality=75"
 )
 
@@ -187,7 +187,7 @@ cinema22 = Cinema.create!(
   name: "Curzon Camden",
   address: "96-98 Camden High St, London, NW1 0LT",
   description: "A vibrant spot featuring independent films.",
-  average_rating: 4.6,
+  average_rating: nil,
   image_url: "https://static.standard.co.uk/2022/11/30/11/newFile-13.jpg?width=1200&auto=webp&quality=75"
 )
 
@@ -195,7 +195,7 @@ cinema23 = Cinema.create!(
   name: "Curzon Hoxton",
   address: "106-108 Hoxton St, London, N1 6LP",
   description: "Quirky venue for film lovers.",
-  average_rating: 4.8,
+  average_rating: nil,
   image_url:"https://static.standard.co.uk/2022/11/30/11/newFile-13.jpg?width=1200&auto=webp&quality=75"
 )
 
@@ -280,3 +280,10 @@ end
 
 
 puts "Review table populated"
+
+
+Cinema.find_each do |cinema|
+  cinema.update_average_rating
+end
+
+puts "Cinema average rating generated"

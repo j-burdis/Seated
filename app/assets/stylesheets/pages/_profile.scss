@@ -1,3 +1,56 @@
+.profile-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-image-name {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+
+  .profile-image img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  .profile-username {
+    margin-left: 16px;
+
+    h2 {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.profile-bio {
+  display: flex;
+  align-items: start;
+  margin-top: 8px;
+
+  p {
+    margin: 0;
+  }
+
+  .profile-bio-edit {
+    margin-left: 8px;
+    background-color: white;
+  }
+}
+
+.profile-past-reviews {
+  h3 {
+    margin-top: 16px;
+  }
+
+  .cinema-review-card {
+    color: #333;
+    margin: 0;
+    margin-bottom: 16px;
+  }
+}
+
 .profile-sign-out {
   .btn-danger {
     color: #333;

@@ -38,26 +38,7 @@
           <div class="home-recent-reviews">
             <h2>Recent Reviews</h2>
             <% @recent_reviews.each do |review| %>
-              <div class="cinema-review-card">
-                <div class="recent-user-date">
-                  <p><%= review.user.username %></p>
-                  <p> <%= review.created_at.strftime("%B %d, %Y") %> </p>
-                </div>
-                <div class="recent-name-rating">
-                  <p><strong><%= review.cinema.name %></strong></p>
-                  <div class="review-card-rating">
-                    <p>Rating: <span class="review-form-data"><strong><%= review.rating %></strong></span>/5</p>
-                  </div>
-                </div>
-                <div class="review-screen-details">
-                  <p>Screen: <span class="review-form-data"><strong><%= review.screen %></strong></span></p>
-                  <p>Seat: <span class="review-form-data"><strong><%= review.seat %></strong></span></p>
-                  <p>Best seat: <span class="review-form-data"><strong><%= review.pref_seat %></strong></span></p>
-                </div>
-                <div class="review-card-content">
-                  <p>"<%= review.content %>"</p>
-                </div>
-              </div>
+              <%= render partial: 'cinemas/review', locals: { review: review } %>
             <% end %>
 
           </div>
