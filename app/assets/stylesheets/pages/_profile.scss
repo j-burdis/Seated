@@ -1,9 +1,109 @@
+.profile-contents {
+  color: #FBF7F5;
+  padding: 0 16px;
+}
+
+.profile-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.profile-image-name {
+  display: flex;
+  align-items: center;
+
+  .profile-image img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  .profile-username {
+    margin-left: 16px;
+
+    h2 {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.profile-bio {
+  display: flex;
+  align-items: start;
+  background-color: rgba(152, 33, 44, 0.65);
+  margin-top: 8px;
+  padding: 8px;
+  border-radius: 2px;
+
+  p {
+    margin: 0;
+  }
+
+  .profile-bio-edit {
+    width: 100%;
+    margin-left: 8px;
+    border: 1px solid;
+    border-color: #FBF7F5;
+  }
+}
+
+.profile-top-picks {
+  margin-top: 24px;
+
+  .top-pick-card {
+    overflow: hidden;
+    height: 88px;
+    background-color: rgba(152, 33, 44, 0.65);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    margin: 8px 0;
+    border-radius: 2px;
+  
+    img {
+      height: 100%;
+      width: 80px;
+      object-fit: cover;
+    }
+  
+    h4 {
+      font-size: 16px;
+      margin: 0;
+    }
+  
+    p {
+      font-size: 12px;
+      line-height: 1.4;
+      margin-bottom: 0;
+      margin-top: 4px;
+    }
+  
+    .top-pick-details {
+      margin-left: 8px;
+    }
+  }
+}
+
+.profile-past-reviews {
+  margin-top: 24px;
+
+  .cinema-review-card {
+    background-color: rgba(152, 33, 44, 0.65);
+    margin: 0;
+    margin-bottom: 16px;
+  }
+}
+
 .profile-sign-out {
   .btn-danger {
-    color: #333;
-    background-color: #FBF7F5;
-    border-color: #FBF7F5;
+    color: #FBF7F5;
+    background-color: transparent;
+    border-color: transparent;
     padding: 0;
+    margin-right: 8px;
   }
 
   // display: flex;
