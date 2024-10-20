@@ -199,6 +199,14 @@ cinema23 = Cinema.create!(
   image_url:"https://static.standard.co.uk/2022/11/30/11/newFile-13.jpg?width=1200&auto=webp&quality=75"
 )
 
+cinema24 = Cinema.create!(
+  name: "Vue Cinema Bromley",
+  address: "6, St Mark's Square, Bromley BR2 9UY",
+  description: "Modern multiplex offering a variety of films and state-of-the-art audio-visual technology",
+  average_rating: nil,
+  image_url:"https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
+)
+
 puts "Cinema table populated"
 
 jon = User.create!(email: 'jon@jon.com', password: 'password', username: "just_jon")
@@ -213,7 +221,7 @@ puts "User table populated"
 cinemas = [
   cinema1, cinema2, cinema3, cinema4, cinema5, cinema6, cinema7, cinema8, cinema9, cinema10,
   cinema11, cinema12, cinema13, cinema14, cinema15, cinema16, cinema17, cinema18, cinema19,
-  cinema21, cinema22, cinema23
+  cinema21, cinema22, cinema23, cinema24
 ]
 
 review_contents = [
