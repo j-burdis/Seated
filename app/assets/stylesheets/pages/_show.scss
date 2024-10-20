@@ -3,9 +3,11 @@
   padding: 16px;
   display: flex;
   flex-direction: column;
+  background-color: rgba(152, 33, 44, 0.65);
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
   margin-top: 16px;
-  color: #333;
+  color: #FBF7F5;
+  border-radius: 2px;
 
   img {
     height: 200px;
@@ -19,16 +21,18 @@
       justify-content: space-between;
       margin-top: 8px;
       align-items: center;
+      color: #FBF7F5;
 
       a {
+        color: #FBF7F5;
         text-decoration: none;
       }
 
       .review-new-btn {
         display: inline-block;
-        padding: 6px 12px;
         color: #FBF7F5;
-        background-color: #333;
+        padding: 6px 12px;
+        background-color: #FF0000;
         border-radius: 4px;
         margin-bottom: 0;
       }
@@ -53,7 +57,7 @@
     margin-left: 8px;
     
     a {
-      color: #333;
+      color: #FBF7F5;
       text-decoration: none;
     }
   }
@@ -69,13 +73,16 @@
   margin-bottom: 62.67px;
 
   h2 {
+    color: #FBF7F5;
     padding-left: 8px;
+    margin-bottom: 0;
   }
 
   .cinema-review-card {
     padding: 16px;
+    background-color: rgba(152, 33, 44, 0.65);
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
-    color: #333;
+    color: #FBF7F5;
     margin-bottom: 0;
     margin-top: 12px;
   }
@@ -86,7 +93,7 @@
 
     .review-vote-count {
       padding-left: 8px;
-      color: #333;
+      color: #FBF7F5;
     }
   
   .vote-button {
