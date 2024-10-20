@@ -1,7 +1,7 @@
 <div class="home-banner">
   <%# <div class="home-banner-text"> %>
     <%# <h1>We can all be <span class="seated-banner-text">Seated</span></h1> %>
-    <%# <%= link_to "All cinemas", cinemas_path %> %>
+    <%# <%= link_to "All cinemas", cinemas_path %>
   <%# </div> %>
 
   <div class="container">
@@ -24,7 +24,7 @@
                 <div class="top-pick-details">
                   <h4> <%= cinema.name %> </h4>
                   <p> <%= cinema.address %> </p>
-                  <p> Average rating: <%= cinema.average_rating.present? ? cinema.average_rating.round(2) : 'No reviews yet' %> </p>
+                  <p> Average rating: <%= cinema.average_rating.present? ? cinema.average_rating.round(1) : 'No reviews yet' %> </p>
                 </div>
               </div>
             <% end %>

@@ -1,13 +1,18 @@
+.profile-contents {
+  color: #FBF7F5;
+  padding: 0 16px;
+}
+
 .profile-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 16px;
 }
 
 .profile-image-name {
   display: flex;
   align-items: center;
-  margin-top: 16px;
 
   .profile-image img {
     width: 50px;
@@ -27,36 +32,36 @@
 .profile-bio {
   display: flex;
   align-items: start;
+  background-color: rgba(152, 33, 44, 0.65);
   margin-top: 8px;
+  padding: 8px;
+  border-radius: 2px;
 
   p {
     margin: 0;
   }
 
   .profile-bio-edit {
+    width: 100%;
     margin-left: 8px;
-    background-color: white;
+    border: 1px solid;
+    border-color: #FBF7F5;
   }
 }
 
 .profile-top-picks {
-  color: #333;
-
-  h2 {
-    // color: #FBF7F5;
-  }
+  margin-top: 24px;
 
   .top-pick-card {
     overflow: hidden;
     height: 88px;
-    // background-color: rgba(152, 33, 44, 0.65);
+    background-color: rgba(152, 33, 44, 0.65);
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     padding: 4px;
     margin: 8px 0;
     border-radius: 2px;
-    // color: #FBF7F5;
   
     img {
       height: 100%;
@@ -83,12 +88,10 @@
 }
 
 .profile-past-reviews {
-  h3 {
-    margin-top: 16px;
-  }
+  margin-top: 24px;
 
   .cinema-review-card {
-    color: #333;
+    background-color: rgba(152, 33, 44, 0.65);
     margin: 0;
     margin-bottom: 16px;
   }
@@ -96,10 +99,11 @@
 
 .profile-sign-out {
   .btn-danger {
-    color: #333;
-    background-color: #FBF7F5;
-    border-color: #FBF7F5;
+    color: #FBF7F5;
+    background-color: transparent;
+    border-color: transparent;
     padding: 0;
+    margin-right: 8px;
   }
 
   // display: flex;

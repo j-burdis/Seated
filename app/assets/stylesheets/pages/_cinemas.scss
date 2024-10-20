@@ -1,23 +1,29 @@
-.cinema-cards {
-  margin-bottom: 62.67px;
+.cinema-index-background {
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url('background-seats.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: repeat-y;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.cinema-index-contents {
+  margin-bottom: 32px;
+  padding: 0 16px;
 
   .index-search {
     color: #333;
     font-size: 20px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     width: 100%;
     padding-top: 12px;
 
     .form-control {
       padding: 0.375rem 1rem;
-    }
-
-    h1 {
-      margin-top: 4px;
-      margin-bottom: 8px;
     }
 
     .d-flex {
@@ -36,47 +42,43 @@
   h2 {
     padding-top: 8px;
     padding-left: 16px;
-    color: #666;
+    color: #d6d0cd;
   }
 
-  h1 {
-    text-align: start;
-    color: #333;
-    font-size: 24px;
-  }
-}
-
-a {
-  text-decoration: none;
-  color: #333;
-}
-
-.cinema-card {
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 0 4px rgba(0,0,0,0.1);
-  margin-top: 8px;
-
-  .cinema-card-location {
-    text-align: start;
+  a {
+    text-decoration: none;
     color: #333;
   }
 
-  .cinema-card-image {
-    img {
-      height: 200px;
-      width: 100%;
-      object-fit: cover;
+  .cinema-card {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(152, 33, 44, 0.65);
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    margin-top: 8px;
+    color: #FBF7F5;
+  
+    .cinema-card-location {
+      text-align: start;
+      
     }
-  }
-
-  .cinema-card-extras {
-    p {
-      color: #333;
-      text-align: center;
-      margin-top: 4px;
-      margin-bottom: 0;
+  
+    .cinema-card-image {
+      img {
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+      }
     }
-  }
+  
+    .cinema-card-extras {
+      p {
+        
+        text-align: center;
+        margin-top: 4px;
+        margin-bottom: 0;
+      }
+    }
+  }  
 }
