@@ -39,6 +39,49 @@
   }
 }
 
+.profile-top-picks {
+  color: #333;
+
+  h2 {
+    // color: #FBF7F5;
+  }
+
+  .top-pick-card {
+    overflow: hidden;
+    height: 88px;
+    // background-color: rgba(152, 33, 44, 0.65);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    margin: 8px 0;
+    border-radius: 2px;
+    // color: #FBF7F5;
+  
+    img {
+      height: 100%;
+      width: 80px;
+      object-fit: cover;
+    }
+  
+    h4 {
+      font-size: 16px;
+      margin: 0;
+    }
+  
+    p {
+      font-size: 12px;
+      line-height: 1.4;
+      margin-bottom: 0;
+      margin-top: 4px;
+    }
+  
+    .top-pick-details {
+      margin-left: 8px;
+    }
+  }
+}
+
 .profile-past-reviews {
   h3 {
     margin-top: 16px;

@@ -30,6 +30,24 @@
           </div>
         </div>
 
+        <div class="profile-top-picks">
+          <h2>Your top rated</h2>
+          
+          <% if @top_cinemas.any? %>
+            <% @top_cinemas.each do |cinema| %>
+              <div class="top-pick-card">
+                <img src="<%= cinema.image_url %>" />
+                <div class="top-pick-details">
+                  <h4><%= cinema.name %></h4>
+                  <p><%= cinema.address %></p>
+                  <p>Average rating: <%= cinema.avg_rating.present? ? cinema.avg_rating.round(2) : 'No reviews yet' %></p>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <p>You haven't reviewed any cinemas yet.</p>
+          <% end %>
+        </div>
 
         <div class="profile-past-reviews">
           <h3> Your reviews </h3>
