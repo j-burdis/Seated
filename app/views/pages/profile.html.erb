@@ -36,14 +36,16 @@
             
             <% if @top_cinemas.any? %>
               <% @top_cinemas.each do |cinema| %>
-                <div class="top-pick-card">
+                <%= link_to cinema_path(cinema), class: "top-pick-card" do %>
+                <%# <div class="top-pick-card"> %>
                   <img src="<%= cinema.image_url %>" />
                   <div class="top-pick-details">
                     <h4><%= cinema.name %></h4>
                     <p><%= cinema.address %></p>
                     <p>Average rating: <%= cinema.avg_rating.present? ? cinema.avg_rating.round(2) : 'No reviews yet' %></p>
                   </div>
-                </div>
+                <%# </div> %>
+                <% end %>
               <% end %>
             <% else %>
               <p>You haven't reviewed any cinemas yet.</p>
@@ -53,7 +55,8 @@
           <div class="profile-past-reviews">
             <h3> Your reviews </h3>
             <% current_user.reviews.each do |review| %>
-              <%= render partial: 'cinemas/review', locals: { review: review } %>
+              <%#= render partial: 'cinemas/review', locals: { review: review } %>
+               <%= link_to render(partial: 'cinemas/review', locals: { review: review }), cinema_path(review.cinema) %>
             <% end %>
           </div>
 

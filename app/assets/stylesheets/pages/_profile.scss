@@ -62,6 +62,8 @@
     padding: 4px;
     margin: 8px 0;
     border-radius: 2px;
+    color: #FBF7F5;
+    text-decoration: none;
   
     img {
       height: 100%;
@@ -89,6 +91,10 @@
 
 .profile-past-reviews {
   margin-top: 24px;
+
+  a {
+    text-decoration: none;
+  }  
 
   .cinema-review-card {
     background-color: rgba(152, 33, 44, 0.65);

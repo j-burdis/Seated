@@ -12,21 +12,21 @@
 
           <div class="home-welcome-message">
             <% if user_signed_in? %>
-              <p>Welcome, <%= current_user.username %>!</p>
+              <p>Welcome back, <%= current_user.username %></p>
             <%  end %>
           </div>
 
           <div class="home-top-picks">
             <h2>Our top picks</h2>
             <% @best_cinemas.each do |cinema| %>
-              <div class="top-pick-card">
+              <%= link_to cinema_path(cinema), class: "top-pick-card" do %>
                 <img src="<%= cinema.image_url %>" />
                 <div class="top-pick-details">
                   <h4> <%= cinema.name %> </h4>
                   <p> <%= cinema.address %> </p>
                   <p> Average rating: <%= cinema.average_rating.present? ? cinema.average_rating.round(1) : 'No reviews yet' %> </p>
                 </div>
-              </div>
+              <% end %>
             <% end %>
           </div>
 
@@ -38,9 +38,8 @@
           <div class="home-recent-reviews">
             <h2>Recent Reviews</h2>
             <% @recent_reviews.each do |review| %>
-              <%= render partial: 'cinemas/review', locals: { review: review } %>
+              <%= link_to render(partial: 'cinemas/review', locals: { review: review }), cinema_path(review.cinema) %>
             <% end %>
-
           </div>
 
           <div class="home-about">
