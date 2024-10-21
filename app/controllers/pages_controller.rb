@@ -8,7 +8,7 @@ class PagesController < ApplicationController
       {
         lat: cinema.latitude,
         lng: cinema.longitude,
-        info_window_html: render_to_string(partial: "popup", locals: {cinema: cinema}),
+        info_window_html: render_to_string(partial: "popup", locals: { cinema: cinema }),
         marker_html: render_to_string(partial: "marker")
       }
     end
