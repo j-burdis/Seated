@@ -13,6 +13,8 @@ class CommentsController < ApplicationController
     # @notification = Notification.new(comment: @comment, user: @review.user)
 
     if @comment.save
+      # @notification.save
+      # redirect_to cinema_path(@cinema), notice: 'Comment added'
       respond_to do |format|
         format.turbo_stream do
           render turbo_stream: turbo_stream.append("comments-#{@comment.review.id}".to_sym,

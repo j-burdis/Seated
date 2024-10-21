@@ -2,7 +2,7 @@ class Comment < ApplicationRecord
   belongs_to :review
   belongs_to :user
 
-  validates :content, presence: true, length: { minimum: 10, maximum: 140 }
+  validates :content, presence: true, length: { minimum: 3, maximum: 140 }
 
   after_create_commit :broadcast_comment
 
