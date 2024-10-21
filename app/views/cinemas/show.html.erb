@@ -53,7 +53,7 @@
               <%# add in photo uploads here %>
 
               <% if review.user != current_user %>
-                <div class="review-vote" data-controller="reset-form">
+                <div class="review-vote">
                   <div class="review-vote-arrow">
                     <% if current_user.votes.exists?(review: review) %>
                       <%= button_to 'unvote', cinema_review_vote_path(@cinema, review, review.votes.find_by(user: current_user)), 
@@ -77,6 +77,25 @@
                 </div>
               <% end %>
               <%# comments %>
+              <div class="review-comment">
+                <div id="comments-list-<%= review.id %>">
+                  <h3>Comments</h3>
+                  <div id="comment-<%= review.id %>">
+                    <%= render partial: 'comments/comment', collection: review.comments, as: :comment %>
+                  </div>
+                </div>
+
+                <%= simple_form_for [@cinema, review, Comment.new], 
+                    html: { class: "d-flex", data: { controller: "reset-form", 
+                    action: "turbo:submit-end->reset-form#reset" } } do |form| %>
+
+                    <%= form.input :content, as: :text, 
+                    label: "Your Comment", input_html: { rows: 3 }, wrapper: false %>
+
+                    <%= form.button :submit, 'Add Comment', class: 'btn btn-primary' %>
+
+                <% end %>
+              </div>
             </div>
           <% end %>
 
