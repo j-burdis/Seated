@@ -66,7 +66,7 @@ Rails.application.configure do
   config.assets.quiet = true
 
   config.assets.debug = true
-  config.assets.digest = false
+  config.assets.digest = true
   config.assets.compile = true
 
   # Raises error for missing translations.

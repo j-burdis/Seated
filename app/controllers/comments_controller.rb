@@ -17,15 +17,14 @@ class CommentsController < ApplicationController
       # @notification.save
       # redirect_to cinema_path(@cinema), notice: 'Comment added'
       respond_to do |format|
-        format.turbo_stream
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.append("comment-#{@comment.review.id}",
+                                                   partial: 'comments/comment', locals: { comment: @comment })
+        end
         format.html { redirect_to cinema_path(@cinema) }
       end
     else
-      # redirect_to cinema_path(@cinema), alert: 'Could not add comment'
-      respond_to do |format|
-        format.turbo_stream
-        format.html { redirect_to cinema_path(@cinema) }
-      end
+      redirect_to cinema_path(@cinema), alert: 'Could not add comment'
     end
   end
 
