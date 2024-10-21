@@ -35,7 +35,7 @@
               <div class="cinema-show-average">
                 <p> Average rating: <%= @cinema.average_rating.present? ? @cinema.average_rating.round(1) : 'No reviews yet' %> </p>
               </div>
-            </div> 
+            </div>
 
           </div>
 
@@ -48,21 +48,29 @@
             <div class="cinema-review">
               <%= render partial: 'cinemas/review', locals: { review: review } %>
 
-              <%# add in photo uploads here %>
-              <%#= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
+              <% if review.photos.attached? %>
+                <div class="review-images">
+                  <% review.photos.each do |photo| %>
+                    <%= cl_image_tag photo.key, height: 100 , width: 120, crop: :fill, class: "review-image" %>
+                  <% end %>
+                </div>
+              <% end %>
+
+              <%# add in photo uploads here (UPDATED ^) %>
+              <%#= cl_image_tag @article.photo.key,  %>
               <%# add in photo uploads here %>
 
               <% if review.user != current_user %>
                 <div class="review-vote" data-controller="reset-form">
                   <div class="review-vote-arrow">
                     <% if current_user.votes.exists?(review: review) %>
-                      <%= button_to 'unvote', cinema_review_vote_path(@cinema, review, review.votes.find_by(user: current_user)), 
+                      <%= button_to 'unvote', cinema_review_vote_path(@cinema, review, review.votes.find_by(user: current_user)),
                       method: :delete, remote: true, class: 'btn btn-danger' %>
                       <%#= link_to do %>
                           <%# <i class="fa-solid fa-sort-down"></i> %>
                       <%# end, cinema_review_vote_path(@cinema, review, review.votes.find_by(user: current_user)), method: :delete, class: 'vote-button' %>
                     <% else %>
-                      <%= button_to 'upvote', cinema_review_votes_path(@cinema, review), 
+                      <%= button_to 'upvote', cinema_review_votes_path(@cinema, review),
                       method: :post, remote: true, class: 'btn btn-primary' %>
                       <%#= link_to do %>
                           <%# <i class="fa-solid fa-sort-up"></i> %>

@@ -3,7 +3,7 @@ class Review < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :votes
-  # has_many_attached :image_url
+  has_many_attached :photos
 
   validates :screen, presence: true
   validates :seat, presence: true

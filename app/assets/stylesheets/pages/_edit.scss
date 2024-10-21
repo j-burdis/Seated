@@ -54,3 +54,19 @@
   background: linear-gradient(rgb(223, 0, 0), #ff0000);
   color: #fbf7f5;
 }
+
+.cancel-btn {
+  color: #fbf7f5;
+  padding: 6px 18px;
+  border-radius: 4px;
+  font-size: smaller;
+  font-weight: bold;
+  background: linear-gradient(#ff0000, rgb(223, 0, 0));
+  transition: background 0.3s ease;
+  border: 1px solid #b00000;
+}
+
+a {
+  text-decoration: none;
+  color: #ff0000;
+}

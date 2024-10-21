@@ -43,6 +43,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:screen, :seat, :pref_seat, :content, :rating, :image_url)
+    params.require(:review).permit(:screen, :seat, :pref_seat, :content, :rating, photos: [])
   end
 end
