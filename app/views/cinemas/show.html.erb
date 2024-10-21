@@ -17,7 +17,7 @@
               </p>
 
               <% if current_user.favourites.exists?(cinema: @cinema) %>
-                <%= button_to cinema_favourite_path(@cinema, current_user.favourites.find_by(cinema: @cinema)), method: :delete, data: { action: "favourite#toggle" }, class: 'favourite-toggle-form' do %>
+                <%= button_to cinema_favourite_path(@cinema, current_user.favourites.find_by(cinema: @cinema), show:true), method: :delete, data: { action: "favourite#toggle" }, class: 'favourite-toggle-form' do %>
                   <i data-favourite-target="star" class="fa-solid fa-star favourite-toggle-btn active"></i>
                 <% end %>
               <% else %>
@@ -35,7 +35,7 @@
               <div class="cinema-show-average">
                 <p> Average rating: <%= @cinema.average_rating.present? ? @cinema.average_rating.round(1) : 'No reviews yet' %> </p>
               </div>
-            </div> 
+            </div>
 
           </div>
 
@@ -56,13 +56,13 @@
                 <div class="review-vote" data-controller="reset-form">
                   <div class="review-vote-arrow">
                     <% if current_user.votes.exists?(review: review) %>
-                      <%= button_to 'unvote', cinema_review_vote_path(@cinema, review, review.votes.find_by(user: current_user)), 
+                      <%= button_to 'unvote', cinema_review_vote_path(@cinema, review, review.votes.find_by(user: current_user)),
                       method: :delete, remote: true, class: 'btn btn-danger' %>
                       <%#= link_to do %>
                           <%# <i class="fa-solid fa-sort-down"></i> %>
                       <%# end, cinema_review_vote_path(@cinema, review, review.votes.find_by(user: current_user)), method: :delete, class: 'vote-button' %>
                     <% else %>
-                      <%= button_to 'upvote', cinema_review_votes_path(@cinema, review), 
+                      <%= button_to 'upvote', cinema_review_votes_path(@cinema, review),
                       method: :post, remote: true, class: 'btn btn-primary' %>
                       <%#= link_to do %>
                           <%# <i class="fa-solid fa-sort-up"></i> %>

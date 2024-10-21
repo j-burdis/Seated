@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :favourites, only: [:create, :destroy]
   end
   resources :reviews, only: [:edit, :update, :destroy]
-  resources :favourites, only: [:index]
+  resources :favourites, only: [:index, :destroy]
 
   resources :notifications, only: [:index, :destroy]
 
