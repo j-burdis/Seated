@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
   before_action :set_cinema, only: %i[create destroy]
 
   def create # rubocop:disable Metrics/MethodLength,Lint/RedundantCopDisableDirective
-    # @comment = Comment.new(comment_params)
     @comment = @review.comments.new(comment_params)
     @comment.user = current_user
 
@@ -14,23 +13,23 @@ class CommentsController < ApplicationController
     # @notification = Notification.new(comment: @comment, user: @review.user)
 
     if @comment.save
-      # @notification.save
-      # redirect_to cinema_path(@cinema), notice: 'Comment added'
       respond_to do |format|
         format.turbo_stream do
-          render turbo_stream: turbo_stream.append("comment-#{@comment.review.id}",
-                                                   partial: 'comments/comment', locals: { comment: @comment })
+          render turbo_stream: turbo_stream.append("comments-#{@comment.review.id}".to_sym,
+                                                   partial: "comments/comment",
+                                                   locals: { comment: @comment, user: current_user })
         end
         format.html { redirect_to cinema_path(@cinema) }
       end
     else
-      redirect_to cinema_path(@cinema), alert: 'Could not add comment'
+      redirect_to cinema_path(@cinema), status: :unprocessable_entity
     end
   end
 
   def destroy
     @comment = Comment.find(params[:id])
-    if @comment.user == current_user || current_user.admin?
+    if @comment.user == current_user
+      # || current_user.admin?
       @comment.destroy
       redirect_to cinema_path(@cinema), notice: 'Comment removed'
     else
