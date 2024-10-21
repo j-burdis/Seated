@@ -52,14 +52,23 @@
       }
     }
 
-  .show-back-btn {
+  .cinema-back-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0;
     margin-top: 8px;
-    margin-left: 8px;
-    
+  }
+  
+  .show-back-btn {    
     a {
       color: #FBF7F5;
       text-decoration: none;
     }
+  }
+
+  .cinema-show-average p {
+    margin-bottom: 0;    
   }
 }
 
