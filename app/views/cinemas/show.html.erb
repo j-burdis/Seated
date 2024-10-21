@@ -80,8 +80,11 @@
               <div class="review-comment">
                 <div id="comments-list-<%= review.id %>">
                   <h3>Comments</h3>
-                  <div id="comment-<%= review.id %>">
-                    <%= render partial: 'comments/comment', collection: review.comments, as: :comment %>
+                  <%= turbo_stream_from "review_#{review.id}_comments" %>
+                  <%# "comments-<%= review.id %>
+                  <div id="comments" class="comments">
+                    <%# -<%= review.id %>
+                    <%= render partial: 'comments/comment', collection: review.comments, as: :comment, locals: {user: current_user} %>
                   </div>
                 </div>
 
