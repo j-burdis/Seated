@@ -4,6 +4,7 @@
 # to make the web console appear.
 development:
   adapter: solid_cable
+  # polling_interval: 0.5.seconds
 
 test:
   adapter: test

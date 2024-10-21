@@ -96,6 +96,12 @@
     margin-top: 12px;
   }
 
+  .cinema-vote-comment {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+  }
+
   .review-vote {
     display: flex;
     align-items: center;
@@ -103,6 +109,10 @@
     .review-vote-count {
       padding-left: 8px;
       color: #FBF7F5;
+      
+      p {
+        margin-bottom: 0;
+      }
     }
   
   .vote-button {
@@ -125,5 +135,48 @@
 
   .review-comment {
     color: #FBF7F5;
+    
+    h3 {
+      font-size: 20px;
+      text-align: center;
+      text-shadow: 2px 2px 4px rgba(0,0,0,1);
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+
+    .form-floating {
+      color: #333;
+      font-size: 12px;
+    }
+
+    .form-control {
+      font-size: 12px;
+    }
+
+    .btn-primary {
+      color: #FBF7F5;
+      background-color: #FF0000;
+      border-color: #FF0000;
+      font-size: 12px;
+      padding: 19px;
+    }
+
+    .comment-time-delete {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+
+      // x 10 y 4
+      .btn {
+        padding: 4px 14px;
+        font-size: 12px;
+        color: #FBF7F5;
+        background-color: #FF0000;
+        border-color: #FF0000;
+      }
+    }
   }
 }
