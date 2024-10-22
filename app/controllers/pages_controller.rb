@@ -18,6 +18,7 @@ class PagesController < ApplicationController
       .order(Arel.sql("COALESCE(average_rating, 0) DESC"))
 
       # The `geocoded` scope filters only cinemas with coordinates
+
       @markers = @cinemas.geocoded.map do |cinema|
         {
           lat: cinema.latitude,

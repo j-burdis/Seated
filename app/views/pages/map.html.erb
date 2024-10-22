@@ -7,6 +7,14 @@
                         data: {action: "keyup->autocomplete#search"}%>
     <%= submit_tag "Search", name: "", class: "btn btn-danger",  style:"color: white;" %>
   <% end %>
+  <div class="list-map-view">
+    <div class="default-link" <%= 'active' if request.path == cinemas_path %>>
+      <%= link_to "List view", cinemas_path, class: "nav-link" %>
+    </div>
+    <div class="map-link"  <%= 'active' if request.path == map_path %>>
+      <%= link_to "Map view", map_path, class: "nav-link" %>
+    </div>
+  </div>
 
   <div style="width: 100%; height: calc(100vh - 150.67px);"
         data-controller="map"
