@@ -98,7 +98,7 @@
 
   .cinema-vote-comment {
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: start;
   }
 
@@ -135,10 +135,15 @@
 
   .review-comment {
     color: #FBF7F5;
+
+    .btn-link {
+      color: #FBF7F5;
+      text-decoration: none;
+    }
     
     h3 {
       font-size: 20px;
-      text-align: center;
+      // text-align: center;
       text-shadow: 2px 2px 4px rgba(0,0,0,1);
     }
 
@@ -179,4 +184,18 @@
       }
     }
   }
+}
+
+.hidden {
+  display: none;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.comments {
+  height: auto;
+  opacity: 1;
+  transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
 }

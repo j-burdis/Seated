@@ -77,29 +77,36 @@
                   </div>
                 <% end %>
                 <%# comments %>
-                <div class="review-comment">
+                <div class="review-comment" data-controller="comments">
                   <div id="comments-list-<%= review.id %>">
-                    <h3>Comments</h3>
+                    <h3>
+                      <button class="btn btn-link toggle-comments" data-action="click->comments#toggle" data-comments-target="toggleButton">
+                        Show Comments
+                      </button>
+                      <%# Comments %>
+                    </h3>
                     <%= turbo_stream_from "review_#{review.id}_comments" %>
                     
-                    <div id="comments-<%= review.id %>" class="comments">
+                    <div id="comments-<%= review.id %>" class="comments hidden" data-comments-target="commentsSection">
                       <%= render partial: 'comments/comment', collection: review.comments, as: :comment, locals: { user: current_user } %>
+                    
+                  
+
+                      <%= simple_form_for [@cinema, review, Comment.new], 
+                          html: { class: "d-flex", data: { controller: "reset-form", 
+                          action: "turbo:submit-end->reset-form#reset" } } do |form| %>
+                        <div class="form-floating">
+                          <%= form.input :content, as: :text, 
+                                          label: false,
+                                          placeholder: "Your Comment", 
+                                          input_html: { rows: 3 }, wrapper: false %>
+                          <label for="<%= form.object_name %>_content">Your Comment</label>
+                        </div>
+                          <%= form.button :submit, 'Send', class: 'btn btn-primary' %>
+
+                      <% end %>
                     </div>
                   </div>
-
-                  <%= simple_form_for [@cinema, review, Comment.new], 
-                      html: { class: "d-flex", data: { controller: "reset-form", 
-                      action: "turbo:submit-end->reset-form#reset" } } do |form| %>
-                    <div class="form-floating">
-                      <%= form.input :content, as: :text, 
-                                      label: false,
-                                      placeholder: "Your Comment", 
-                                      input_html: { rows: 3 }, wrapper: false %>
-                      <label for="<%= form.object_name %>_content">Your Comment</label>
-                    </div>
-                      <%= form.button :submit, 'Send', class: 'btn btn-primary' %>
-
-                  <% end %>
                 </div>
               </div>
             </div>
