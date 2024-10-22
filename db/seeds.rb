@@ -17,7 +17,7 @@ User.destroy_all
 
 cinema1 = Cinema.create!(
   name: "Picturehouse Brixton",
-  address: "Coldharbour Lane, London, SW2 1JW",
+  address: "coldharbour lane, brixton, SW9 8LP",
   description: "A vibrant cinema located in the heart of Brixton, known for its eclectic film selection.",
   average_rating: nil,
   image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
@@ -25,7 +25,7 @@ cinema1 = Cinema.create!(
 
 cinema2 = Cinema.create!(
   name: "Picturehouse Finsbury Park",
-  address: "180 St John's Rd, London, N19 5QJ",
+  address: "Unit 1, Cinema LS, 17 City N Pl, Finsbury Park, London N4 3FU",
   description: "A modern cinema with multiple screens, offering a diverse film lineup.",
   average_rating: nil,
   image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
@@ -33,7 +33,7 @@ cinema2 = Cinema.create!(
 
 cinema3 = Cinema.create!(
   name: "Picturehouse Fulham Road",
-  address: "205 Fulham Rd, London, SW3 6HJ",
+  address: "142 Fulham Rd., London SW10 9QR",
   description: "A stylish cinema known for its exclusive screenings and events.",
   average_rating: nil,
   image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
@@ -57,7 +57,7 @@ cinema5 = Cinema.create!(
 
 cinema6 = Cinema.create!(
   name: "The Ritzy Picturehouse",
-  address: "160 Brixton Rd, London, SW9 8HA",
+  address: "Brixton Oval, Coldharbour Ln, London SW2 1JG",
   description: "One of the oldest cinemas in London, known for its vibrant community events.",
   average_rating: nil,
   image_url: "https://www.accesscard.online/asset/image/provider/clapham-picturehouse.jpg"
@@ -73,7 +73,7 @@ cinema7 = Cinema.create!(
 
 cinema8 = Cinema.create!(
   name: "Vue Cinema Stratford",
-  address: "The Theatre, Westfield Stratford City, 1A Montfichet Rd, London, E20 1EJ",
+  address: "2 Stratford Pl, London E20 1EJ",
   description: "A key feature of the Westfield Stratford City complex, providing a range of viewing options.",
   average_rating: nil,
   image_url: "https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
@@ -81,7 +81,7 @@ cinema8 = Cinema.create!(
 
 cinema9 = Cinema.create!(
   name: "Vue Cinema Walthamstow",
-  address: "The Mall, 4, 5, 6, 7 Selborne Walk, Walthamstow, London, E17 7JH",
+  address: "5-6 Leicester Square, London WC2H 7NA",
   description: "Situated in the heart of Walthamstow, Vue offers a great cinematic experience with multiple screens.",
   average_rating: nil,
   image_url: "https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
@@ -89,7 +89,7 @@ cinema9 = Cinema.create!(
 
 cinema10 = Cinema.create!(
   name: "Vue Cinema Westfield White City",
-  address: "Westfield London, Ariel Way, White City, London, W12 7GF",
+  address: "Westfield, London W12 7GF",
   description: "Located in the bustling Westfield shopping center, Vue White City is perfect for a movie day out.",
   average_rating: nil,
   image_url: "https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
@@ -169,7 +169,7 @@ cinema19 = Cinema.create!(
 
 cinema20 = Cinema.create!(
   name: "Everyman Stratford",
-  address: "The Broadway, Stratford, London, E15 4BQ",
+  address: "Bell Ct, Wood St, Stratford-upon-Avon CV37 6LP",
   description: "Featuring a range of films in a stylish environment, offering an enhanced cinema experience.",
   average_rating: nil,
   image_url: "https://i.ytimg.com/vi/1ml4hLVjAw4/maxresdefault.jpg"
@@ -206,7 +206,6 @@ cinema24 = Cinema.create!(
   average_rating: nil,
   image_url:"https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
 )
-
 puts "Cinema table populated"
 
 jon = User.create!(email: 'jon@jon.com', password: 'password', username: "just_jon")
