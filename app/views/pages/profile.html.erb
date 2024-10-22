@@ -8,11 +8,20 @@
           <div class="profile-top">
             <div class="profile-image-name">
               <div class="profile-image">
-                <img src="<%= asset_path('profile-icon.jpg') %>" alt="Profile image">
+                <% if current_user.profile_picture.attached? %>
+                  <%= cl_image_tag current_user.profile_picture.key, class: "profile-picture" %>
+                <% else %>
+                  <%= image_tag "profile-icon.jpg", alt: "Profile image", class: "profile-pic" %>
+                <% end %>
               </div>
+
               <div class="profile-username">
                 <h2> <%= current_user.username %> </h2>
               </div>
+            </div>
+
+            <div>
+              <%= link_to "Edit Profile", edit_user_registration_path, class: "edit-profile" %>
             </div>
 
             <div class="profile-sign-out">
@@ -27,13 +36,13 @@
               <p> Bio: </p>
             </div>
             <div class="profile-bio-edit">
-              <p>Content box</p>
+              <%= current_user.bio %>
             </div>
           </div>
 
           <div class="profile-top-picks">
             <h2>Your top rated</h2>
-            
+
             <% if @top_cinemas.any? %>
               <% @top_cinemas.each do |cinema| %>
                 <%= link_to cinema_path(cinema), class: "top-pick-card" do %>
