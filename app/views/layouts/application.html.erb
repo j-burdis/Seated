@@ -12,17 +12,15 @@
 
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" href="<%= image_path('favicon.ico') %>" type="image/x-icon">
-    <%# <link rel="icon" href="/icon.png" type="image/png"> %>
-    <%# <link rel="icon" href="/icon.svg" type="image/svg+xml"> %>
-    <%# <link rel="apple-touch-icon" href="/icon.png"> %>
-    <%= turbo_include_tags %>
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+
+    <%= javascript_importmap_tags %> 
+    <%#= turbo_include_tags %>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <%# <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,700&display=swap" rel="stylesheet"> %>
-    <%# <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;1,300&display=swap" rel="stylesheet"> %>
   </head>
 
   <body>

@@ -96,6 +96,12 @@
     margin-top: 12px;
   }
 
+  .cinema-vote-comment {
+    display: flex;
+    // justify-content: space-between;
+    align-items: start;
+  }
+
   .review-vote {
     display: flex;
     align-items: center;
@@ -103,6 +109,10 @@
     .review-vote-count {
       padding-left: 8px;
       color: #FBF7F5;
+      
+      p {
+        margin-bottom: 0;
+      }
     }
   
   .vote-button {
@@ -121,5 +131,71 @@
     background-color: #333;
     border-color: #333;
   }
-  }  
+  }
+
+  .review-comment {
+    color: #FBF7F5;
+
+    .btn-link {
+      color: #FBF7F5;
+      text-decoration: none;
+    }
+    
+    h3 {
+      font-size: 20px;
+      // text-align: center;
+      text-shadow: 2px 2px 4px rgba(0,0,0,1);
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+
+    .form-floating {
+      color: #333;
+      font-size: 12px;
+    }
+
+    .form-control {
+      font-size: 12px;
+    }
+
+    .btn-primary {
+      color: #FBF7F5;
+      background-color: #FF0000;
+      border-color: #FF0000;
+      font-size: 12px;
+      padding: 19px;
+    }
+
+    .comment-time-delete {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+
+      // x 10 y 4
+      .btn {
+        padding: 4px 14px;
+        font-size: 12px;
+        color: #FBF7F5;
+        background-color: #FF0000;
+        border-color: #FF0000;
+      }
+    }
+  }
+}
+
+.hidden {
+  display: none;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.comments {
+  height: auto;
+  opacity: 1;
+  transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
 }
