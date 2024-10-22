@@ -17,7 +17,7 @@
               </p>
 
               <% if current_user.favourites.exists?(cinema: @cinema) %>
-                <%= button_to cinema_favourite_path(@cinema, current_user.favourites.find_by(cinema: @cinema)), method: :delete, data: { action: "favourite#toggle" }, class: 'favourite-toggle-form' do %>
+                <%= button_to cinema_favourite_path(@cinema, current_user.favourites.find_by(cinema: @cinema), show:true), method: :delete, data: { action: "favourite#toggle" }, class: 'favourite-toggle-form' do %>
                   <i data-favourite-target="star" class="fa-solid fa-star favourite-toggle-btn active"></i>
                 <% end %>
               <% else %>
@@ -60,31 +60,65 @@
               <%#= cl_image_tag @article.photo.key,  %>
               <%# add in photo uploads here %>
 
-              <% if review.user != current_user %>
-                <div class="review-vote" data-controller="reset-form">
-                  <div class="review-vote-arrow">
-                    <% if current_user.votes.exists?(review: review) %>
-                      <%= button_to 'unvote', cinema_review_vote_path(@cinema, review, review.votes.find_by(user: current_user)),
-                      method: :delete, remote: true, class: 'btn btn-danger' %>
-                      <%#= link_to do %>
-                          <%# <i class="fa-solid fa-sort-down"></i> %>
-                      <%# end, cinema_review_vote_path(@cinema, review, review.votes.find_by(user: current_user)), method: :delete, class: 'vote-button' %>
-                    <% else %>
-                      <%= button_to 'upvote', cinema_review_votes_path(@cinema, review),
-                      method: :post, remote: true, class: 'btn btn-primary' %>
-                      <%#= link_to do %>
-                          <%# <i class="fa-solid fa-sort-up"></i> %>
-                      <%# end, cinema_review_votes_path(@cinema, review), method: :post, class: 'vote-button' %>
-                    <% end %>
-                    <%# <i class="fa-solid fa-sort-down vote-button"></i> %>
-                    <%# <i class="fa-solid fa-sort-up vote-button"></i> %>
+              <div class="cinema-vote-comment">
+                <% if review.user != current_user %>
+                  <div class="review-vote">
+                    <div class="review-vote-arrow">
+                      <% if current_user.votes.exists?(review: review) %>
+                        <%= button_to 'unvote', cinema_review_vote_path(@cinema, review, review.votes.find_by(user: current_user)),
+                        method: :delete, remote: true, class: 'btn btn-danger' %>
+                        <%#= link_to do %>
+                            <%# <i class="fa-solid fa-sort-down"></i> %>
+                        <%# end, cinema_review_vote_path(@cinema, review, review.votes.find_by(user: current_user)), method: :delete, class: 'vote-button' %>
+                      <% else %>
+                        <%= button_to 'upvote', cinema_review_votes_path(@cinema, review),
+                        method: :post, remote: true, class: 'btn btn-primary' %>
+                        <%#= link_to do %>
+                            <%# <i class="fa-solid fa-sort-up"></i> %>
+                        <%# end, cinema_review_votes_path(@cinema, review), method: :post, class: 'vote-button' %>
+                      <% end %>
+                      <%# <i class="fa-solid fa-sort-down vote-button"></i> %>
+                      <%# <i class="fa-solid fa-sort-up vote-button"></i> %>
+                    </div>
+                    <div class="review-vote-count">
+                      <p> <strong>(<%= review.votes.count %>)</strong> </p>
+                    </div>
+
                   </div>
-                  <div class="review-vote-count">
-                    <p> <strong>(<%= review.votes.count %>)</strong> </p>
+                <% end %>
+                <%# comments %>
+                <div class="review-comment" data-controller="comments">
+                  <div id="comments-list-<%= review.id %>">
+                    <h3>
+                      <button class="btn btn-link toggle-comments" data-action="click->comments#toggle" data-comments-target="toggleButton">
+                        Show Comments
+                      </button>
+                      <%# Comments %>
+                    </h3>
+                    <%= turbo_stream_from "review_#{review.id}_comments" %>
+
+                    <div id="comments-<%= review.id %>" class="comments hidden" data-comments-target="commentsSection">
+                      <%= render partial: 'comments/comment', collection: review.comments, as: :comment, locals: { user: current_user } %>
+
+
+
+                      <%= simple_form_for [@cinema, review, Comment.new],
+                          html: { class: "d-flex", data: { controller: "reset-form",
+                          action: "turbo:submit-end->reset-form#reset" } } do |form| %>
+                        <div class="form-floating">
+                          <%= form.input :content, as: :text,
+                                          label: false,
+                                          placeholder: "Your Comment",
+                                          input_html: { rows: 3 }, wrapper: false %>
+                          <label for="<%= form.object_name %>_content">Your Comment</label>
+                        </div>
+                          <%= form.button :submit, 'Send', class: 'btn btn-primary' %>
+
+                      <% end %>
+                    </div>
                   </div>
                 </div>
-              <% end %>
-              <%# comments %>
+              </div>
             </div>
           <% end %>
 

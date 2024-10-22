@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
   database: seated_production
   username: seated
   password: <%= ENV["SEATED_DATABASE_PASSWORD"] %>

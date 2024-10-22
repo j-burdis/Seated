@@ -2,13 +2,15 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <div class="cinema-index-contents">
-          <div class="index-search">
+        <div class="cinema-index-contents" data-controller="autocomplete">
+          <div class="index-search" >
             <%= form_tag cinemas_path, method: :get, class: "d-flex" do %>
               <%= text_field_tag :query,
                                   params[:query],
                                   class: "form-control",
-                                  placeholder: "Where next?"%>
+                                  placeholder: "Where next?",
+                                  data: {action: "keyup->autocomplete#search"}%>
+
               <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
             <% end %>
 
@@ -17,35 +19,30 @@
             <% else %>
               <h2>Results</h2>
             <% end %>
-          </div>
-
-          <div class="cinema-cards">
-
-            <% @cinemas.each do |cinema|%>
-              <%= link_to cinema_path(cinema) do %>
-                <div class="cinema-card">
-
-                  <div class=cinema-card-location>
-                    <h1><%= cinema.name %></h1>
-                    <h5><%= cinema.address %></h5>
-                  </div>
-
-                  <div class="cinema-card-image">
-                    <img src="<%= cinema.image_url %>" alt="<%= cinema.name%>" width=300px>
-                  </div>
-
-                  <div class="cinema-card-extras">
-                    <p><%= cinema.description %></p>
-                    <p> Average rating: <%= cinema.average_rating.present? ? cinema.average_rating.round(1) : 'No reviews yet' %> </p>
-                  </div>
-
-                </div>
-              <% end %>
-            <% end %>
 
           </div>
+          <div data-autocomplete-target="results">
+            <%= render "list", cinemas: @cinemas  %>
+          </div>
+
+
+
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
+<%#
+
+<div class="main-container">
+  <div class="search-bar">
+  list-button map-button
+  </div>
+
+  <div class="list"></div> target = list
+
+  <div class="map d-none"></div> target = map
+</div> %>
