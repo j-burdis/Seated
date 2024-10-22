@@ -84,3 +84,8 @@ production:
   database: seated_production
   username: seated
   password: <%= ENV["SEATED_DATABASE_PASSWORD"] %>
+
+cable:
+  <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
+  database: seated_production_cable
