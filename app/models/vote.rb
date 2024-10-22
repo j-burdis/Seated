@@ -12,7 +12,7 @@ class Vote < ApplicationRecord
   def notify_review_owner
     Notification.create(
       user: review.user,
-      vote: self,
+      vote_id: self.id,
       notification_type: 'vote',
       content: "#{user.username} upvoted your review.",
       read: false
