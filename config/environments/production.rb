@@ -41,7 +41,8 @@ Rails.application.configure do
   config.active_storage.service = :cloudinary
 
 
-  config.solid_cable.enabled = true
+  # config.solid_cable.enabled = true
+  
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
   # config.action_cable.url = "wss://example.com/cable"
