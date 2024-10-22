@@ -1,4 +1,13 @@
 <div>
+  <%= form_tag map_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+                        params[:query],
+                        class: "form-control",
+                        placeholder: "Where next?",
+                        data: {action: "keyup->autocomplete#search"}%>
+    <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+  <% end %>
+
   <div style="width: 100%; height: calc(100vh - 150.67px);"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"

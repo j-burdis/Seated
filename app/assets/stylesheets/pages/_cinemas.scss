@@ -43,21 +43,31 @@
     display: flex;
     justify-content: center;
     background-color: rgba(162, 158, 158, 0.206);
-    padding: 10px;
-    width: 100vw;
+    padding: 4px;
+    width: 100%;
+    border-radius: 30px;
+  }
+
+  .default-link,
+  .map-link {
+    text-align: center;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+
+  .default-link:hover,
+  .map-link:hover {
+    background-color: rgba(152, 33, 44, 0.65);
+  }
+
+  .active {
+    background-color: rgba(152, 33, 44, 0.65);
+    color: white;
   }
 
   .nav-link {
     text-decoration: none;
-    /* Removes underline */
-    margin: 0 10px;
-    /* Adds space between the links */
-    /* Sets the text color */
-  }
-
-  .nav-link:hover {
-    background-color: #FF0000;
-    /* Changes color on hover */
+    color: inherit;
   }
 
   h2 {

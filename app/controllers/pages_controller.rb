@@ -1,16 +1,36 @@
 class PagesController < ApplicationController
   # skip_before_action :authenticate_user!, only: [:home]
   def map
-    @cinemas = Cinema.all
+    if params[:query].present?
+      @cinemas = Cinema.search_by_name_and_address(params[:query])
+                       .order(Arel.sql("COALESCE(average_rating, 0) DESC"))
+      # The `geocoded` scope filters only cinemas with coordinates
+      @markers = @cinemas.geocoded.map do |cinema|
+        {
+          lat: cinema.latitude,
+          lng: cinema.longitude,
+          info_window_html: render_to_string(partial: "popup", locals: { cinema: cinema }),
+          marker_html: render_to_string(partial: "marker")
+        }
+      end
+    else
+      @cinemas = Cinema.all
+      .order(Arel.sql("COALESCE(average_rating, 0) DESC"))
 
-    # The `geocoded` scope filters only cinemas with coordinates
-    @markers = @cinemas.geocoded.map do |cinema|
-      {
-        lat: cinema.latitude,
-        lng: cinema.longitude,
-        info_window_html: render_to_string(partial: "popup", locals: { cinema: cinema }),
-        marker_html: render_to_string(partial: "marker")
-      }
+      # The `geocoded` scope filters only cinemas with coordinates
+      @markers = @cinemas.geocoded.map do |cinema|
+        {
+          lat: cinema.latitude,
+          lng: cinema.longitude,
+          info_window_html: render_to_string(partial: "popup", locals: { cinema: cinema }),
+          marker_html: render_to_string(partial: "marker")
+        }
+      end
+    end
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @cinemas.as_json(only: %i[id name address image_url description average_rating]) }
     end
   end
 
