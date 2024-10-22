@@ -16,13 +16,14 @@ body {
   align-items: center;
 
 
-  .home-banner-text {
+  .home-contents .home-banner-text {
     text-align: center;
 
     h1 {
     color: #FBF7F5;
     font-size: 28px;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    margin-top: 24px;
     }
 
     .seated-banner-text {
@@ -33,13 +34,14 @@ body {
     a {
       display: inline-block;
       padding: 10px 20px;
-      background-color: rgba(152, 33, 44, 0.7);
+      background-color: #FF0000;
       border-radius: 5px;
       color: #FBF7F5;
-      font-size: 16px;
+      font-family: $logo-font;
+      font-size: 24px;
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-      text-decoration: none; 
-      margin-top: 10px;
+      text-decoration: none;
+      margin: 16px 0;
     }
   }
 }
@@ -100,38 +102,8 @@ body {
   }
 }
 
-.home-contents {
-  .home-banner-text {
-    text-align: center;
-
-    h1 {
-    color: #FBF7F5;
-    font-size: 28px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    margin-top: 24px;
-    }
-
-    .seated-banner-text {
-      font-family: $logo-font;
-      font-weight: 700;
-    }
-
-    a {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: rgba(152, 33, 44, 0.7);
-      border-radius: 5px;
-      color: #FBF7F5;
-      font-size: 16px;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-      text-decoration: none; 
-      margin: 8px 0;
-    }
-  }
-}
-
-
 .home-recent-reviews {
+  margin-top: 16px;
 
   h2 {
     color: #FBF7F5;
