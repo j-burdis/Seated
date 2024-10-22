@@ -8,6 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+Notification.destroy_all
 Favourite.destroy_all
 Vote.destroy_all
 Comment.destroy_all
