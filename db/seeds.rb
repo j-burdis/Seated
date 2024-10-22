@@ -206,14 +206,6 @@ cinema24 = Cinema.create!(
   average_rating: nil,
   image_url:"https://www.gateway978.com/wordpress/wp-content/uploads/2024/07/vue-web.jpg"
 )
-
-cinema25 = Cinema.create!(
-  name: "Showcase Cinema de Lux Southampton",
-  address: "Level 4, West Quay Shopping Centre, Southampton SO15 1DE",
-  description: "Modern multiplex offering a variety of IMAX, 3D films and state-of-the-art audio-visual technology",
-  average_rating: nil,
-  image_url:"https://eu-assets.simpleview-europe.com/hampshire2016/imageresizer/?image=%2Fdmsimgs%2F2020-09-30_1718480452.jpg&action=ProductDetail"
-)
 puts "Cinema table populated"
 
 jon = User.create!(email: 'jon@jon.com', password: 'password', username: "just_jon")
@@ -228,7 +220,7 @@ puts "User table populated"
 cinemas = [
   cinema1, cinema2, cinema3, cinema4, cinema5, cinema6, cinema7, cinema8, cinema9, cinema10,
   cinema11, cinema12, cinema13, cinema14, cinema15, cinema16, cinema17, cinema18, cinema19,
-  cinema21, cinema22, cinema23, cinema24, cinema25
+  cinema21, cinema22, cinema23, cinema24
 ]
 
 review_contents = [
@@ -262,8 +254,7 @@ review_contents = [
   "The cinema was overcrowded and noisy, making it hard to enjoy the film. Not worth the visit.",
   "Average experience, but the ticket prices are a bit high for the quality.",
   "The screen quality was subpar, and I couldn't focus on the movie.",
-  "I was unhappy with the cleanliness. The floors were sticky, and it was off-putting.",
-  "One of the best cinema in the UK. The seats were so comfy like you sat on a sofa. Highly recommend this :)"
+  "I was unhappy with the cleanliness. The floors were sticky, and it was off-putting."
 ]
 
 cinemas.each do |cinema|
