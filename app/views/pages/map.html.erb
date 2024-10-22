@@ -3,9 +3,9 @@
     <%= text_field_tag :query,
                         params[:query],
                         class: "form-control",
-                        placeholder: "Where next?",
+                        placeholder: "Search by cinema name or location",
                         data: {action: "keyup->autocomplete#search"}%>
-    <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <%= submit_tag "Search", name: "", class: "btn btn-danger",  style:"color: white;" %>
   <% end %>
 
   <div style="width: 100%; height: calc(100vh - 150.67px);"
