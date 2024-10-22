@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_21_132312) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_22_094625) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
   enable_extension "plpgsql"
@@ -80,6 +80,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_21_132312) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "notification_type"
+    t.text "content"
+    t.boolean "read", default: false
     t.index ["comment_id"], name: "index_notifications_on_comment_id"
     t.index ["user_id"], name: "index_notifications_on_user_id"
     t.index ["vote_id"], name: "index_notifications_on_vote_id"

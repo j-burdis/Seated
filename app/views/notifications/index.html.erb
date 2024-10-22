@@ -1,2 +1,36 @@
-<h1>Notifications#index</h1>
-<p>Find me in app/views/notifications/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+      <h1>Notifications</h1>
+
+      <% if @notifications.any? %>
+        <div class="notifications-list">
+          <% @notifications.each do |notification| %>
+            <div class="notification-<%= notification.read ? 'read' : 'unread' %>">
+              <% if notification.comment.present? %>
+                <p>
+                  <%= link_to "Someone commented: #{notification.comment.content}", 
+                              cinema_path(notification.comment.review.cinema, notification.comment.review) %>
+                </p>
+              <% elsif notification.vote.present? %>
+                <p>
+                  <%= link_to "Someone upvoted your review.", 
+                              cinema_path(notification.vote.review.cinema, notification.vote.review) %>
+                </p>
+              <% end %>
+              <p><em><%= time_ago_in_words(notification.created_at) %> ago</em></p>
+              <% unless notification.read %>
+              <%= button_to 'Mark as Read', mark_as_read_notification_path(notification), method: :patch, class: 'mark-as-read' %>
+              <% end %>
+              <%= button_to 'Delete', notification_path(notification), method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete-notification' %>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <p>No notifications available.</p>
+      <% end %>
+
+    </div>
+  </div>
+</div>
