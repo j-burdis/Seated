@@ -8,25 +8,8 @@
           <h1>Your Favourites</h1>
 
           <div class="favourite-cinema-cards">
-            <div class="home-top-picks">
-              <% @favourites.each do |favourite| %>
-
-                  <div class="top-pick-card">
-                    <img src="<%= favourite.cinema.image_url %>" />
-                    <div class="top-pick-details">
-                      <div class="favourite-name-delete">
-                        <h4> <%= favourite.cinema.name %> </h4>
-                        <%#= link_to '<i class="fa-solid fa-x"></i>'.html_safe, favourites_path, method: :delete, class: "delete-icon" %>
-                          <%= button_to cinema_favourite_path(favourite.cinema, favourite), method: :delete, class: "delete-icon rounded" do %>
-                            <i class="fa-solid fa-x"></i>
-                          <% end %>
-                      </div>
-                      <p> <%= favourite.cinema.address %> </p>
-                      <p> Average rating: <%= favourite.cinema.average_rating.present? ? favourite.cinema.average_rating.round(1) : 'No reviews yet' %> </p>
-                    </div>
-                  </div>
-
-              <% end %>
+            <div class="home-top-picks" id="favourites">
+              <%= render "favourites/list", favourites: @favourites %>
             </div>
           </div>
 

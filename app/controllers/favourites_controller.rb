@@ -27,11 +27,15 @@ class FavouritesController < ApplicationController
     puts "************************"
     puts request.referrer
     puts params
+    @favourites = current_user.favourites
     # raise
     @favourite = current_user.favourites.find_by(cinema: @cinema)
     respond_to do |format|
       if @favourite.destroy
-        # format.turbo_stream
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.update(:favourites, partial: "favourites/list", locals: { favourites: @favourites })
+        end
+
         format.html { params[:show] ? (redirect_to cinema_path(@cinema)) : favourites_path }
         # format.json { render json: { success: true, new_action: cinema_favourites_path(@cinema), new_method: "post" } }
       else
