@@ -17,7 +17,7 @@
               </p>
 
               <% if current_user.favourites.exists?(cinema: @cinema) %>
-                <%= button_to cinema_favourite_path(@cinema, current_user.favourites.find_by(cinema: @cinema)), method: :delete, data: { action: "favourite#toggle" }, class: 'favourite-toggle-form' do %>
+                <%= button_to cinema_favourite_path(@cinema, current_user.favourites.find_by(cinema: @cinema), show:true), method: :delete, data: { action: "favourite#toggle" }, class: 'favourite-toggle-form' do %>
                   <i data-favourite-target="star" class="fa-solid fa-star favourite-toggle-btn active"></i>
                 <% end %>
               <% else %>
@@ -35,7 +35,7 @@
               <div class="cinema-show-average">
                 <p> Average rating: <%= @cinema.average_rating.present? ? @cinema.average_rating.round(1) : 'No reviews yet' %> </p>
               </div>
-            </div> 
+            </div>
 
           </div>
 
@@ -51,6 +51,7 @@
               <%# add in photo uploads here %>
               <%#= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
               <%# add in photo uploads here %>
+
               <div class="cinema-vote-comment">
                 <% if review.user != current_user %>
                   <div class="review-vote">
@@ -74,6 +75,7 @@
                     <div class="review-vote-count">
                       <p> <strong>(<%= review.votes.count %>)</strong> </p>
                     </div>
+
                   </div>
                 <% end %>
                 <%# comments %>
