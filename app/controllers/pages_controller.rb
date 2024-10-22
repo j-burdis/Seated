@@ -1,21 +1,13 @@
 class PagesController < ApplicationController
   # skip_before_action :authenticate_user!, only: [:home]
-  def map
+  def map # rubocop:disable Metrics/MethodLength
     if params[:query].present?
       @cinemas = Cinema.search_by_name_and_address(params[:query])
                        .order(Arel.sql("COALESCE(average_rating, 0) DESC"))
       # The `geocoded` scope filters only cinemas with coordinates
-      @markers = @cinemas.geocoded.map do |cinema|
-        {
-          lat: cinema.latitude,
-          lng: cinema.longitude,
-          info_window_html: render_to_string(partial: "popup", locals: { cinema: cinema }),
-          marker_html: render_to_string(partial: "marker")
-        }
-      end
     else
       @cinemas = Cinema.all
-      .order(Arel.sql("COALESCE(average_rating, 0) DESC"))
+                       .order(Arel.sql("COALESCE(average_rating, 0) DESC"))
 
       # The `geocoded` scope filters only cinemas with coordinates
 
@@ -27,6 +19,14 @@ class PagesController < ApplicationController
           marker_html: render_to_string(partial: "marker")
         }
       end
+    end
+    @markers = @cinemas.geocoded.map do |cinema|
+      {
+        lat: cinema.latitude,
+        lng: cinema.longitude,
+        info_window_html: render_to_string(partial: "popup", locals: { cinema: cinema }),
+        marker_html: render_to_string(partial: "marker")
+      }
     end
 
     respond_to do |format|

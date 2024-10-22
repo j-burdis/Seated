@@ -111,31 +111,23 @@
 
 
               <div class="cinema-vote-comment">
-                <% if review.user != current_user %>
                   <div class="review-vote">
                     <div class="review-vote-arrow">
                       <% if current_user.votes.exists?(review: review) %>
-                        <%= button_to 'unvote', cinema_review_vote_path(@cinema, review, review.votes.find_by(user: current_user)),
-                        method: :delete, remote: true, class: 'btn btn-danger' %>
-                        <%#= link_to do %>
-                            <%# <i class="fa-solid fa-sort-down"></i> %>
-                        <%# end, cinema_review_vote_path(@cinema, review, review.votes.find_by(user: current_user)), method: :delete, class: 'vote-button' %>
+                        <%= button_to cinema_review_vote_path(@cinema, review, review.votes.find_by(user: current_user)), method: :delete, class: 'vote-button' do %>
+                          <i class="fa-solid fa-sort-down"></i>
+                        <% end %>
                       <% else %>
-                        <%= button_to 'upvote', cinema_review_votes_path(@cinema, review),
-                        method: :post, remote: true, class: 'btn btn-primary' %>
-                        <%#= link_to do %>
-                            <%# <i class="fa-solid fa-sort-up"></i> %>
-                        <%# end, cinema_review_votes_path(@cinema, review), method: :post, class: 'vote-button' %>
+                        <%= button_to cinema_review_votes_path(@cinema, review), method: :post, class: 'vote-button' do %>
+                          <i class="fa-solid fa-sort-up"></i>
+                        <% end %>
                       <% end %>
-                      <%# <i class="fa-solid fa-sort-down vote-button"></i> %>
-                      <%# <i class="fa-solid fa-sort-up vote-button"></i> %>
                     </div>
                     <div class="review-vote-count">
                       <p> <strong>(<%= review.votes.count %>)</strong> </p>
                     </div>
 
                   </div>
-                <% end %>
                 <%# comments %>
                 <div class="review-comment" data-controller="comments">
                   <div id="comments-list-<%= review.id %>">
@@ -143,7 +135,7 @@
                       <button class="btn btn-link toggle-comments" data-action="click->comments#toggle" data-comments-target="toggleButton">
                         Show Comments
                       </button>
-                      <%# Comments %>
+                      
                     </h3>
                     <%= turbo_stream_from "review_#{review.id}_comments" %>
 
