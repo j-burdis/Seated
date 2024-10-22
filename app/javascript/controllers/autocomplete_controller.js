@@ -18,7 +18,7 @@ export default class extends Controller {
       return
     }
 
-    const url = `http://localhost:3000/cinemas?query=${query}`
+    const url = `https://www.seated.movie/cinemas?query=${query}` && `http://localhost:3000/cinemas?query=${query}`
 
     fetch(url, {
       headers: { "Accept": "application/json" }
