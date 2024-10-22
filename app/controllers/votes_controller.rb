@@ -8,22 +8,10 @@ class VotesController < ApplicationController
     @vote.review = @review
     @vote.user = current_user
 
-    # @notification = Notification.new
-    # @notification.vote = @vote
-    # @notification.user = @review.user
-    # @notification = Notification.new(vote: @vote, user: @review.user)
-
     return unless @vote.save
 
     # @notification.save
     redirect_to cinema_path(@cinema)
-
-    # if @vote.save
-    #   # @notification.save
-    #   redirect_to cinema_path(@cinema), notice: 'Could not add vote'
-    # else
-    #   redirect_to cinema_path(@cinema), alert: 'Could not add vote'
-    # end
   end
 
   def destroy

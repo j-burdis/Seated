@@ -16,7 +16,11 @@ Rails.application.routes.draw do
   resources :reviews, only: [:edit, :update, :destroy]
   resources :favourites, only: [:index, :destroy]
 
-  resources :notifications, only: [:index, :destroy]
+  resources :notifications, only: [:index, :destroy] do
+    member do
+      patch :mark_as_read
+    end
+  end
 
   # get "favourites/index"
   # get "favourites/create"

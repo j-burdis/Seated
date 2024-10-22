@@ -24,15 +24,16 @@
       <i class="fa-solid fa-map"></i>
     <% end %>
 
+    <%# Notifications button %>
+    <%= link_to notifications_path, class: "bottom_navbar-link" do %>
+      <i class="fas fa-bell"></i>
+    <% end %>
+    
     <%#  Profile buton %>
     <%= link_to profile_path, class: "bottom_navbar-link" do %>
       <i class="fas fa-user"></i>
     <% end %>
 
-    <%# Notifications button %>
-    <%#= link_to notifications_path, class: "bottom_navbar-link" do %>
-      <%# <i class="fas fa-bell"></i> %>
-    <%# end %>
 
   </div>
 </nav>
