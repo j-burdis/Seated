@@ -30,12 +30,14 @@
                       <% rounded_rating = cinema.average_rating.floor %>
                       <% partial_rating = (cinema.average_rating % 1).round(1) %>
 
+                      <% # Render the full rating images as red rating images %>
                       <% rounded_rating.times do %>
-                        <%= image_tag 'seated-emoji.png', alt: 'Seated Emoji', class: 'small-emoji' %>
+                        <%= image_tag 'seated-emoji.png', alt: 'Red Rating Emoji', class: 'red-rating-image' %>
                       <% end %>
 
+                      <% # Render the partial image as a partial red rating image %>
                       <% if partial_rating >= 0.5 %>
-                        <%= image_tag 'seated-emoji.png', alt: 'Seated Emoji', class: 'partial-emoji' %>
+                        <%= image_tag 'seated-emoji.png', alt: 'Partial Red Rating Emoji', class: 'partial-red-rating-image' %>
                       <% end %>
 
                       <span>(<%= cinema.average_rating.round(1) %>)</span>

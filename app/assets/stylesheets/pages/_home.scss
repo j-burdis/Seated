@@ -99,18 +99,32 @@ body {
     .top-pick-details {
       margin-left: 8px;
 
-      .homepage-average-rating .small-emoji {
-        width: 10px;
-        height: 10px;
+      .homepage-average-rating {
+        display: inline-block; /* Keep it inline */
+        position: relative; /* Set to relative for positioning */
+        margin-top: 5px; /* Change margin to 5px to create space above */
+        z-index: 1; /* Lower z-index so it's behind navbar and header */
       }
 
-      .homepage-average-rating .partial-emoji {
-        width: 10px;
-        height: 10px;
-        overflow: hidden;
-        display: inline-block;
+      .homepage-average-rating .red-rating-image {
+        width: 10px; /* Width of the red rating image */
+        height: 10px; /* Height of the red rating image */
+      }
+
+      .homepage-average-rating .partial-red-rating-image {
+        width: 10px; /* Width of the partial red rating image */
+        height: 10px; /* Height of the partial red rating image */
+        overflow: hidden; /* Hide overflow */
+        display: inline-block; /* Display inline */
         clip-path: inset(0 5px 0 0); /* Clip 5px from the right */
       }
+
+      /* Future use for grey rating image */
+      .homepage-average-rating .grey-rating-image {
+        width: 10px; /* Width of the grey rating image */
+        height: 10px; /* Height of the grey rating image */
+      }
+
     }
   }
 }
