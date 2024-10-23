@@ -25,8 +25,11 @@
     <%# end %>
 
     <%# Notifications button %>
-    <%= link_to notifications_path, class: "bottom_navbar-link" do %>
+    <%= link_to notifications_path, class: "bottom_navbar-link position-relative" do %>
       <i class="fas fa-bell"></i>
+      <% if current_user.notifications.where(read: false).any? %>
+        <span class="notification-dot"><i class="fa-solid fa-circle"></i></span>
+      <% end %>
     <% end %>
     
     <%#  Profile buton %>
