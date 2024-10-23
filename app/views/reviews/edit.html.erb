@@ -1,31 +1,35 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="back-btn">
-        <%= link_to "Back to review", cinema_path %>
-      </div>
-      <h1 class="review-title">Edit your review</h1>
-      <div class="review-new-card">
-        <div class="card">
-          <%= simple_form_for [@cinema, @review] do |f| %>
-            <div class="form-row" style="display: flex;">
-              <div class="form-group col-md-4">
-                <%= f.input :screen, label: "Screen:" %>
+<div class="cinema-index-background">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="back-btn">
+          <%= link_to cinemas_path do %>
+            <i class="fas fa-arrow-left"></i>
+          <% end %>
+        </div>
+        <h1 class="review-title">Edit your review</h1>
+        <div class="review-new-card">
+          <div class="card">
+            <%= simple_form_for [@cinema, @review] do |f| %>
+              <div class="form-row" style="display: flex;">
+                <div class="form-group col-md-4">
+                  <%= f.input :screen, label: "Screen:" %>
+                </div>
+                <div class="form-group col-md-4">
+                  <%= f.input :seat, label: "Your seat:" %>
+                </div>
+                <div class="form-group col-md-4">
+                  <%= f.input :pref_seat, label: "Preferred seat:" %>
+                </div>
               </div>
-              <div class="form-group col-md-4">
-                <%= f.input :seat, label: "Your seat:" %>
+              <div>
+                <%= f.input :content, label: "Your review:" %>
+                <%= f.input :photos, as: :file, label: "Upload/Replace your image:", input_html: { multiple: true } %><img>
+                <%= f.input :rating, label: "New Rating:" %>
+                <div class="form-group" style="justify-content: center; display: flex">
+                  <%= f.submit "Update", class: "btn btn-gradient" %>
+                <% end %>
               </div>
-              <div class="form-group col-md-4">
-                <%= f.input :pref_seat, label: "Preferred seat:" %>
-              </div>
-            </div>
-            <div>
-              <%= f.input :content, label: "Your review:" %>
-              <%= f.input :photos, as: :file, label: "Upload/Replace your image:", input_html: { multiple: true } %><img>
-              <%= f.input :rating, label: "New Rating:" %>
-              <div class="form-group" style="justify-content: center; display: flex">
-                <%= f.submit "Update", class: "btn btn-gradient" %>
-              <% end %>
             </div>
           </div>
         </div>
