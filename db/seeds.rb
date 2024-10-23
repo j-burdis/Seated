@@ -16,14 +16,17 @@ Review.destroy_all
 Cinema.destroy_all
 User.destroy_all
 
-cinema1 = Cinema.create!(
-  name: "The Ritzy Picturehouse",
-  address: "Brixton Oval, Coldharbour Lane, London, SW2 1JG",
-  description: "A vibrant cinema located in the heart of Brixton, known for its eclectic film selection.",
-  average_rating: nil,
-  image_url: "https://scontent.fcgm1-1.fna.fbcdn.net/v/t39.30808-6/243262403_10165728334210010_8338157497781979992_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=j7zdGwCpQpgQ7kNvgEbrvZ-&_nc_zt=23&_nc_ht=scontent.fcgm1-1.fna&_nc_gid=A_4RG8Y6-04rowS9mVOI5TA&oh=00_AYCgjRBuw8yxDpPDNdNzMpL-MID9GB9oMpWZysrrNw311A&oe=671DB076"
-)
-
+begin
+  cinema1 = Cinema.create!(
+    name: "The Ritzy Picturehouse",
+    address: "Brixton Oval, Lambeth, London, SW2 1EN",
+    description: "A vibrant cinema located in the heart of Brixton, known for its eclectic film selection.",
+    average_rating: nil,
+    image_url: "https://scontent.fcgm1-1.fna.fbcdn.net/v/t39.30808-6/243262403_10165728334210010_8338157497781979992_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=j7zdGwCpQpgQ7kNvgEbrvZ-&_nc_zt=23&_nc_ht=scontent.fcgm1-1.fna&_nc_gid=A_4RG8Y6-04rowS9mVOI5TA&oh=00_AYCgjRBuw8yxDpPDNdNzMpL-MID9GB9oMpWZysrrNw311A&oe=671DB076"
+  )
+rescue Geocoder::Error => e
+  Rails.logger.error("Geocoding failed for cinema1: #{e.message}")
+end
 cinema2 = Cinema.create!(
   name: "Picturehouse Finsbury Park",
   address: "17 City North Place, Finsbury Park, London, N4 3FU",
@@ -58,7 +61,7 @@ cinema5 = Cinema.create!(
 
 cinema6 = Cinema.create!(
   name: "Vue Cinema Stratford",
-  address: "London, E20 1EJ",
+  address: "Hitchcock Lane, Newham, London, E20 1EQ",
   description: "A key feature of the Westfield Stratford City complex, providing a range of viewing options.",
   average_rating: nil,
   image_url: "https://www.myvue.com/-/media/vuecinemas/venue-imagery/exteriors/venue-stratford.jpg?rev=acac3c73fdd3452ba69c6c84216b74b1"
@@ -130,7 +133,7 @@ cinema14 = Cinema.create!(
 
 cinema15 = Cinema.create!(
   name: "Everyman Baker Street",
-  address: "96-98 Baker Street, London, N1U 6TJ",
+  address: "96-98 Baker Street, London, W1U 6TJ",
   description: "A stylish cinema featuring a bar and a unique cinema experience in the heart of London.",
   average_rating: nil,
   image_url: "https://lh3.googleusercontent.com/p/AF1QipPF5zqeGh5JdVE1t7VXIKoV5bz0z6-kl-yiGQ2C=s680-w680-h510"

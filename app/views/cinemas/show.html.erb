@@ -114,11 +114,11 @@
                   <div class="review-vote">
                     <div class="review-vote-arrow">
                       <% if current_user.votes.exists?(review: review) %>
-                        <%= button_to cinema_review_vote_path(@cinema, review, review.votes.find_by(user: current_user)), method: :delete, class: 'vote-button' do %>
+                        <%= button_to cinema_review_vote_path(@cinema, review, review.votes.find_by(user: current_user)), method: :delete, class: 'vote-button-down' do %>
                           <i class="fa-solid fa-sort-down"></i>
                         <% end %>
                       <% else %>
-                        <%= button_to cinema_review_votes_path(@cinema, review), method: :post, class: 'vote-button' do %>
+                        <%= button_to cinema_review_votes_path(@cinema, review), method: :post, class: 'vote-button-up' do %>
                           <i class="fa-solid fa-sort-up"></i>
                         <% end %>
                       <% end %>
