@@ -1,12 +1,112 @@
-.notification-item {
-    // border: 1px solid #ddd;
-    color: #333;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    background-color: #FBF7F5;
+.notification-index-content {
+  color: #333;
+  padding: 0 16px;
+
+  h1 {
+    margin-top: 16px;
+    margin-bottom: 8px;
   }
-  
-  .notification-actions {
-    margin-top: 10px;
+
+  p {
+    margin-top: 16px;
+    text-align: center;
   }
+}
+
+.notification-index-card {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #333;
+  border-width: 80%;
+  padding: 16px 0; 
+  transition: background-color 0.3s ease;
+}
+
+.notification-unread {
+  background-color: #FBF7F5;
+
+  .notification-index-details {
+    p {
+      margin: 0;
+      margin-left: 8px;
+
+      a {
+        color: #333;
+        text-decoration: none;
+        font-size: 16.5px;
+      }
+    }
+  }
+
+  .notification-index-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    p {
+      margin-right: auto;
+      margin-bottom: 0;
+      margin-left: 8px;
+    }
+
+    .notification-index-buttons {
+      display: flex;
+      margin-left: auto;
+
+      
+      .mark-as-read, .delete-notification {
+        background: transparent;
+        border: none;
+        color: #FF0000;
+        font-size: 30px;
+        padding-right: 16px;
+        transition: color 0.3s ease;
+      }
+    }
+  }
+}
+
+.notification-read {
+  background-color: #d1cecd;
+
+  .notification-index-details {
+    p {
+      margin: 0;
+      margin-left: 8px;
+
+      a {
+        color: #333;
+        text-decoration: none;
+        font-size: 16.5px; 
+      }
+    }
+  }
+
+  .notification-index-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    p {
+      margin-right: auto;
+      margin-bottom: 0;
+      margin-left: 8px;
+    }
+
+    .notification-index-buttons {
+      display: flex;
+      margin-left: auto;
+
+      .mark-as-read, .delete-notification {
+        background: transparent;
+        border: none;
+        color: #FF0000;
+        font-size: 30px;
+        padding-right: 16px;
+        transition: color 0.3s ease;
+      }
+    }
+  }
+}
