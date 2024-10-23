@@ -149,18 +149,38 @@ body {
   color: #FBF7F5;
   text-decoration: none;
 
-  .recent-user-date, .recent-name-rating{
+  
+  .recent-user-date {
+    display: flex;
+    align-items: center;
+
+    p {
+      margin: 0 8px;
+      font-size: 18px;
+    }
+  }
+
+  .recent-name-rating {
     display: flex;
     justify-content: space-between;
+
+    p {
+      margin: 8px 0;
+      font-size: 19px;
+    }
+  
   }
 
-  p {
-    margin-bottom: 0;
-  }
-
+  
   .review-card-rating {
     display: flex;
-    justify-content: start;
+    justify-content: center;
+
+    p {
+      margin-top: 8px;
+      margin-bottom: 0;
+      font-size: 18px;
+    }
 
     .review-form-data{
       color: #FF0000;
@@ -178,6 +198,12 @@ body {
 
   .review-card-content {
     text-align: center;
+
+    p {
+      margin-top: 8px;
+      margin-bottom: 0;
+      font-size: 18px;
+    }
   }
 }
 

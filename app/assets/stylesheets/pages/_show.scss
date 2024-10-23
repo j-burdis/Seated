@@ -82,6 +82,30 @@
   margin-top: 8px;
   margin-bottom: 62.67px;
 
+  .review-profile-pic {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+  }
+
+  .review-screen-details p {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+  
+  .review-icon {
+    margin-right: 5px;
+  }
+  
+  .icon-class {
+    width: 32px;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 10px;
+  }
+
   h2 {
     color: #FBF7F5;
     padding-left: 8px;
@@ -95,15 +119,27 @@
     color: #FBF7F5;
     margin-bottom: 0;
     margin-top: 12px;
+    line-height: 1.3;
+
+    p {
+      // margin-top: 8px;
+    }
+
+    .review-card-media {
+      display: flex;
+      align-items: start;
+    }
+ 
     .img-thumbnail {
       background-color: transparent;
       border: none;
-      // padding: 0;
+      
     }
     .review-image {
       display: block;
-      margin: 5px auto;
+      padding: 0;
       border-radius: 8px;
+      margin-right: 4px;
     }
   }
 
@@ -112,6 +148,7 @@
     display: flex;
     // justify-content: space-between;
     align-items: start;
+    margin-top: 8px;
   }
 
   .review-vote {
@@ -119,7 +156,7 @@
     align-items: center;
 
     .review-vote-count {
-      padding-left: 8px;
+      padding-left: 4px;
       color: #FBF7F5;
 
       p {
@@ -151,15 +188,19 @@
 
   .review-comment {
     color: #FBF7F5;
+    // margin-top: 6px;
 
     .btn-link {
       color: #FBF7F5;
       text-decoration: none;
+      margin: 8px;
+      margin-right: 0;
+      padding: 0;
     }
 
     h3 {
       font-size: 20px;
-      // text-align: center;
+      margin-bottom: 0;
       text-shadow: 2px 2px 4px rgba(0,0,0,1);
     }
 
@@ -170,6 +211,8 @@
     .form-floating {
       color: #333;
       font-size: 12px;
+      width: 65%;
+      margin-left: auto;
     }
 
     .form-control {

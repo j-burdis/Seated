@@ -1,7 +1,7 @@
 class Comment < ApplicationRecord
   belongs_to :review
   belongs_to :user
-  has_many :notifications, dependent: :nullify
+  has_many :notifications, dependent: :destroy
 
   validates :content, presence: true, length: { minimum: 3, maximum: 140 }
 
