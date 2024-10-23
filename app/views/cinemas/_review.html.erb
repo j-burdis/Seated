@@ -18,52 +18,105 @@
     <p>"<%= review.content %>"</p>
   </div>
 
-  <div class="review-images">
-    <% if review.photos.attached? %>
-      <div class="row">
-        <div class="col-12 col-sm-6 col-md-4">
-          <a href="#imageModal-<%= review.id %>" data-bs-toggle="modal" data-bs-target="#imageModal-<%= review.id %>">
-            <%# First photo only as the thumbnail %>
-            <%= cl_image_tag review.photos.first.key, height: 70, width: 90, crop: :fill, class: "img-thumbnail review-image" %>
-          </a>
-        </div>
+  <div class="review-card-extras">
+    <div class="review-images">
+      <% if review.photos.attached? %>
+        <div class="row">
+          <div class="col-12 col-sm-6 col-md-4">
+            <a href="#imageModal-<%= review.id %>" data-bs-toggle="modal" data-bs-target="#imageModal-<%= review.id %>">
+              <%# First photo only as the thumbnail %>
+              <%= cl_image_tag review.photos.first.key, height: 70, width: 90, crop: :fill, class: "img-thumbnail review-image" %>
+            </a>
+          </div>
 
-        <!-- Modal with a carousel for all photos -->
-        <div class="modal fade" id="imageModal-<%= review.id %>" tabindex="-1" aria-labelledby="imageModalLabel-<%= review.id %>" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-body">
-                <!-- Bootstrap carousel for sliding between images -->
-                <div id="carousel-<%= review.id %>" class="carousel slide" data-bs-ride="carousel">
-                  <div class="carousel-inner">
-                    <% review.photos.each_with_index do |photo, index| %>
-                      <div class="carousel-item <%= 'active' if index == 0 %>">
-                        <%= cl_image_tag photo.key, class: "d-block w-100 img-fluid"  %>
-                      </div>
+          <!-- Modal with a carousel for all photos -->
+          <div class="modal fade" id="imageModal-<%= review.id %>" tabindex="-1" aria-labelledby="imageModalLabel-<%= review.id %>" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <!-- Bootstrap carousel for sliding between images -->
+                  <div id="carousel-<%= review.id %>" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <% review.photos.each_with_index do |photo, index| %>
+                        <div class="carousel-item <%= 'active' if index == 0 %>">
+                          <%= cl_image_tag photo.key, class: "d-block w-100 img-fluid"  %>
+                        </div>
+                      <% end %>
+                    </div>
+
+                    <%# Previous/Next carousel controls. Condition - only show if more than one image %>
+                    <% if review.photos.count > 1 %>
+                      <button class="carousel-control-prev" type="button" data-bs-target="#carousel-<%= review.id %>" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carousel-<%= review.id %>" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
                     <% end %>
                   </div>
-
-                  <%# Previous/Next carousel controls. Condition - only show if more than one image %>
-                  <% if review.photos.count > 1 %>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-<%= review.id %>" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carousel-<%= review.id %>" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
-                    </button>
-                  <% end %>
                 </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-gradient" data-bs-dismiss="modal">Close</button>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-gradient" data-bs-dismiss="modal">Close</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
 
+    <div class="cinema-vote-comment">
+      <div class="review-vote">
+        <div class="review-vote-arrow">
+          <% if current_user.votes.exists?(review: review) %>
+            <%= button_to cinema_review_vote_path(@cinema, review, review.votes.find_by(user: current_user)), method: :delete, class: 'vote-button-down' do %>
+              <i class="fa-solid fa-sort-down"></i>
+            <% end %>
+          <% else %>
+            <%= button_to cinema_review_votes_path(@cinema, review), method: :post, class: 'vote-button-up' do %>
+              <i class="fa-solid fa-sort-up"></i>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="review-vote-count">
+          <p> <strong>(<%= review.votes.count %>)</strong> </p>
+        </div>
+
+      </div>
+      <%# comments %>
+      <div class="review-comment" data-controller="comments">
+        <div id="comments-list-<%= review.id %>">
+          <h3>
+            <button class="btn btn-link toggle-comments" data-action="click->comments#toggle" data-comments-target="toggleButton">
+              Show Comments
+            </button>
+
+          </h3>
+          <%= turbo_stream_from "review_#{review.id}_comments" %>
+
+          <div id="comments-<%= review.id %>" class="comments hidden" data-comments-target="commentsSection">
+            <%= render partial: 'comments/comment', collection: review.comments, as: :comment, locals: { user: current_user } %>
+
+
+
+            <%= simple_form_for [@cinema, review, Comment.new],
+                html: { class: "d-flex", data: { controller: "reset-form",
+                action: "turbo:submit-end->reset-form#reset" } } do |form| %>
+              <div class="form-floating">
+                <%= form.input :content, as: :text,
+                                label: false,
+                                placeholder: "Your Comment",
+                                input_html: { rows: 3 }, wrapper: false %>
+                <label for="<%= form.object_name %>_content">Your Comment</label>
+              </div>
+                <%= form.button :submit, 'Send', class: 'btn btn-primary' %>
+
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

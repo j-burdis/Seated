@@ -44,6 +44,8 @@ class PagesController < ApplicationController
     @recent_reviews = Review.includes(:cinema, :user)
                             .order(created_at: :desc)
                             .limit(3)
+
+    # @cinema = Cinema.find(params[:id])
   end
 
   def profile

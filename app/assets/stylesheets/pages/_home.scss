@@ -134,6 +134,7 @@ body {
 
   a {
     text-decoration: none;
+    color:#FBF7F5;
   }
 
   .cinema-review-card {
@@ -179,6 +180,12 @@ body {
   .review-card-content {
     text-align: center;
   }
+}
+
+.review-card-extras {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 //
