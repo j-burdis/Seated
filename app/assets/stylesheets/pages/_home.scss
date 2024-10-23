@@ -77,27 +77,40 @@ body {
     border-radius: 2px;
     color: #FBF7F5;
     text-decoration: none;
-  
+
     img {
       height: 100%;
       width: 96px;
       object-fit: cover;
     }
-  
+
     h4 {
       font-size: 16px;
       margin: 0;
     }
-  
+
     p {
       font-size: 12px;
       line-height: 1.4;
       margin-bottom: 0;
       margin-top: 4px;
     }
-  
+
     .top-pick-details {
       margin-left: 8px;
+
+      .homepage-average-rating .small-emoji {
+        width: 10px;
+        height: 10px;
+      }
+
+      .homepage-average-rating .partial-emoji {
+        width: 10px;
+        height: 10px;
+        overflow: hidden;
+        display: inline-block;
+        clip-path: inset(0 5px 0 0); /* Clip 5px from the right */
+      }
     }
   }
 }
@@ -147,7 +160,7 @@ body {
   .review-screen-details {
     display: flex;
     justify-content: space-between;
-  
+
     .review-form-data{
       color: #FF0000;
     }
