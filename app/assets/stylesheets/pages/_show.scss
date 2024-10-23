@@ -92,8 +92,14 @@
     color: #FBF7F5;
     margin-bottom: 0;
     margin-top: 12px;
+    .img-thumbnail {
+      background-color: transparent;
+      border: none;
+      // padding: 0;
+    }
     .review-image {
-      margin: 10px;
+      display: block;
+      margin: 5px auto;
       border-radius: 8px;
     }
   }
@@ -117,14 +123,14 @@
         margin-bottom: 0;
       }
     }
-    
+
     .vote-button-down, .vote-button-up {
       color: #FF0000;
       padding: 0;
       background-color: transparent;
       border: none;
     }
-  
+
     .vote-button-up i {
       margin-top: 8px;
     }
