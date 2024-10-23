@@ -1,7 +1,15 @@
 <div class="cinema-popup">
-  <h1 class="cinema-name">
-    <%= link_to cinema.name, cinema_path(cinema), class: 'cinema-link' %>
-  </h1>
-  <p class="cinema-address"><%= cinema.address %></p>
-  <img class="cinema-image" src="<%= cinema.image_url %>" alt="<%= cinema.name %>" width="100px">
+  <div class="row-cinema-info">
+    <h1 class="cinema-name">
+      <%= link_to cinema.name, cinema_path(cinema), class: 'cinema-link' %>
+    </h1>
+  </div>
+  <div class="col-address-img">
+    <div class="cinema-image">
+      <img class="cinema-image" src="<%= cinema.image_url %>" alt="<%= cinema.name %>" width="100px">
+    </div>
+    <div class="right-addres">
+    <p class="cinema-address"><%= cinema.address %></p>
+    </div>
+  </div>
 </div>
