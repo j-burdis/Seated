@@ -41,12 +41,13 @@
         font-size: 32px;
         color: #FF0000;
         margin-right: 8px;
+        background-color: transparent;
       }
 
       .favourite-toggle-form {
         background: none;
         border: none;
-
+        background-color: transparent;
       }
     }
 
@@ -67,6 +68,8 @@
 
   .cinema-show-average p {
     margin-bottom: 0;
+
+
   }
 }
 

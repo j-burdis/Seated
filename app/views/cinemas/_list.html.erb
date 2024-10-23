@@ -17,7 +17,7 @@
           <%# <p> Average rating:  %>
             <%#= cinema.average_rating.present? ? cinema.average_rating.round(1) : 'No reviews yet' </p> %>
 
-          <div class="homepage-average-rating">
+          <div class="cinema-list-average-rating">
             <% if cinema.average_rating.present? %>
               <% rounded_rating = cinema.average_rating.floor %>
               <% partial_rating = (cinema.average_rating % 1).round(1) %>
