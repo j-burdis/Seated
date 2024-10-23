@@ -57,7 +57,6 @@ body {
 .home-welcome-message {
   color: #FBF7F5;
 }
-
 .home-top-picks {
   color: #333;
 
@@ -90,7 +89,7 @@ body {
     }
 
     p {
-      font-size: 12px;
+      font-size: 8px; /* Changed font size to 8px */
       line-height: 1.4;
       margin-bottom: 0;
       margin-top: 4px;
@@ -102,29 +101,26 @@ body {
       .homepage-average-rating {
         display: inline-block; /* Keep it inline */
         position: relative; /* Set to relative for positioning */
-        margin-top: 5px; /* Change margin to 5px to create space above */
+        margin-top: 1px; /* Change margin to 1px to create space above */
         z-index: 1; /* Lower z-index so it's behind navbar and header */
-      }
 
-      .homepage-average-rating .red-rating-image {
-        width: 10px; /* Width of the red rating image */
-        height: 10px; /* Height of the red rating image */
-      }
+        .red-rating-image {
+          width: 20px; /* Changed width of the red rating image to 20px */
+          height: 20px; /* Changed height of the red rating image to 20px */
+        }
 
-      .homepage-average-rating .partial-red-rating-image {
-        width: 10px; /* Width of the partial red rating image */
-        height: 10px; /* Height of the partial red rating image */
-        overflow: hidden; /* Hide overflow */
-        display: inline-block; /* Display inline */
-        clip-path: inset(0 5px 0 0); /* Clip 5px from the right */
-      }
+        .half-red-rating-image {
+          width: 20px; /* Changed width of the half red rating image to 20px */
+          height: 20px; /* Changed height of the half red rating image to 20px */
+          overflow: hidden; /* Hide overflow */
+          display: inline-block; /* Display inline */
+          clip-path: inset(0 6.5px 0 0); /* Clip 6.5px from the right */
+        }
 
-      /* Future use for grey rating image */
-      .homepage-average-rating .grey-rating-image {
-        width: 10px; /* Width of the grey rating image */
-        height: 10px; /* Height of the grey rating image */
+        .average-rating-number {
+          font-size: 12px; /* Changed font size to 10px */
+        }
       }
-
     }
   }
 }

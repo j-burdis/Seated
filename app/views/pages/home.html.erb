@@ -35,21 +35,21 @@
                         <%= image_tag 'seated-emoji.png', alt: 'Red Rating Emoji', class: 'red-rating-image' %>
                       <% end %>
 
-                      <% # Render the partial image as a partial red rating image %>
+                      <% # Render the half image as a half red rating image %>
                       <% if partial_rating >= 0.5 %>
-                        <%= image_tag 'seated-emoji.png', alt: 'Partial Red Rating Emoji', class: 'partial-red-rating-image' %>
+                        <%= image_tag 'seated-emoji.png', alt: 'Half Red Rating Emoji', class: 'half-red-rating-image' %>
                       <% end %>
 
-                      <span>(<%= cinema.average_rating.round(1) %>)</span>
+                      <span class="average-rating-number">(<%= cinema.average_rating.round(1) %>)</span>
                     <% else %>
-                      <span>No reviews yet</span>
+                      <span class="average-rating-number">No reviews yet</span>
                     <% end %>
                   </div>
-
                 </div>
               <% end %>
             <% end %>
           </div>
+
 
           <div class="home-banner-text">
             <h1>We can all be <span class="seated-banner-text">Seated</span></h1>
