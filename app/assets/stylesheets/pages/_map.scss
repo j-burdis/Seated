@@ -1,3 +1,7 @@
+.map-main {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), asset-url('background-seats.jpg');
+}
+
 .map-index-search {
   color: #FBF7F5;
   font-size: 20px;
@@ -28,10 +32,11 @@
 .map-view {
   display: flex;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.851);
+  background-color: rgba(162, 158, 158, 0.206);
   margin-top: 10px;
   width: 100%;
   border-radius: 30px;
+  margin-bottom: 5px;
 }
 
 .list-link,
