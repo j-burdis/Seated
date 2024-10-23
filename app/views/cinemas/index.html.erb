@@ -19,39 +19,22 @@
             <% else %>
               <h2>Results</h2>
             <% end %>
-          <div class="list-map-view">
-            <div class="default-link" <%= 'active' if request.path == cinemas_path %>>
-              <%= link_to "List view", cinemas_path, class: "nav-link" %>
+            <div class="list-map-view">
+              <div class="default-link" <%= 'active' if request.path == cinemas_path %>>
+                <%= link_to "List view", cinemas_path, class: "nav-link" %>
+              </div>
+              <div class="map-link"  <%= 'active' if request.path == map_path %>>
+                <%= link_to "Map view", map_path, class: "nav-link" %>
+              </div>
             </div>
-            <div class="map-link"  <%= 'active' if request.path == map_path %>>
-              <%= link_to "Map view", map_path, class: "nav-link" %>
+
+
+            </div>
+            <div data-autocomplete-target="results">
+              <%= render "list", cinemas: @cinemas  %>
             </div>
           </div>
-
-
-          </div>
-          <div data-autocomplete-target="results">
-            <%= render "list", cinemas: @cinemas  %>
-          </div>
-
-
-
         </div>
       </div>
-    </div>
-  </div>
+  < /div>
 </div>
-
-
-
-<%#
-
-<div class="main-container">
-  <div class="search-bar">
-  list-button map-button
-  </div>
-
-  <div class="list"></div> target = list
-
-  <div class="map d-none"></div> target = map
-</div> %>

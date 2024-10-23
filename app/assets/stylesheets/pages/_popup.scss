@@ -1,0 +1,34 @@
+.cinema-popup {
+  display: flex;
+  flex-direction: column;
+  // padding: 10px;
+  // margin: 20px auto;
+}
+
+.row-cinema-info {
+  text-align: center;
+}
+
+.col-address-img {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+.cinema-image img {
+  width: 100px;
+  height: auto;
+  object-fit: cover;
+}
+
+.right-address {
+  flex-grow: 1;
+  margin-left: 20px;
+}
+
+.cinema-address {
+  font-size: 1em;
+  margin: 0;
+  padding: 10px
+}

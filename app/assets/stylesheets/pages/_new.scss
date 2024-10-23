@@ -7,17 +7,22 @@
   width: auto;
   white-space: nowrap;
   align-self: center;
-  a {
-    color: #ff0000;
-    font-size: smaller;
-    text-decoration: none;
+  // a {
+  //   color: #ff0000;
+  //   font-size: smaller;
+  //   text-decoration: none;
+  // }
+  .fas.fa-arrow-left {
+    padding-top: 20px;
+    font-size: 20px;
+    width: 60px;
   }
 }
 
 .review-title {
   margin-top: 20px;
   margin: 0 auto;
-  color: #ff0000;
+  color: #FBF7F5;
   text-align: center !important;
   padding-left: 16px;
   padding-top: 16px;
@@ -25,19 +30,20 @@
   font-weight: 700;
 }
 
-.card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  background-color: #ffffff;
-  font-size: 14px;
-  margin-top: 5px;
-  border-top: 1px solid #ddd;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
-  padding: 16px;
-  color: #ff0000;
+.review-new-card {
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #FBF7F5;
+    background-color: rgba(152, 33, 44, 0.65);
+    font-size: 14px;
+    margin-top: 5px;
+    border-top: 1px solid #ddd;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
+    padding: 16px;
+  }
 }
 
 .btn.btn-gradient {
