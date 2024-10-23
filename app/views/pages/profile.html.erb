@@ -20,14 +20,22 @@
               </div>
             </div>
 
-            <div>
+            <%# <div>
               <%= link_to "Edit Profile", edit_user_registration_path, class: "edit-profile" %>
-            </div>
-
-            <div class="profile-sign-out">
+            <%# </div> %>
+            <%# <div class="profile-sign-out">
               <% if user_signed_in? %>
-                <%= button_to 'Log Out', destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
-              <% end %>
+                <%# <%= button_to 'Log Out', destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+              <%# <% end %>
+
+              <div class="profile-actions">
+                <%= link_to "Edit", edit_user_registration_path, class: "edit-profile" %>
+
+                <% if user_signed_in? %>
+                  <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "log-out" %>
+                <% end %>
+              </div>
+
             </div>
           </div>
 
@@ -65,7 +73,7 @@
             <h3> Your reviews </h3>
             <% current_user.reviews.each do |review| %>
               <%#= render partial: 'cinemas/review', locals: { review: review } %>
-               <%= link_to render(partial: 'cinemas/review', locals: { review: review }), cinema_path(review.cinema) %>
+                <%= link_to render(partial: 'cinemas/review', locals: { review: review }), cinema_path(review.cinema) %>
             <% end %>
           </div>
 
