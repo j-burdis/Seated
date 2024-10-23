@@ -37,7 +37,7 @@ cinema2 = Cinema.create!(
 
 cinema3 = Cinema.create!(
   name: "Picturehouse Fulham Road",
-  address: "142 Fulham Road, Kensington and Chelsea, London, SW10 9QR",
+  address: "142 Fulham Road, London, SW10 9QR",
   description: "A stylish cinema known for its exclusive screenings and events.",
   average_rating: nil,
   image_url: "https://fastly.4sqi.net/img/general/width960/12689198_w1zRV3m9twuX9INqDJdtETri9y_2EOryAvH2EAgjfZE.jpg"
@@ -101,7 +101,7 @@ cinema10 = Cinema.create!(
 
 cinema11 = Cinema.create!(
   name: 'Odeon Greenwich',
-  address: 'Commercial Way, Greenwich, London, SE10 0QJ, United Kingdom',
+  address: 'Commercial Way, Greenwich, London, SE10 0QJ',
   description: 'A modern cinema with the latest technology, offering a great selection of films.',
   average_rating: nil,
   image_url: 'https://www.allthingsgreenwich.co.uk/images/Odeon_24_600px.jpg'
@@ -157,7 +157,7 @@ cinema17 = Cinema.create!(
 
 cinema18 = Cinema.create!(
   name: "Everyman Barnet",
-  address: "EN5 1AB, London Borough of Barnet, Greater London",
+  address: "EN5 1AB, Greater London",
   description: "Located in a bustling area, providing a comfortable and unique cinema experience.",
   average_rating: nil,
   image_url: "https://live.staticflickr.com/514/32321154155_a6394420bb_b.jpg"

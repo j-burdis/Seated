@@ -3,7 +3,7 @@
     <%= text_field_tag :query,
                         params[:query],
                         class: "form-control",
-                        placeholder: "Search by cinema name or location",
+                        placeholder: "Search cinema name or location",
                         data: {action: "keyup->autocomplete#search"}%>
     <%= submit_tag "Search", name: "", class: "btn btn-danger",  style:"color: white;" %>
   <% end %>
