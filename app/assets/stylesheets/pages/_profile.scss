@@ -36,6 +36,7 @@
   margin-top: 8px;
   padding: 8px;
   border-radius: 2px;
+  color: #FBF7F5;
 
   p {
     margin: 0;
@@ -45,7 +46,24 @@
     width: 100%;
     margin-left: 8px;
     border: 1px solid;
-    border-color: #FBF7F5;
+    border-color: #63151D;
+    color: #FBF7F5;
+  }
+}
+
+.profile-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  .edit-profile {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: #FBF7F5;
+  }
+  .log-out {
+    text-decoration: none;
+    color: #ff0000;
   }
 }
 
