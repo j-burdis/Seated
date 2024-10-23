@@ -1,23 +1,25 @@
-<div class="map-index-search" >
-  <%= form_tag map_path, method: :get, class: "d-flex" do %>
-    <%= text_field_tag :query,
-                        params[:query],
-                        class: "form-control",
-                        placeholder: "Search cinema name or location",
-                        data: {action: "keyup->autocomplete#search"}%>
-    <%= submit_tag "Search", name: "", class: "btn btn-danger",  style:"color: white;" %>
-  <% end %>
-  <div class="map-view">
-    <div class="list-link" <%= 'active' if request.path == cinemas_path %>>
-      <%= link_to "List view", cinemas_path, class: "nav-link" %>
-    </div>
-    <div class="default-map-link"  <%= 'active' if request.path == map_path %>>
-      <%= link_to "Map view", map_path, class: "nav-link" %>
+<div class="map-main">
+  <div class="map-index-search" >
+    <%= form_tag map_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+                          params[:query],
+                          class: "form-control",
+                          placeholder: "Search cinema name or location",
+                          data: {action: "keyup->autocomplete#search"}%>
+      <%= submit_tag "Search", name: "", class: "btn btn-danger",  style:"color: white;" %>
+    <% end %>
+    <div class="map-view">
+      <div class="list-link" <%= 'active' if request.path == cinemas_path %>>
+        <%= link_to "List view", cinemas_path, class: "nav-link" %>
+      </div>
+      <div class="default-map-link"  <%= 'active' if request.path == map_path %>>
+        <%= link_to "Map view", map_path, class: "nav-link" %>
+      </div>
     </div>
   </div>
-</div>
-<div style="width: 100%; height: calc(100vh - 232px);"
-     data-controller="map"
-     data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div style="width: 100%; height: calc(100vh - 237px);"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
