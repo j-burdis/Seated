@@ -70,6 +70,10 @@
 .profile-top-picks {
   margin-top: 24px;
 
+  h2 {
+    color: #FBF7F5;
+  }
+
   .top-pick-card {
     overflow: hidden;
     height: 88px;
@@ -109,6 +113,10 @@
 
 .profile-past-reviews {
   margin-top: 24px;
+
+  h3 {
+    color: #FBF7F5;
+  }
 
   a {
     text-decoration: none;
