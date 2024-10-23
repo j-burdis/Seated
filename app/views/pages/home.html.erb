@@ -56,10 +56,10 @@
             <%= link_to "Find seats", cinemas_path %>
           </div>
 
-          <div class="home-recent-reviews">
+          <div class="cinema-review-cards">
             <h2>Recent Reviews</h2>
             <% @recent_reviews.each do |review| %>
-              <%= link_to render(partial: 'cinemas/review', locals: { review: review }), cinema_path(review.cinema) %>
+              <%= link_to render(partial: 'cinemas/review', locals: { review: review, cinema: review.cinema }), cinema_path(review.cinema) %>
             <% end %>
           </div>
 

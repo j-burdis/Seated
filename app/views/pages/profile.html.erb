@@ -20,14 +20,6 @@
               </div>
             </div>
 
-            <%# <div>
-              <%= link_to "Edit Profile", edit_user_registration_path, class: "edit-profile" %>
-            <%# </div> %>
-            <%# <div class="profile-sign-out">
-              <% if user_signed_in? %>
-                <%# <%= button_to 'Log Out', destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
-              <%# <% end %>
-
               <div class="profile-actions">
                 <%= link_to "Edit", edit_user_registration_path, class: "edit-profile" %>
 
@@ -54,14 +46,12 @@
             <% if @top_cinemas.any? %>
               <% @top_cinemas.each do |cinema| %>
                 <%= link_to cinema_path(cinema), class: "top-pick-card" do %>
-                <%# <div class="top-pick-card"> %>
                   <img src="<%= cinema.image_url %>" />
                   <div class="top-pick-details">
                     <h4><%= cinema.name %></h4>
                     <p><%= cinema.address %></p>
                     <p>Average rating: <%= cinema.avg_rating.present? ? cinema.avg_rating.round(2) : 'No reviews yet' %></p>
                   </div>
-                <%# </div> %>
                 <% end %>
               <% end %>
             <% else %>
@@ -69,15 +59,12 @@
             <% end %>
           </div>
 
-          <div class="profile-past-reviews">
+          <div class="cinema-review-cards">
             <h3> Your reviews </h3>
-            <% current_user.reviews.each do |review| %>
-              <%#= render partial: 'cinemas/review', locals: { review: review } %>
-                <%= link_to render(partial: 'cinemas/review', locals: { review: review }), cinema_path(review.cinema) %>
+            <% current_user.reviews.order(created_at: :desc).each do |review| %>
+                <%= link_to render(partial: 'cinemas/review', locals: { review: review, cinema: review.cinema }), cinema_path(review.cinema) %>
             <% end %>
           </div>
-
-          <%#= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
         </div>
       </div>
     </div>
