@@ -15,6 +15,29 @@
     object-fit: cover;
   }
 
+  .homepage-average-rating {
+    display: inline-block; /* Keep it inline */
+    position: relative; /* Set to relative for positioning */
+    margin-top: 1px; /* Change margin to 1px to create space above */
+    z-index: 1; /* Lower z-index so it's behind navbar and header */
+
+    .red-rating-image,
+    .half-red-rating-image {
+      width: 20px !important; /* Changed width of the rating image to 20px */
+      height: 20px !important; /* Changed height of the rating image to 20px */
+    }
+
+    .half-red-rating-image {
+      overflow: hidden; /* Hide overflow */
+      display: inline-block; /* Display inline */
+      clip-path: inset(0 6.5px 0 0); /* Clip 6.5px from the right */
+    }
+
+    .average-rating-number {
+      font-size: 12px; /* Changed font size to 12px */
+    }
+  }
+
   .cinema-show-links
     .show-add-favourite {
       display: flex;
@@ -68,8 +91,6 @@
 
   .cinema-show-average p {
     margin-bottom: 0;
-
-
   }
 }
 
@@ -94,11 +115,11 @@
     font-size: 20px;
     margin-bottom: 0;
   }
-  
+
   .review-icon {
     margin-right: 5px;
   }
-  
+
   .icon-class {
     width: 32px;
     height: auto;
@@ -129,11 +150,11 @@
       display: flex;
       align-items: start;
     }
- 
+
     .img-thumbnail {
       background-color: transparent;
       border: none;
-      
+
     }
     .review-image {
       display: block;
