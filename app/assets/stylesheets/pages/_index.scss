@@ -9,3 +9,28 @@
 @import "notifications";
 @import "map";
 @import "popup";
+
+
+.auth-links {
+  color: #FF0000;
+  text-decoration: none;
+}
+
+.profile-edit-back {
+  a {
+    color: #333;
+    text-decoration: none;
+    margin-left: 14px;
+  }
+}
+
+.profile-edit-cancel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 14px;
+
+  .cancel-btn {
+    margin-left: 8px;
+  }
+}
