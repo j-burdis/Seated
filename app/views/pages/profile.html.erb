@@ -50,7 +50,31 @@
                   <div class="top-pick-details">
                     <h4><%= cinema.name %></h4>
                     <p><%= cinema.address %></p>
-                    <p>Average rating: <%= cinema.avg_rating.present? ? cinema.avg_rating.round(2) : 'No reviews yet' %></p>
+                    <%# <p>Average rating:  %>
+                      <%#= cinema.avg_rating.present? ? cinema.avg_rating.round(2) : 'No reviews yet' %>
+                      <%# </p> %>
+
+                    <div class="homepage-average-rating">
+                    <% if cinema.average_rating.present? %>
+                      <% rounded_rating = cinema.average_rating.floor %>
+                      <% partial_rating = (cinema.average_rating % 1).round(1) %>
+
+                      <% # Render the full rating images as red rating images %>
+                      <% rounded_rating.times do %>
+                        <%= image_tag 'seated-emoji.png', alt: 'Red Rating Emoji', class: 'red-rating-image' %>
+                      <% end %>
+
+                      <% # Render the half image as a half red rating image %>
+                      <% if partial_rating >= 0.5 %>
+                        <%= image_tag 'seated-emoji.png', alt: 'Half Red Rating Emoji', class: 'half-red-rating-image' %>
+                      <% end %>
+
+                      <span class="average-rating-number">(<%= cinema.average_rating.round(1) %>)</span>
+                    <% else %>
+                      <span class="average-rating-number">No reviews yet</span>
+                    <% end %>
+                  </div>
+
                   </div>
                 <% end %>
               <% end %>

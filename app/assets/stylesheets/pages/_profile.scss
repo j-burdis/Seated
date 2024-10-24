@@ -107,6 +107,30 @@
 
     .top-pick-details {
       margin-left: 8px;
+
+      .homepage-average-rating {
+        display: inline-block; /* Keep it inline */
+        position: relative; /* Set to relative for positioning */
+        margin-top: 1px; /* Change margin to 1px to create space above */
+        z-index: 1; /* Lower z-index so it's behind navbar and header */
+
+        .red-rating-image {
+          width: 20px; /* Changed width of the red rating image to 20px */
+          height: 20px; /* Changed height of the red rating image to 20px */
+        }
+
+        .half-red-rating-image {
+          width: 20px; /* Changed width of the half red rating image to 20px */
+          height: 20px; /* Changed height of the half red rating image to 20px */
+          overflow: hidden; /* Hide overflow */
+          display: inline-block; /* Display inline */
+          clip-path: inset(0 6.5px 0 0); /* Clip 6.5px from the right */
+        }
+
+        .average-rating-number {
+          font-size: 12px; /* Changed font size to 10px */
+        }
+      }
     }
   }
 }
