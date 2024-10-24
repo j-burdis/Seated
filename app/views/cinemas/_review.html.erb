@@ -142,11 +142,14 @@
           <button class="btn btn-link toggle-comments" data-action="click->comments#toggle" data-comments-target="toggleButton">
             Show Comments
           </button>
-          <% total_comments = current_user.reviews.joins(:comments).count('comments.id') %>
-          <%# <h6><span>(<%= total_comments)</span></h6> %>
-        </h3>
+          
+          <%= turbo_stream_from "review_#{review.id}_comments" %>
 
-        <%= turbo_stream_from "review_#{review.id}_comments" %>
+          <span id="comment-count-<%= review.id %>">
+            (<%= review.comments.count %>)
+          </span>
+
+        </h3>
 
         <%= simple_form_for [cinema, review, Comment.new],
             html: { class: "d-flex", data: { controller: "reset-form",
