@@ -4,7 +4,7 @@ body {
 }
 
 .home-banner {
-  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url('background-seats.jpg');
+  // background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url('background-seats.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -20,7 +20,7 @@ body {
     text-align: center;
 
     h1 {
-    color: #FBF7F5;
+    color: #333;
     font-size: 28px;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     margin-top: 24px;
@@ -55,26 +55,29 @@ body {
 }
 
 .home-welcome-message {
-  color: #FBF7F5;
+  color: #333;
+  margin-top: 16px;
 }
+
 .home-top-picks {
   color: #333;
 
   h2 {
-    color: #FBF7F5;
+    color: #333;
   }
 
   .top-pick-card {
     overflow: hidden;
     height: 104px;
-    background-color: rgba(152, 33, 44, 0.65);
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    background-color: #FBF7F5;
+    // box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(152, 33, 44, 0.65);
     display: flex;
     align-items: center;
     padding: 4px;
     margin: 8px 0;
     border-radius: 2px;
-    color: #FBF7F5;
+    color: #333;
     text-decoration: none;
 
     img {
@@ -129,7 +132,7 @@ body {
   margin-top: 16px;
 
   h2 {
-    color: #FBF7F5;
+    color: #333;
   }
 
   a {
@@ -137,22 +140,26 @@ body {
   }
 
   .cinema-review-card {
-    background-color: rgba(152, 33, 44, 0.65);
+    background-color: #FBF7F5;
+    border: 1px solid rgba(152, 33, 44, 0.65);
   }
 }
 
 .cinema-review-card {
   padding: 8px 16px;
   margin-bottom: 12px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  // box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  background-color: #FBF7F5;
   margin: 8px 0;
-  color: #FBF7F5;
+  color: #333;
   text-decoration: none;
+  border: 1px solid rgba(152, 33, 44, 0.65);
 
 
   .recent-user-date {
     display: flex;
     align-items: center;
+    color: #333;
 
     p {
       margin: 0 8px;
@@ -161,6 +168,7 @@ body {
   }
 
   .recent-name-rating {
+    color:#333;
     display: flex;
     justify-content: space-between;
 
@@ -184,7 +192,7 @@ body {
     }
 
     .review-form-data{
-      color: #FF0000;
+      color: #333;
     }
     .review-card-rating {
       display: inline-block; /* Keep it inline */
@@ -219,12 +227,16 @@ body {
     justify-content: space-between;
 
     .review-form-data{
-      color: #FF0000;
+      color: #333;
     }
   }
 
   .review-card-content {
+    display: flex;
+    align-items: top;
     text-align: center;
+    background-color: #FBF7F5;
+    color: #333;
 
     p {
       margin-top: 8px;
@@ -238,11 +250,12 @@ body {
 
 .home-about {
   padding: 8px;
-  color: #FBF7F5;
+  color: #333;
+  border-top: 1px solid rgba(152, 33, 44, 0.65);
 
   h1 {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 24px;
     margin-bottom: 8px;
   }
 

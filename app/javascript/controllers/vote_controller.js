@@ -16,7 +16,7 @@ export default class extends Controller {
     const url = form.action;
     const method = form.method.toUpperCase();
 
-    console.log(`Submitting vote: ${method} to ${url}`);
+    
 
     fetch(url, {
       method: method,
@@ -55,10 +55,10 @@ export default class extends Controller {
     const voteButtonHtml = data.vote_exists
       ? `<form class="button_to" action="${data.delete_vote_url}" method="post" data-action="submit->vote#submitVote" data-vote-target="voteButton">
           <input type="hidden" name="_method" value="delete">
-          <button class="vote-button-down" type="submit"><i class="fa-solid fa-sort-down"></i></button>
+          <button class="vote-button-down" type="submit"><i class="fa-solid fa-thumbs-up"></i></button>
         </form>`
       : `<form class="button_to" action="${data.create_vote_url}" method="post" data-action="submit->vote#submitVote" data-vote-target="voteButton">
-          <button class="vote-button-up" type="submit"><i class="fa-solid fa-sort-up"></i></button>
+          <button class="vote-button-up" type="submit"><i class="fa-regular fa-thumbs-up"></i></button>
         </form>`;
 
     this.voteButtonTarget.outerHTML = voteButtonHtml;

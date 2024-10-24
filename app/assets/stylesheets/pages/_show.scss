@@ -3,10 +3,10 @@
   padding: 16px;
   display: flex;
   flex-direction: column;
-  background-color: rgba(152, 33, 44, 0.65);
-  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  background-color: #FBF7F5;
+  // box-shadow: 0 0 4px rgba(0,0,0,0.1);
   margin-top: 16px;
-  color: #FBF7F5;
+  color: #333;
   border-radius: 2px;
 
   img {
@@ -23,8 +23,8 @@
 
     .red-rating-image,
     .half-red-rating-image {
-      width: 20px !important; /* Changed width of the rating image to 20px */
-      height: 20px !important; /* Changed height of the rating image to 20px */
+      width: 28px !important; /* Changed width of the rating image to 20px */
+      height: 28px !important; /* Changed height of the rating image to 20px */
     }
 
     .half-red-rating-image {
@@ -84,24 +84,25 @@
 
   .show-back-btn {
     a {
-      color: #FBF7F5;
+      color: #333;
       text-decoration: none;
     }
   }
 
   .cinema-show-average p {
     margin-bottom: 0;
+    color: #333;
   }
 }
 
 .cinema-review-cards {
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  // box-shadow: 0 0 4px rgba(0,0,0,0.1);
   padding-top: 8px;
   padding-bottom: 16px;
   margin-top: 8px;
-  margin-bottom: 62.67px;
+  margin-bottom: 24px;
 
   .review-profile-pic {
     border-radius: 50%;
@@ -128,23 +129,20 @@
   }
 
   h2 {
-    color: #FBF7F5;
+    color: #333;
     padding-left: 8px;
     margin-bottom: 0;
   }
 
   .cinema-review-card {
     padding: 16px;
-    background-color: rgba(152, 33, 44, 0.65);
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
-    color: #FBF7F5;
+    background-color: #FBF7F5;
+    border: 1px solid rgba(152, 33, 44, 0.65);
+    // box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #333;
     margin-bottom: 0;
     margin-top: 12px;
     line-height: 1.3;
-
-    p {
-      // margin-top: 8px;
-    }
 
     .review-card-media {
       display: flex;
@@ -167,7 +165,7 @@
 
   .cinema-vote-comment {
     display: flex;
-    // justify-content: space-between;
+    justify-content: space-between;
     align-items: start;
     margin-top: 8px;
   }
@@ -178,7 +176,7 @@
 
     .review-vote-count {
       padding-left: 4px;
-      color: #FBF7F5;
+      color: #333;
 
       p {
         margin-bottom: 0;
@@ -208,11 +206,11 @@
 }
 
   .review-comment {
-    color: #FBF7F5;
+    color: #333;
     // margin-top: 6px;
 
     .btn-link {
-      color: #FBF7F5;
+      color: #333;
       text-decoration: none;
       margin: 8px;
       margin-right: 0;

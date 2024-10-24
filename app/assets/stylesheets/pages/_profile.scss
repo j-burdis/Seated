@@ -1,5 +1,5 @@
 .profile-contents {
-  color: #FBF7F5;
+  color: #333;
   padding: 0 16px;
 }
 
@@ -32,11 +32,13 @@
 .profile-bio {
   display: flex;
   align-items: start;
-  background-color: rgba(152, 33, 44, 0.65);
+  background-color: #FBF7F5;
   margin-top: 8px;
   padding: 8px;
   border-radius: 2px;
-  color: #FBF7F5;
+  color: #333;
+  border-bottom: 1px solid rgba(152, 33, 44, 0.65);
+  padding-bottom: 20px;
 
   p {
     margin: 0;
@@ -46,8 +48,8 @@
     width: 100%;
     margin-left: 8px;
     border: 1px solid;
-    border-color: #63151D;
-    color: #FBF7F5;
+    border-color: #FBF7F5;
+    color: #333;
   }
 }
 
@@ -59,7 +61,7 @@
 
   .edit-profile {
     text-decoration: none;
-    color: #FBF7F5;
+    color: #5FD958;
     margin-right: 24px;
     
   }
@@ -71,23 +73,24 @@
 }
 
 .profile-top-picks {
-  margin-top: 24px;
+  margin-top: 16px;
 
   h2 {
-    color: #FBF7F5;
+    color: #333;
   }
 
   .top-pick-card {
     overflow: hidden;
     height: 88px;
-    background-color: rgba(152, 33, 44, 0.65);
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    background-color: #FBF7F5;
+    border: 1px solid rgba(152, 33, 44, 0.65);
+    // box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     padding: 4px;
     margin: 8px 0;
     border-radius: 2px;
-    color: #FBF7F5;
+    color: #333;
     text-decoration: none;
 
     img {
@@ -150,7 +153,8 @@
   }
 
   .cinema-review-card {
-    background-color: rgba(152, 33, 44, 0.65);
+    background-color: #FBF7F5;
+    border: 1px solid rgba(152, 33, 44, 0.65);
     margin: 0;
     margin-bottom: 16px;
   }
@@ -164,36 +168,4 @@
     padding: 0;
     margin-right: 8px;
   }
-
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // padding: 8px;
-
-  // .home-login-btn {
-  //   margin-top: 24px;
-
-  //   .btn-primary {
-  //     display: block;
-  //     color: #FBF7F5;
-  //     background-color: rgb(152, 33, 44);
-  //     border-color: rgb(152, 33, 44);
-  //   }
-  // }
-
-  // .home-signup-btn {
-  //   p {
-  //     text-align: center;
-  //     margin-top: 24px;
-  //     margin-bottom: 4px;
-  //   }
-
-  //   .btn-success {
-  //     display: block;
-  //     color: #FBF7F5;
-  //     background-color: rgb(152, 33, 44);
-  //     border-color: rgb(152, 33, 44);
-
-  //   }
-  // }
 }

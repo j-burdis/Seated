@@ -1,9 +1,9 @@
-.map-main {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), asset-url('background-seats.jpg');
-}
+// .map-main {
+  // background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), asset-url('background-seats.jpg');
+// }
 
 .map-index-search {
-  color: #FBF7F5;
+  color: #333;
   font-size: 20px;
   display: flex;
   flex-direction: column;
@@ -54,7 +54,7 @@
 
 .active {
   background-color: rgba(152, 33, 44, 0.65);
-  color: white;
+  color: #333;
   border-radius: 30px;
 }
 
