@@ -149,7 +149,7 @@ body {
   color: #FBF7F5;
   text-decoration: none;
 
-  
+
   .recent-user-date {
     display: flex;
     align-items: center;
@@ -168,23 +168,50 @@ body {
       margin: 8px 0;
       font-size: 19px;
     }
-  
+
   }
 
-  
+
   .review-card-rating {
     display: flex;
     justify-content: center;
 
     p {
       margin-top: 8px;
-      margin-bottom: 0;
+      margin-bottom: 5px;
       font-size: 18px;
+      padding: 8px;
     }
 
     .review-form-data{
       color: #FF0000;
     }
+    .review-card-rating {
+      display: inline-block; /* Keep it inline */
+      position: relative; /* Set to relative for positioning */
+      margin-top: 1px; /* Change margin to 1px to create space above */
+      z-index: 1; /* Lower z-index so it's behind navbar and header */
+      padding-top: 8px;
+
+      .red-rating-image,
+      .half-red-rating-image {
+        width: 32px !important; /* Changed width of the rating image to 32px */
+        height: 32px !important; /* Changed height of the rating image to 32px */
+        padding-left: 3px;
+      }
+
+      .half-red-rating-image {
+        overflow: hidden; /* Hide overflow */
+        display: inline-block; /* Display inline */
+        clip-path: inset(0 10.4px 0 0); /* Clip 10.4px from the right for 32px images */
+      }
+
+      .review-rating-number {
+        font-size: 12px; /* Changed font size to 12px */
+      }
+    }
+
+
   }
 
   .review-screen-details {
