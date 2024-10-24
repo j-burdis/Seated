@@ -53,14 +53,17 @@
 
 .profile-actions {
   display: flex;
-  flex-direction: column;
-  align-items: start;
+  // flex-direction: column;
+  // align-items: start;
+  font-size: 24px;
+
   .edit-profile {
-    margin-top: 5px;
-    margin-bottom: 5px;
     text-decoration: none;
     color: #FBF7F5;
+    margin-right: 24px;
+    
   }
+
   .log-out {
     text-decoration: none;
     color: #ff0000;
