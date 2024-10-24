@@ -171,13 +171,25 @@
     margin-top: 8px;
   }
 
+  .review-comment h3 {
+    display: flex;
+    align-items: center;
+  }
+
+  .comment-count {
+    font-size: 16px;
+    color: #333;
+    margin-left: 8px;
+  }
+
   .review-vote {
     display: flex;
     align-items: center;
 
     .review-vote-count {
-      padding-left: 4px;
+      margin-left: 8px;
       color: #333;
+      font-size: 16px;
 
       p {
         margin-bottom: 0;

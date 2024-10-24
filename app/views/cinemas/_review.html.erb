@@ -131,7 +131,7 @@
         <% end %>
       </div>
       <div class="review-vote-count">
-        <p data-vote-target="voteCount"> <strong>(<%= review.votes.count %>)</strong> </p>
+        <p data-vote-target="voteCount">(<%= review.votes.count %>)</p>
       </div>
 
     </div>
@@ -145,7 +145,7 @@
           
           <%= turbo_stream_from "review_#{review.id}_comments" %>
 
-          <span id="comment-count-<%= review.id %>">
+          <span class="comment-count" id="comment-count-<%= review.id %>">
             (<%= review.comments.count %>)
           </span>
 
