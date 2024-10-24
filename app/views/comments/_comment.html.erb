@@ -4,8 +4,8 @@
   <div class="comment-time-delete">
     <p class="mb-0"><small><%= time_ago_in_words(comment.created_at) %> ago</small></p>
     <%# message.created_at.strftime("%a %b %e at %l:%M %p") %>
-    <% if comment.user == user %>
-      <%= button_to 'Delete', [comment.review.cinema, comment.review, comment], method: :delete, class: 'btn btn-danger btn-sm ms-2' %>
-    <% end %>
+    <%# <% if comment.user == user %>
+      <%# <%= button_to 'Delete', [comment.review.cinema, comment.review, comment], method: :delete, class: 'btn btn-danger btn-sm ms-2' %>
+    <%# <% end %>
   </div>
 </div>
