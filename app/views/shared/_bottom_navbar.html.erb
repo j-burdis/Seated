@@ -31,10 +31,16 @@
         <span class="notification-dot"><i class="fa-solid fa-circle"></i></span>
       <% end %>
     <% end %>
-    
+
     <%#  Profile buton %>
     <%= link_to profile_path, class: "bottom_navbar-link" do %>
-      <i class="fas fa-user"></i>
+      <% if current_user.profile_picture.attached? %>
+        <%= cl_image_tag current_user.profile_picture.key, alt: "Profile picture", class: "bottom_navbar-profile-pic" %>
+      <% else %>
+        <i class="fas fa-user"></i>
+      <% end %>
+    <%# <%= link_to profile_path, class: "bottom_navbar-link" do %>
+      <%# <i class="fas fa-user"></i> %>
     <% end %>
 
 
