@@ -12,7 +12,7 @@ class Comment < ApplicationRecord
   private
 
   def broadcast_comment
-    broadcast_append_to "review_#{review.id}_comments",
+    broadcast_prepend_to "review_#{review.id}_comments",
                         target: "comments-#{review.id}",
                         partial: "comments/comment",
                         locals: { comment: self, user: user }

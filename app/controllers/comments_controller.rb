@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     if @comment.save
       respond_to do |format|
         format.turbo_stream do
-          render turbo_stream: turbo_stream.append("comments-#{@comment.review.id}".to_sym,
+          render turbo_stream: turbo_stream.prepend("comments-#{@comment.review.id}".to_sym,
                                                    partial: "comments/comment",
                                                    locals: { comment: @comment, user: current_user })
         end
