@@ -1,6 +1,11 @@
 <div class="cinema-review-card">
   <div class="recent-user-date">
-    <%= image_tag('profile-icon.jpg', alt: 'Profile picture', class: 'review-profile-pic')%>
+    <% if current_user.profile_picture.attached? %>
+      <%= cl_image_tag current_user.profile_picture.key, class: "review-profile-pic" %>
+    <% else %>
+      <%= image_tag "profile-icon.jpg", alt: "Profile picture", class: "review-profile-pic" %>
+    <% end %>
+    <%# <%= image_tag('profile-icon.jpg', alt: 'Profile picture', class: 'review-profile-pic')%>
     <p><%= review.user.username %></p>
   </div>
   <div class="recent-name-rating">
@@ -89,14 +94,14 @@
       <div class="review-vote" data-controller="vote">
         <div class="review-vote-arrow">
           <% if current_user.votes.exists?(review: review) %>
-            <%= form_with url: cinema_review_vote_path(cinema, review, review.votes.find_by(user: current_user)), 
-                    method: :delete, class: 'button_to', 
+            <%= form_with url: cinema_review_vote_path(cinema, review, review.votes.find_by(user: current_user)),
+                    method: :delete, class: 'button_to',
                     data: { action: "submit->vote#submitVote", vote_target: "voteButton" }, local: false do %>
               <button class="vote-button-down" type="submit"><i class="fa-solid fa-sort-down"></i></button>
             <% end %>
           <% else %>
-            <%= form_with url: cinema_review_votes_path(cinema, review), 
-                    method: :post, class: 'button_to', 
+            <%= form_with url: cinema_review_votes_path(cinema, review),
+                    method: :post, class: 'button_to',
                     data: { action: "submit->vote#submitVote", vote_target: "voteButton" }, local: false do %>
               <button class="vote-button-up" type="submit"><i class="fa-solid fa-sort-up"></i></button>
             <% end %>
