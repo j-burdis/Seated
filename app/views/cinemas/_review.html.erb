@@ -1,7 +1,7 @@
 <div class="cinema-review-card">
   <div class="recent-user-date">
-    <% if current_user.profile_picture.attached? %>
-      <%= cl_image_tag current_user.profile_picture.key, class: "review-profile-pic" %>
+    <% if review.user.profile_picture.attached? %>
+      <%= cl_image_tag review.user.profile_picture.key, class: "review-profile-pic" %>
     <% else %>
       <%= image_tag "profile-icon.jpg", alt: "Profile picture", class: "review-profile-pic" %>
     <% end %>

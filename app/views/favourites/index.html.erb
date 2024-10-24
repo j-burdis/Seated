@@ -9,7 +9,11 @@
 
           <div class="favourite-cinema-cards">
             <div class="home-top-picks" id="favourites">
-              <%= render "favourites/list", favourites: @favourites %>
+              <% if @favourites.empty? %>
+                <p class="no-favourite-message">It's awful quiet...</p>
+              <% else %>
+                <%= render "favourites/list", favourites: @favourites %>
+              <% end %>
             </div>
           </div>
 
