@@ -178,8 +178,9 @@ body {
 
     p {
       margin-top: 8px;
-      margin-bottom: 0;
+      margin-bottom: 5px;
       font-size: 18px;
+      padding: 8px;
     }
 
     .review-form-data{
@@ -190,11 +191,13 @@ body {
       position: relative; /* Set to relative for positioning */
       margin-top: 1px; /* Change margin to 1px to create space above */
       z-index: 1; /* Lower z-index so it's behind navbar and header */
+      padding-top: 8px;
 
       .red-rating-image,
       .half-red-rating-image {
         width: 32px !important; /* Changed width of the rating image to 32px */
         height: 32px !important; /* Changed height of the rating image to 32px */
+        padding-left: 3px;
       }
 
       .half-red-rating-image {
