@@ -81,6 +81,11 @@
 .profile-top-picks {
   margin-top: 16px;
 
+  .no-review-message {
+    text-align: center;
+    color: #333;
+  }
+
   h2 {
     color: #333;
   }
@@ -148,21 +153,14 @@
 }
 
 .profile-past-reviews {
-  margin-top: 24px;
-
-  h3 {
-    color: #FBF7F5;
+  h2 {
+    margin-bottom: 8px;
+    margin-left: 0;
   }
 
-  a {
-    text-decoration: none;
-  }
-
-  .cinema-review-card {
-    background-color: #FBF7F5;
-    border: 1px solid rgba(152, 33, 44, 0.65);
-    margin: 0;
-    margin-bottom: 16px;
+  .no-review-message {
+    text-align: center;
+    color: #333;
   }
 }
 

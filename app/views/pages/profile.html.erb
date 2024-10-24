@@ -82,16 +82,21 @@
                 <% end %>
               <% end %>
             <% else %>
-              <p>You haven't reviewed any cinemas yet.</p>
+              <p class="no-review-message">Go on, review something...</p>
             <% end %>
           </div>
 
-          <div class="cinema-review-cards">
-            <h3> Your reviews </h3>
-            <% current_user.reviews.order(created_at: :desc).each do |review| %>
-                <%= link_to render(partial: 'cinemas/review', locals: { review: review, cinema: review.cinema }), cinema_path(review.cinema) %>
-            <% end %>
-          </div>
+          <div class="profile-past-reviews">
+            <div class="cinema-review-cards">
+              <h2> Your reviews </h2>
+              <% if current_user.reviews.empty? %>
+                <p class="no-review-message">We're all waiting for it...</p>
+              <% else %>
+                <% current_user.reviews.order(created_at: :desc).each do |review| %>
+                    <%= link_to render(partial: 'cinemas/review', locals: { review: review, cinema: review.cinema }), cinema_path(review.cinema) %>
+                <% end %>
+              <% end %>
+            </div>
         </div>
       </div>
     </div>
