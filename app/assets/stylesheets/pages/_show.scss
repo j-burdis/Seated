@@ -171,13 +171,30 @@
     margin-top: 8px;
   }
 
+  .review-comment h3 {
+    display: flex;
+    align-items: center;
+  }
+
+  .comment-count-container {
+    font-size: 15px;
+    color: #333;
+    margin-left: 8px;
+    margin-bottom: 2px;
+  }
+
+  .live-comment-form {
+    margin-bottom: 8px;
+  }
+
   .review-vote {
     display: flex;
     align-items: center;
 
     .review-vote-count {
-      padding-left: 4px;
+      margin-left: 8px;
       color: #333;
+      font-size: 16px;
 
       p {
         margin-bottom: 0;
@@ -198,7 +215,7 @@
     .vote-button-down i, .vote-button-up i {
       margin: 0;
       padding: 0;
-      font-size: 40px;
+      font-size: 36px;
       text-align: center;
       display: inline-block;
       background: none;

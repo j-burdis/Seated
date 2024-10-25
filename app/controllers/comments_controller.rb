@@ -10,9 +10,14 @@ class CommentsController < ApplicationController
     if @comment.save
       respond_to do |format|
         format.turbo_stream do
-          render turbo_stream: turbo_stream.prepend("comments-#{@comment.review.id}".to_sym,
-                                                   partial: "comments/comment",
-                                                   locals: { comment: @comment, user: current_user })
+          render turbo_stream: [
+            turbo_stream.prepend("comments-#{@comment.review.id}".to_sym,
+                                 partial: "comments/comment",
+                                 locals: { comment: @comment, user: current_user }),
+            turbo_stream.replace("comment-count-#{@comment.review.id}".to_sym,
+                                 partial: "comments/comment_count",
+                                 locals: { review: @review })
+          ]
         end
         format.html { redirect_to cinema_path(@cinema) }
       end
