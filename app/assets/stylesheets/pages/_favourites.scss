@@ -20,7 +20,6 @@
     height: 88px;
     background-color: #FBF7F5;
     border: 1px solid rgba(152, 33, 44, 0.65);
-    // box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     padding: 4px;
@@ -48,7 +47,7 @@
 
     .top-pick-details {
       margin-left: 8px;
-      width: calc(100% - 80px);
+      width: calc(100% - 80px);  
     }
 
     .favourite-name-delete {
@@ -69,29 +68,6 @@
         color:#FF0000;
         background:#FBF7F5;
       }
-
-      .homepage-average-rating {
-        display: inline-block;
-        position: relative;
-        margin-top: 1px;
-      }
-
-      .homepage-average-rating .red-rating-image,
-      .homepage-average-rating .half-red-rating-image {
-        width: 15px;
-        height: 15px;
-      }
-
-      .homepage-average-rating .half-red-rating-image {
-        overflow: hidden;
-        display: inline-block;
-        clip-path: inset(0 10px 0 0); /* Clip 10px from the right */
-      }
-
-      .homepage-average-rating .average-rating-number {
-        font-size: 10px;
-      }
-
     }
   }
 }
