@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
+
   root to: "pages#home"
-  get "profile", to: "pages#profile"
+  get "profile", to: "pages#profile", as: :profile
   get "map", to: "pages#map"
 
   resources :cinemas, only: [:index, :show] do

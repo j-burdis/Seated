@@ -1,6 +1,8 @@
 class CinemasController < ApplicationController
+  # skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_cinema, only: [:show]
-  def index
+
+  def index # rubocop:disable Metrics/MethodLength
     if params[:query].present?
       @cinemas = Cinema.search_by_name_and_address(params[:query])
                        .order(Arel.sql("COALESCE(average_rating, 0) DESC"))

@@ -86,26 +86,26 @@
   </div>
   <div class="review-rating-scale">
 
-      <div class="review-card-rating">
-        <% if review.rating.present? %>
-          <% rounded_rating = review.rating.floor %>
-          <% partial_rating = (review.rating % 1).round(1) %>
+    <div class="review-card-rating">
+      <% if review.rating.present? %>
+        <% rounded_rating = review.rating.floor %>
+        <% partial_rating = (review.rating % 1).round(1) %>
 
-          <% # Render the full rating images as red rating images %>
-          <% rounded_rating.times do %>
-            <%= image_tag 'seated-emoji.png', alt: 'Red Rating Emoji', class: 'red-rating-image' %>
-          <% end %>
-
-          <% # Render the half image as a half red rating image %>
-          <% if partial_rating >= 0.5 %>
-            <%= image_tag 'seated-emoji.png', alt: 'Half Red Rating Emoji', class: 'half-red-rating-image' %>
-          <% end %>
-
-          <span class="review-rating-number">(<%= review.rating.round(1) %>/5)</span>
-        <% else %>
-          <span class="review-rating-number">No rating provided</span>
+        <% # Render the full rating images as red rating images %>
+        <% rounded_rating.times do %>
+          <%= image_tag 'seated-emoji.png', alt: 'Red Rating Emoji', class: 'red-rating-image' %>
         <% end %>
-      </div>
+
+        <% # Render the half image as a half red rating image %>
+        <% if partial_rating >= 0.5 %>
+          <%= image_tag 'seated-emoji.png', alt: 'Half Red Rating Emoji', class: 'half-red-rating-image' %>
+        <% end %>
+
+        <span class="review-rating-number">(<%= review.rating.round(1) %>/5)</span>
+      <% else %>
+        <span class="review-rating-number">No rating provided</span>
+      <% end %>
+    </div>
 
   </div>
 

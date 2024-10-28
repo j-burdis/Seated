@@ -1,5 +1,4 @@
 class FavouritesController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_cinema, only: %i[create destroy]
 
   def index
@@ -15,18 +14,15 @@ class FavouritesController < ApplicationController
         # render json: { success: true, new_action: cinema_favourite_path(@cinema, @favourite), new_method: "delete" }
         # end
       else
-        format.html { redirect_to cinema_path(@cinema) }
+        format.html { redirect_to cinema_path(@cinema), alert: 'Could not create comment.' }
         # format.json { render json: { success: false } }
       end
     end
   end
 
-  def destroy
-    puts "************************"
-    puts "************************"
-    puts "************************"
-    puts request.referrer
-    puts params
+  def destroy # rubocop:disable Metrics/MethodLength
+    # puts request.referrer
+    # puts params
     @favourites = current_user.favourites
     # raise
     @favourite = current_user.favourites.find_by(cinema: @cinema)
@@ -35,11 +31,10 @@ class FavouritesController < ApplicationController
         format.turbo_stream do
           render turbo_stream: turbo_stream.update(:favourites, partial: "favourites/favourite_list", locals: { favourites: @favourites })
         end
-
         format.html { params[:show] ? (redirect_to cinema_path(@cinema)) : favourites_path }
         # format.json { render json: { success: true, new_action: cinema_favourites_path(@cinema), new_method: "post" } }
       else
-        format.html { redirect_to favourites_path, alert: 'Could not remove cinema from favourites.' }
+        format.html { redirect_to favourites_path, alert: 'Could not remove comment.' }
         # format.json { render json: { success: false } }
       end
     end
