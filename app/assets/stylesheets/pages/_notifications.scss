@@ -22,8 +22,14 @@
   transition: background-color 0.3s ease;
 }
 
-.notification-unread {
-  background-color: #FBF7F5;
+/* General Notification Styles */
+.notification-unread,
+.notification-read {
+  background-color: #d1cecd;
+  
+  &.notification-unread {
+    background-color: #FBF7F5;
+  }
 
   .notification-index-details {
     p {
@@ -31,8 +37,6 @@
       margin-left: 8px;
 
       a {
-        color: #333;
-        text-decoration: none;
         font-size: 16.5px;
       }
     }
@@ -47,17 +51,15 @@
 
     p {
       margin-right: auto;
-      margin-bottom: 0;
-      margin-top: 0;
-      margin-left: 8px;
+      margin: 0 0 0 8px;
     }
 
     .notification-index-buttons {
       display: flex;
       margin-left: auto;
 
-      
-      .mark-as-read, .delete-notification {
+      .mark-as-read,
+      .delete-notification {
         background: transparent;
         border: none;
         font-size: 24px;
@@ -71,52 +73,6 @@
 
       .delete-notification {
         color: #3333;
-      }
-    }
-  }
-}
-
-.notification-read {
-  background-color: #d1cecd;
-
-  .notification-index-details {
-    p {
-      margin: 0;
-      margin-left: 8px;
-
-      a {
-        color: #333;
-        text-decoration: none;
-        font-size: 16.5px; 
-      }
-    }
-  }
-
-  .notification-index-actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-top: 2px;
-
-    p {
-      margin-right: auto;
-      margin-bottom: 0;
-      margin-top: 0;
-      margin-left: 8px;
-    }
-
-    .notification-index-buttons {
-      display: flex;
-      margin-left: auto;
-
-      .mark-as-read, .delete-notification {
-        background: transparent;
-        border: none;
-        color: #333;
-        font-size: 24px;
-        padding-right: 16px;
-        transition: color 0.3s ease;
       }
     }
   }

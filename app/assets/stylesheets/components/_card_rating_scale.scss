@@ -1,129 +1,52 @@
-.cinema-card-extras {
-  .cinema-list-average-rating {
-    display: inline-block; /* Keep it inline */
-    position: relative; /* Set to relative for positioning */
-    margin-top: 1px; /* Change margin to 1px to create space above */
-    z-index: 1; /* Lower z-index so it's behind navbar and header */
+/* Small Rating Styles for Home and Profile Pages */
+.small-rating {
+  display: inline-block;
 
-    .red-rating-image {
-      width: 20px; /* Changed width of the red rating image to 20px */
-      height: 20px; /* Changed height of the red rating image to 20px */
-    }
-
-    .half-red-rating-image {
-      width: 20px; /* Changed width of the half red rating image to 20px */
-      height: 20px; /* Changed height of the half red rating image to 20px */
-      overflow: hidden; /* Hide overflow */
-      display: inline-block; /* Display inline */
-      clip-path: inset(0 9.5px 0 0); /* Clip 6.5px from the right */
-    }
-
-    .average-rating-number {
-      font-size: 15px; /* Changed font size to 10px */
-    }
+  .red-rating-image, 
+  .half-red-rating-image {
+    width: 20px;
+    height: 20px;
   }
-}
 
-/* favourite page */
-.favourite-cinema-cards .top-pick-details {
-  .cinema-average-rating {
+  .half-red-rating-image {
     display: inline-block;
-    position: relative;
-    margin-top: 1px;
-  
-    .red-rating-image,
-    .half-red-rating-image {
-      width: 15px;
-      height: 15px;
-    }
-  
-    .half-red-rating-image {
-      overflow: hidden;
-      display: inline-block;
-      clip-path: inset(0 9.5px 0 0); // Clip 10px from the right
-    }
-  
-    .average-rating-number {
-      font-size: 10px;
-    }
+    clip-path: inset(0 9.5px 0 0);
+  }
+
+  .average-rating-number {
+    font-size: 12px;
   }
 }
 
-/* home page */
-.home-top-picks .top-pick-details {
-  .cinema-average-rating {
+/* Apply .small-rating class to specific components */
+.home-top-picks .top-pick-details .cinema-average-rating,
+.profile-top-picks .cinema-average-rating {
+  @extend .small-rating;
+}
+
+/* Large Rating Styles for Results and Show Page */
+.large-rating {
+  display: inline-block;
+  position: relative;
+
+  .red-rating-image,
+  .half-red-rating-image {
+    width: 28px;
+    height: 28px;
+  }
+
+  .half-red-rating-image {
     display: inline-block;
-    // position: relative;
-    // z-index: 1;
+    clip-path: inset(0 13.5px 0 0);
+  }
 
-    .red-rating-image {
-      width: 20px;
-      height: 20px;
-    }
-
-    .half-red-rating-image {
-      width: 20px;
-      height: 20px;
-      overflow: hidden;
-      display: inline-block;
-      clip-path: inset(0 9.5px 0 0);
-    }
-
-    .average-rating-number {
-      font-size: 12px;
-    }
+  .average-rating-number {
+    font-size: 16px;
   }
 }
 
-/* show page */
-.cinema-show-card {
-  .cinema-average-rating {
-    display: inline-block; /* Keep it inline */
-    position: relative; /* Set to relative for positioning */
-    margin-top: 1px; /* Change margin to 1px to create space above */
-    z-index: 1; /* Lower z-index so it's behind navbar and header */
-
-    .red-rating-image,
-    .half-red-rating-image {
-      width: 28px !important; /* Changed width of the rating image to 20px */
-      height: 28px !important; /* Changed height of the rating image to 20px */
-    }
-
-    .half-red-rating-image {
-      overflow: hidden; /* Hide overflow */
-      display: inline-block; /* Display inline */
-      clip-path: inset(0 6.5px 0 0); /* Clip 6.5px from the right */
-    }
-
-    .average-rating-number {
-      font-size: 12px; /* Changed font size to 12px */
-    }
-  }
-}
-
-/* profile page */
-.profile-top-picks {
-  .cinema-average-rating {
-    display: inline-block; /* Keep it inline */
-    position: relative; /* Set to relative for positioning */
-    margin-top: 1px; /* Change margin to 1px to create space above */
-    z-index: 1; /* Lower z-index so it's behind navbar and header */
-
-    .red-rating-image {
-      width: 20px; /* Changed width of the red rating image to 20px */
-      height: 20px; /* Changed height of the red rating image to 20px */
-    }
-
-    .half-red-rating-image {
-      width: 20px; /* Changed width of the half red rating image to 20px */
-      height: 20px; /* Changed height of the half red rating image to 20px */
-      overflow: hidden; /* Hide overflow */
-      display: inline-block; /* Display inline */
-      clip-path: inset(0 9.5px 0 0); /* Clip 6.5px from the right */
-    }
-
-    .average-rating-number {
-      font-size: 12px; /* Changed font size to 10px */
-    }
-  }
+/* Apply .large-rating class to specific components */
+.cinema-card-extras .cinema-list-average-rating,
+.cinema-show-card .cinema-average-rating {
+  @extend .large-rating;
 }

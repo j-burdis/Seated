@@ -19,15 +19,14 @@ body {
   flex-direction: column;
   justify-content: center;
   padding: 0 16px;
+  color: #333;
 }
 
 .home-welcome-message {
-  color: #333;
   margin-top: 16px;
 }
 
 .home-top-picks {
-  color: #333;
 
   .top-pick-card {
     overflow: hidden;
@@ -70,7 +69,6 @@ body {
   text-align: center;
 
   h1 {
-  color: #333;
   font-size: 28px;
   margin-top: 24px;
   }
@@ -92,24 +90,11 @@ body {
   }
 }
 
-.home-recent-reviews {
-  margin-top: 16px;
-
-  h2 {
-    color: #333;
-  }
-
-  a {
-    text-decoration: none;
-  }
-}
-
 .cinema-review-card {
   padding: 8px 16px;
   margin-bottom: 12px;
   background-color: #FBF7F5;
   margin: 8px 0;
-  color: #333;
   text-decoration: none;
   border: 1px solid rgba(152, 33, 44, 0.65);
 
@@ -123,7 +108,6 @@ body {
   .review-card-user {
     display: flex;
     align-items: center;
-    color: #333;
 
     p {
       margin: 0 8px;
@@ -132,7 +116,6 @@ body {
   }
 
   .review-name-date {
-    color:#333;
     display: flex;
     justify-content: space-between;
 
@@ -158,10 +141,6 @@ body {
       border-radius: 10px;
       margin-right: 10px;
     }
-
-    .review-form-data{
-      color: #333;
-    }
   }
 
   .review-card-content {
@@ -169,7 +148,6 @@ body {
     align-items: start;
     text-align: center;
     background-color: #FBF7F5;
-    color: #333;
 
     p {
       margin-top: 8px;
@@ -189,29 +167,24 @@ body {
       padding: 8px;
     }
 
-    .review-form-data{
-      color: #333;
-    }
-
     .review-card-rating {
       display: inline-block;
       padding-top: 8px;
 
       .red-rating-image,
       .half-red-rating-image {
-        width: 32px !important; /* Changed width of the rating image to 32px */
-        height: 32px !important; /* Changed height of the rating image to 32px */
+        width: 32px; 
+        height: 32px;
         padding-left: 3px;
       }
 
       .half-red-rating-image {
-        overflow: hidden; /* Hide overflow */
-        display: inline-block; /* Display inline */
-        clip-path: inset(0 9.5px 0 0); /* Clip 10.4px from the right for 32px images */
+        display: inline-block;
+        clip-path: inset(0 13.5px 0 0);
       }
 
       .review-rating-number {
-        font-size: 12px; /* Changed font size to 12px */
+        font-size: 12px;
       }
     }
   }
@@ -219,7 +192,6 @@ body {
 
 .home-about {
   padding: 8px;
-  color: #333;
   border-top: 1px solid rgba(152, 33, 44, 0.65);
   text-align: center;
 
