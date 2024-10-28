@@ -7,6 +7,8 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
+      Rails.logger.debug "Current User: #{current_user.id}, Comment User: #{@comment.user.id}"
+
       respond_to do |format|
         format.turbo_stream do
           render turbo_stream: [
@@ -25,12 +27,29 @@ class CommentsController < ApplicationController
     end
   end
 
-  def destroy
+  def destroy # rubocop:disable Metrics/MethodLength
     @comment = Comment.find(params[:id])
+
+    Rails.logger.debug "Current User: #{current_user.id}, Comment User: #{@comment.user.id}"
+
     if @comment.user == current_user
       # || current_user.admin?
       @comment.destroy
-      redirect_to cinema_path(@cinema), notice: 'Comment removed'
+
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.remove("comment-#{@comment.id}"),
+            # turbo_stream.replace("comment-#{@comment.id}",
+            #                      partial: "comments/comment_deleted",
+            #                      locals: { comment: @comment }),
+            turbo_stream.replace("comment-count-#{@review.id}",
+                                 partial: "comments/comment_count",
+                                 locals: { review: @review })
+          ]
+        end
+        format.html { redirect_to cinema_path(@cinema), notice: 'Comment removed' }
+      end
     else
       redirect_to cinema_path(@cinema), alert: 'Could not remove comment'
     end
