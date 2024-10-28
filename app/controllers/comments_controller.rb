@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_review, only: %i[create destroy]
   before_action :set_cinema, only: %i[create destroy]
 

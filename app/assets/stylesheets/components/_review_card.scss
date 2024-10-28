@@ -1,0 +1,260 @@
+.cinema-review-cards {
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+  padding-bottom: 16px;
+  margin-top: 8px;
+  margin-bottom: 24px;
+
+  h2 {
+    color: #333;
+    padding-left: 8px;
+    margin-bottom: 0;
+  }
+
+  .cinema-review-card {
+    color: #333;
+    padding: 8px 16px;
+    margin-bottom: 12px;
+    background-color: #FBF7F5;
+    margin: 8px 0;
+    text-decoration: none;
+    border: 1px solid rgba(152, 33, 44, 0.65);
+
+    .review-card-user {
+      display: flex;
+      align-items: center;
+
+      p {
+        margin: 0 8px;
+        font-size: 18px;
+      }
+    }
+
+    .review-profile-pic {
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      object-fit: cover;
+    }
+
+    .review-name-date {
+      display: flex;
+      justify-content: space-between;
+
+      p {
+        margin: 8px 0;
+        font-size: 19px;
+      }
+    }
+
+    .review-screen-details {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      p {
+        font-size: 20px;
+        margin-bottom: 0;
+      }
+
+      .review-icon-class {
+        width: 32px;
+        height: auto;
+        border-radius: 10px;
+        margin-right: 10px;
+      }
+    }
+
+    .review-card-content {
+      display: flex;
+      align-items: start;
+      text-align: center;
+      background-color: #FBF7F5;
+
+      p {
+        margin-top: 8px;
+        margin-bottom: 0;
+        font-size: 18px;
+      }
+    }
+
+    .img-thumbnail {
+      background-color: transparent;
+      border: none;
+    }
+    .review-image {
+      display: block;
+      padding: 4px;
+      border-radius: 8px;
+      margin-right: 8px;
+      margin-top: 8px;
+    }
+
+    .review-rating-scale {
+      display: flex;
+      justify-content: center;
+
+      p {
+        margin-top: 8px;
+        margin-bottom: 5px;
+        font-size: 18px;
+        padding: 8px;
+      }
+
+      .review-card-rating {
+        display: inline-block;
+        padding-top: 8px;
+
+        .red-rating-image,
+        .half-red-rating-image {
+          width: 32px; 
+          height: 32px;
+          padding-left: 3px;
+        }
+
+        .half-red-rating-image {
+          display: inline-block;
+          clip-path: inset(0 13.5px 0 0);
+        }
+
+        .review-rating-number {
+          font-size: 12px;
+        }
+      }
+    }
+
+    .cinema-vote-comment {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-top: 8px;
+    }
+
+    .review-comment h3 {
+      display: flex;
+      align-items: center;
+    }
+
+    .comment-count-container {
+      font-size: 15px;
+      color: #333;
+      margin-left: 8px;
+      margin-bottom: 2px;
+    }
+
+    .live-comment-form {
+      margin-bottom: 8px;
+    }
+
+    .review-vote {
+      display: flex;
+      align-items: center;
+
+      .review-vote-count {
+        margin-left: 8px;
+        color: #333;
+        font-size: 16px;
+
+        p {
+          margin-bottom: 0;
+        }
+      }
+
+      .vote-button-down, .vote-button-up {
+        color: #FF0000;
+        padding: 0;
+        background-color: transparent;
+        border: none;
+      }
+
+      .vote-button-up i {
+        margin-top: 8px;
+      }
+
+      .vote-button-down i, .vote-button-up i {
+        margin: 0;
+        padding: 0;
+        font-size: 36px;
+        text-align: center;
+        display: inline-block;
+        background: none;
+        border: none;
+      }
+    }
+
+    .review-comment {
+      color: #333;
+
+      .btn-link {
+        color: #333;
+        text-decoration: none;
+        margin: 8px;
+        margin-right: 0;
+        padding: 0;
+      }
+
+      h3 {
+        font-size: 20px;
+        margin-bottom: 0;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+
+      .form-floating {
+        color: #333;
+        font-size: 12px;
+        width: 100%;
+        margin-left: auto;
+      }
+
+      .form-control {
+        min-height: 0;
+        height: 50px;
+        font-size: 12px;
+
+      }
+
+      .btn-primary {
+        color: #FBF7F5;
+        background-color: #FF0000;
+        border-color: #FF0000;
+        font-size: 12px;
+        padding: 4px 8px;
+        height: 50px;
+
+      }
+
+      .comment-time-delete {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+
+        .btn {
+          padding: 4px 14px;
+          font-size: 12px;
+          color: #FBF7F5;
+          background-color: #FF0000;
+          border-color: #FF0000;
+        }
+      }
+    }
+
+    .hidden {
+      display: none;
+      height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+    }
+    
+    .comments {
+      height: auto;
+      opacity: 1;
+      transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+    }
+  }
+}

@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
-  # skip_before_action :authenticate_user!, only: [:home]
+  # skip_before_action :authenticate_user!, only: %i[home map]
+
   def map # rubocop:disable Metrics/MethodLength
     if params[:query].present?
       @cinemas = Cinema.search_by_name_and_address(params[:query])
