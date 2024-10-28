@@ -16,7 +16,7 @@ class Comment < ApplicationRecord
     broadcast_prepend_to "review_#{review.id}_comments",
                          target: "comments-#{review.id}",
                          partial: "comments/comment",
-                         locals: { comment: self, user: user }
+                         locals: { comment: self, user: self.user }
   end
 
   def broadcast_comment_count
