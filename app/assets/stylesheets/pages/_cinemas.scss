@@ -18,6 +18,10 @@
     width: 100%;
     padding-top: 12px;
 
+    h2 {
+      margin: 4px 0;
+    }
+
     .form-control {
       padding: 0.375rem 1rem;
     }
@@ -39,7 +43,6 @@
     display: flex;
     justify-content: center;
     background-color: rgba(162, 158, 158, 0.206);
-    padding: 4px;
     width: 100%;
     border-radius: 30px;
   }

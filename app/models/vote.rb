@@ -10,6 +10,8 @@ class Vote < ApplicationRecord
   private
 
   def notify_review_owner
+    return if user == review.user
+
     Notification.create(
       user: review.user,
       vote_id: self.id,
