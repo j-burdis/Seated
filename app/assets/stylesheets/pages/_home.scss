@@ -5,72 +5,33 @@ body {
 
 .home-banner {
   // background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url('background-seats.jpg');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  height: 100%;
-  width: 100%;
+  // background-size: cover;
+  // background-position: center center;
+  // background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-
-  .home-contents .home-banner-text {
-    text-align: center;
-
-    h1 {
-    color: #333;
-    font-size: 28px;
-    // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    margin-top: 24px;
-    }
-
-    .seated-banner-text {
-      font-family: $logo-font;
-      font-weight: 700;
-    }
-
-    a {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #FF0000;
-      border-radius: 5px;
-      color: #FBF7F5;
-      font-family: $logo-font;
-      font-size: 24px;
-      // text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-      text-decoration: none;
-      margin: 16px 0;
-    }
-  }
 }
 
 .home-contents {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // background-color: rgb(152, 33, 44);
   padding: 0 16px;
+  color: #333;
 }
 
 .home-welcome-message {
-  color: #333;
   margin-top: 16px;
 }
 
 .home-top-picks {
-  color: #333;
-
-  h2 {
-    color: #333;
-  }
 
   .top-pick-card {
     overflow: hidden;
     height: 104px;
     background-color: #FBF7F5;
-    // box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(152, 33, 44, 0.65);
     display: flex;
     align-items: center;
@@ -86,80 +47,67 @@ body {
       object-fit: cover;
     }
 
-    h4 {
-      font-size: 16px;
-      margin: 0;
-    }
-
-    p {
-      font-size: 12px;
-      line-height: 1.4;
-      margin-bottom: 0;
-      margin-top: 4px;
-    }
-
     .top-pick-details {
       margin-left: 8px;
 
-      .homepage-average-rating {
-        display: inline-block; /* Keep it inline */
-        position: relative; /* Set to relative for positioning */
-        margin-top: 1px; /* Change margin to 1px to create space above */
-        z-index: 1; /* Lower z-index so it's behind navbar and header */
-
-        .red-rating-image {
-          width: 20px; /* Changed width of the red rating image to 20px */
-          height: 20px; /* Changed height of the red rating image to 20px */
-        }
-
-        .half-red-rating-image {
-          width: 20px; /* Changed width of the half red rating image to 20px */
-          height: 20px; /* Changed height of the half red rating image to 20px */
-          overflow: hidden; /* Hide overflow */
-          display: inline-block; /* Display inline */
-          clip-path: inset(0 6.5px 0 0); /* Clip 6.5px from the right */
-        }
-
-        .average-rating-number {
-          font-size: 12px; /* Changed font size to 10px */
-        }
+      h4 {
+        font-size: 16px;
+        margin: 0;
+      }
+  
+      p {
+        font-size: 12px;
+        line-height: 1.4;
+        margin-bottom: 0;
+        margin-top: 4px;
       }
     }
   }
 }
 
-.home-recent-reviews {
-  margin-top: 16px;
+.home-contents .home-banner-text {
+  text-align: center;
 
-  h2 {
-    color: #333;
+  h1 {
+  font-size: 28px;
+  margin-top: 24px;
+  }
+
+  .seated-banner-text {
+    font-family: $logo-font;
+    font-weight: 700;
   }
 
   a {
-    text-decoration: none;
-  }
-
-  .cinema-review-card {
-    background-color: #FBF7F5;
-    border: 1px solid rgba(152, 33, 44, 0.65);
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #FF0000;
+    border-radius: 5px;
+    color: #FBF7F5;
+    font-family: $logo-font;
+    font-size: 24px;
+    margin: 16px 0;
   }
 }
 
 .cinema-review-card {
   padding: 8px 16px;
   margin-bottom: 12px;
-  // box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
   background-color: #FBF7F5;
   margin: 8px 0;
-  color: #333;
   text-decoration: none;
   border: 1px solid rgba(152, 33, 44, 0.65);
 
+  .review-profile-pic {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+  }
 
-  .recent-user-date {
+  .review-card-user {
     display: flex;
     align-items: center;
-    color: #333;
 
     p {
       margin: 0 8px;
@@ -167,8 +115,7 @@ body {
     }
   }
 
-  .recent-name-rating {
-    color:#333;
+  .review-name-date {
     display: flex;
     justify-content: space-between;
 
@@ -176,11 +123,40 @@ body {
       margin: 8px 0;
       font-size: 19px;
     }
-
   }
 
+  .review-screen-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  .review-card-rating {
+    p {
+      font-size: 20px;
+      margin-bottom: 0;
+    }
+
+    .review-icon-class {
+      width: 32px;
+      height: auto;
+      border-radius: 10px;
+      margin-right: 10px;
+    }
+  }
+
+  .review-card-content {
+    display: flex;
+    align-items: start;
+    text-align: center;
+    background-color: #FBF7F5;
+
+    p {
+      margin-top: 8px;
+      margin-bottom: 0;
+      font-size: 18px;
+    }
+  }
+
+  .review-rating-scale {
     display: flex;
     justify-content: center;
 
@@ -191,80 +167,40 @@ body {
       padding: 8px;
     }
 
-    .review-form-data{
-      color: #333;
-    }
     .review-card-rating {
-      display: inline-block; /* Keep it inline */
-      position: relative; /* Set to relative for positioning */
-      margin-top: 1px; /* Change margin to 1px to create space above */
-      z-index: 1; /* Lower z-index so it's behind navbar and header */
+      display: inline-block;
       padding-top: 8px;
 
       .red-rating-image,
       .half-red-rating-image {
-        width: 32px !important; /* Changed width of the rating image to 32px */
-        height: 32px !important; /* Changed height of the rating image to 32px */
+        width: 32px; 
+        height: 32px;
         padding-left: 3px;
       }
 
       .half-red-rating-image {
-        overflow: hidden; /* Hide overflow */
-        display: inline-block; /* Display inline */
-        clip-path: inset(0 10.4px 0 0); /* Clip 10.4px from the right for 32px images */
+        display: inline-block;
+        clip-path: inset(0 13.5px 0 0);
       }
 
       .review-rating-number {
-        font-size: 12px; /* Changed font size to 12px */
+        font-size: 12px;
       }
-    }
-
-
-  }
-
-  .review-screen-details {
-    display: flex;
-    justify-content: space-between;
-
-    .review-form-data{
-      color: #333;
-    }
-  }
-
-  .review-card-content {
-    display: flex;
-    align-items: top;
-    text-align: center;
-    background-color: #FBF7F5;
-    color: #333;
-
-    p {
-      margin-top: 8px;
-      margin-bottom: 0;
-      font-size: 18px;
     }
   }
 }
 
-//
-
 .home-about {
   padding: 8px;
-  color: #333;
   border-top: 1px solid rgba(152, 33, 44, 0.65);
+  text-align: center;
 
   h1 {
-    text-align: center;
     margin-top: 24px;
     margin-bottom: 8px;
   }
 
-  h2 {
-    text-align: center;
-  }
-
   p {
-    text-align: center;
     margin-bottom: 16px;
   }
 }

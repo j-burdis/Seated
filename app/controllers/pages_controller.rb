@@ -47,6 +47,6 @@ class PagesController < ApplicationController
   end
 
   def profile
-    @top_cinemas = current_user.cinemas_by_highest_average_rating
+    @user_top_cinemas = current_user.cinemas_by_highest_average_rating
   end
 end

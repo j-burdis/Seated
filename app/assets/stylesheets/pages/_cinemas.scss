@@ -1,20 +1,16 @@
 .cinema-index-background {
-  // background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), asset-url('background-seats.jpg');
-  background-size: cover;
-  background-position: center top;
-  background-repeat: repeat-y;
   width: 100%;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .cinema-index-contents {
   margin-bottom: 32px;
   padding: 0 16px;
+  color: #333;
 
   .index-search {
-    color: #333;
     font-size: 20px;
     display: flex;
     flex-direction: column;
@@ -66,30 +62,16 @@
     color: inherit;
   }
 
-  h2 {
-    padding-top: 8px;
-    padding-left: 16px;
-    color: #333;
-  }
-
-  a {
-    text-decoration: none;
-    color: #333;
-  }
-
   .cinema-card {
     padding: 16px;
     display: flex;
     flex-direction: column;
     background-color: #FBF7F5;
     border: 1px solid rgba(152, 33, 44, 0.65);
-    // box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
     margin-top: 8px;
-    color: #333;
 
     .cinema-card-location {
       text-align: start;
-
     }
 
     .cinema-card-image {
@@ -105,45 +87,9 @@
 
       p {
         text-align: center;
-        margin-top: 4px;
-        margin-bottom: 0;
-      }
-
-      .cinema-list-average-rating {
-        display: inline-block;
-        /* Keep it inline */
-        position: relative;
-        /* Set to relative for positioning */
-        margin-top: 1px;
-        /* Change margin to 1px to create space above */
-        z-index: 1;
-        /* Lower z-index so it's behind navbar and header */
-
-        .red-rating-image {
-          width: 20px;
-          /* Changed width of the red rating image to 20px */
-          height: 20px;
-          /* Changed height of the red rating image to 20px */
-        }
-
-        .half-red-rating-image {
-          width: 20px;
-          /* Changed width of the half red rating image to 20px */
-          height: 20px;
-          /* Changed height of the half red rating image to 20px */
-          overflow: hidden;
-          /* Hide overflow */
-          display: inline-block;
-          /* Display inline */
-          clip-path: inset(0 6.5px 0 0);
-          /* Clip 6.5px from the right */
-        }
-
-        .average-rating-number {
-          font-size: 15px;
-          /* Changed font size to 10px */
-        }
-      }
+        margin: 4px 0;
+        font-size: 16px;
+      }      
     }
   }
 }

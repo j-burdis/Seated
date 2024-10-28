@@ -12,7 +12,7 @@
               <% if @favourites.empty? %>
                 <p class="no-favourite-message">It's awful quiet...</p>
               <% else %>
-                <%= render "favourites/list", favourites: @favourites %>
+                <%= render "favourites/favourite_list", favourites: @favourites %>
               <% end %>
             </div>
           </div>

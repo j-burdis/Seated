@@ -1,0 +1,52 @@
+/* Small Rating Styles for Home and Profile Pages */
+.small-rating {
+  display: inline-block;
+
+  .red-rating-image, 
+  .half-red-rating-image {
+    width: 20px;
+    height: 20px;
+  }
+
+  .half-red-rating-image {
+    display: inline-block;
+    clip-path: inset(0 9.5px 0 0);
+  }
+
+  .average-rating-number {
+    font-size: 12px;
+  }
+}
+
+/* Apply .small-rating class to specific components */
+.home-top-picks .top-pick-details .cinema-average-rating,
+.profile-top-picks .cinema-average-rating {
+  @extend .small-rating;
+}
+
+/* Large Rating Styles for Results and Show Page */
+.large-rating {
+  display: inline-block;
+  position: relative;
+
+  .red-rating-image,
+  .half-red-rating-image {
+    width: 28px;
+    height: 28px;
+  }
+
+  .half-red-rating-image {
+    display: inline-block;
+    clip-path: inset(0 13.5px 0 0);
+  }
+
+  .average-rating-number {
+    font-size: 16px;
+  }
+}
+
+/* Apply .large-rating class to specific components */
+.cinema-card-extras .cinema-list-average-rating,
+.cinema-show-card .cinema-average-rating {
+  @extend .large-rating;
+}

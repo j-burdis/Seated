@@ -9,7 +9,7 @@
         <% end %>
       </div>
       <p> <%= favourite.cinema.address %> </p>
-      <div class="homepage-average-rating">
+      <div class="cinema-average-rating">
         <% if favourite.cinema.average_rating.present? %>
           <% rounded_rating = favourite.cinema.average_rating.floor %>
           <% partial_rating = (favourite.cinema.average_rating % 1).round(1) %>

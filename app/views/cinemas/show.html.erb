@@ -35,7 +35,7 @@
                 <%# <p> Average rating:  %>
                   <%#= @cinema.average_rating.present? ? @cinema.average_rating.round(1) : 'No reviews yet' %>
                   <%# </p> %>
-                <div class="homepage-average-rating">
+                <div class="cinema-average-rating">
                   <% if @cinema.average_rating.present? %>
                     <% rounded_rating = @cinema.average_rating.floor %>
                     <% partial_rating = (@cinema.average_rating % 1).round(1) %>
@@ -69,9 +69,7 @@
           <h2> Our community </h2>
 
           <% @reviews.each do |review| %>
-            <div class="cinema-review">
               <%= render partial: 'cinemas/review', locals: { review: review, cinema: @cinema } %>
-            </div>
           <% end %>
 
         </div>

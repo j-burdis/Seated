@@ -1,8 +1,4 @@
 <div class="home-banner">
-  <%# <div class="home-banner-text"> %>
-    <%# <h1>We can all be <span class="seated-banner-text">Seated</span></h1> %>
-    <%# <%= link_to "All cinemas", cinemas_path %>
-  <%# </div> %>
 
   <div class="container">
     <div class="row">
@@ -16,40 +12,11 @@
             <%  end %>
           </div>
 
-          <div class="home-top-picks">
-            <h2>Our top picks</h2>
-            <% @best_cinemas.each do |cinema| %>
-              <%= link_to cinema_path(cinema), class: "top-pick-card" do %>
-                <img src="<%= cinema.image_url %>" />
-                <div class="top-pick-details">
-                  <h4> <%= cinema.name %> </h4>
-                  <p> <%= cinema.address %> </p>
-
-                  <div class="homepage-average-rating">
-                    <% if cinema.average_rating.present? %>
-                      <% rounded_rating = cinema.average_rating.floor %>
-                      <% partial_rating = (cinema.average_rating % 1).round(1) %>
-
-                      <% # Render the full rating images as red rating images %>
-                      <% rounded_rating.times do %>
-                        <%= image_tag 'seated-emoji.png', alt: 'Red Rating Emoji', class: 'red-rating-image' %>
-                      <% end %>
-
-                      <% # Render the half image as a half red rating image %>
-                      <% if partial_rating >= 0.5 %>
-                        <%= image_tag 'seated-emoji.png', alt: 'Half Red Rating Emoji', class: 'half-red-rating-image' %>
-                      <% end %>
-
-                      <span class="average-rating-number">(<%= cinema.average_rating.round(1) %>)</span>
-                    <% else %>
-                      <span class="average-rating-number">No reviews yet</span>
-                    <% end %>
-                  </div>
-
-                </div>
-              <% end %>
-            <% end %>
-          </div>
+          <%= render partial: 'cinemas/top_picks', locals: {
+            container_class: 'home-top-picks',
+            heading: 'Our top picks',
+            cinemas: @best_cinemas
+          } %>
 
           <div class="home-banner-text">
             <h1>We can all be <span class="seated-banner-text">Seated</span></h1>
@@ -77,7 +44,9 @@
       </div>
     </div>
   </div>
+
 </div>
+
 <%# Add the necessary JavaScript libraries for the map %>
 <%# <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap", async: true, defer: true %>
 <%# <%= javascript_include_tag "map"  %>

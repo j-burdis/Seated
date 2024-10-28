@@ -20,20 +20,19 @@
               </div>
             </div>
 
-              <div class="profile-actions">
-                
-                <%= link_to edit_user_registration_path, class: "edit-profile" do %>
-                  <i class="fa-solid fa-pen-to-square"></i>
-                <% end %>
+            <div class="profile-actions">
+              
+              <%= link_to edit_user_registration_path, class: "edit-profile" do %>
+                <i class="fa-solid fa-pen-to-square"></i>
+              <% end %>
 
-                <%= button_to destroy_user_session_path, method: :delete, class: "log-out" do %>
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                <% end %>
-              </div>
-
+              <%= button_to destroy_user_session_path, method: :delete, class: "log-out" do %>
+                  <i class="fa-solid fa-right-from-bracket"></i>
+              <% end %>
             </div>
-          </div>
 
+          </div>
+          
           <div class="profile-bio">
             <div>
               <p> Bio: </p>
@@ -43,48 +42,11 @@
             </div>
           </div>
 
-          <div class="profile-top-picks">
-            <h2>Your top rated</h2>
-
-            <% if @top_cinemas.any? %>
-              <% @top_cinemas.each do |cinema| %>
-                <%= link_to cinema_path(cinema), class: "top-pick-card" do %>
-                  <img src="<%= cinema.image_url %>" />
-                  <div class="top-pick-details">
-                    <h4><%= cinema.name %></h4>
-                    <p><%= cinema.address %></p>
-                    <%# <p>Average rating:  %>
-                      <%#= cinema.avg_rating.present? ? cinema.avg_rating.round(2) : 'No reviews yet' %>
-                      <%# </p> %>
-
-                    <div class="homepage-average-rating">
-                    <% if cinema.average_rating.present? %>
-                      <% rounded_rating = cinema.average_rating.floor %>
-                      <% partial_rating = (cinema.average_rating % 1).round(1) %>
-
-                      <% # Render the full rating images as red rating images %>
-                      <% rounded_rating.times do %>
-                        <%= image_tag 'seated-emoji.png', alt: 'Red Rating Emoji', class: 'red-rating-image' %>
-                      <% end %>
-
-                      <% # Render the half image as a half red rating image %>
-                      <% if partial_rating >= 0.5 %>
-                        <%= image_tag 'seated-emoji.png', alt: 'Half Red Rating Emoji', class: 'half-red-rating-image' %>
-                      <% end %>
-
-                      <span class="average-rating-number">(<%= cinema.average_rating.round(1) %>)</span>
-                    <% else %>
-                      <span class="average-rating-number">No reviews yet</span>
-                    <% end %>
-                  </div>
-
-                  </div>
-                <% end %>
-              <% end %>
-            <% else %>
-              <p class="no-review-message">Go on, review something...</p>
-            <% end %>
-          </div>
+          <%= render partial: 'cinemas/top_picks', locals: {
+            container_class: 'profile-top-picks',
+            heading: 'Your top rated',
+            cinemas: @user_top_cinemas
+          } %>
 
           <div class="profile-past-reviews">
             <div class="cinema-review-cards">
@@ -97,6 +59,7 @@
                 <% end %>
               <% end %>
             </div>
+          </div>
         </div>
       </div>
     </div>

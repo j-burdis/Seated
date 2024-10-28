@@ -33,11 +33,9 @@
 .profile-bio {
   display: flex;
   align-items: start;
-  background-color: #FBF7F5;
   margin-top: 8px;
   padding: 8px;
   border-radius: 2px;
-  color: #333;
   border-bottom: 1px solid rgba(152, 33, 44, 0.65);
   padding-bottom: 20px;
 
@@ -50,14 +48,11 @@
     margin-left: 8px;
     border: 1px solid;
     border-color: #FBF7F5;
-    color: #333;
   }
 }
 
 .profile-actions {
   display: flex;
-  // flex-direction: column;
-  // align-items: start;
   font-size: 24px;
 
   .edit-profile {
@@ -83,30 +78,23 @@
 
   .no-review-message {
     text-align: center;
-    color: #333;
-  }
-
-  h2 {
-    color: #333;
   }
 
   .top-pick-card {
     overflow: hidden;
-    height: 88px;
+    height: 104px;
     background-color: #FBF7F5;
     border: 1px solid rgba(152, 33, 44, 0.65);
-    // box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     padding: 4px;
     margin: 8px 0;
     border-radius: 2px;
-    color: #333;
     text-decoration: none;
 
     img {
-      height: 100%;
-      width: 80px;
+      height: 96px;
+      width: 96px;
       object-fit: cover;
     }
 
@@ -124,30 +112,6 @@
 
     .top-pick-details {
       margin-left: 8px;
-
-      .homepage-average-rating {
-        display: inline-block; /* Keep it inline */
-        position: relative; /* Set to relative for positioning */
-        margin-top: 1px; /* Change margin to 1px to create space above */
-        z-index: 1; /* Lower z-index so it's behind navbar and header */
-
-        .red-rating-image {
-          width: 20px; /* Changed width of the red rating image to 20px */
-          height: 20px; /* Changed height of the red rating image to 20px */
-        }
-
-        .half-red-rating-image {
-          width: 20px; /* Changed width of the half red rating image to 20px */
-          height: 20px; /* Changed height of the half red rating image to 20px */
-          overflow: hidden; /* Hide overflow */
-          display: inline-block; /* Display inline */
-          clip-path: inset(0 6.5px 0 0); /* Clip 6.5px from the right */
-        }
-
-        .average-rating-number {
-          font-size: 12px; /* Changed font size to 10px */
-        }
-      }
     }
   }
 }
@@ -160,7 +124,6 @@
 
   .no-review-message {
     text-align: center;
-    color: #333;
   }
 }
 

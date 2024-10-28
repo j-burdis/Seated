@@ -33,7 +33,7 @@ class FavouritesController < ApplicationController
     respond_to do |format|
       if @favourite.destroy
         format.turbo_stream do
-          render turbo_stream: turbo_stream.update(:favourites, partial: "favourites/list", locals: { favourites: @favourites })
+          render turbo_stream: turbo_stream.update(:favourites, partial: "favourites/favourite_list", locals: { favourites: @favourites })
         end
 
         format.html { params[:show] ? (redirect_to cinema_path(@cinema)) : favourites_path }
