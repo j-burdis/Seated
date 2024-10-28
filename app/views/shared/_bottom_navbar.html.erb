@@ -10,7 +10,7 @@
     <% end %>
 
     <%#  Search button %>
-    <%= link_to cinemas_path, class: "bottom_navbar-link #{'active' if current_page?(cinemas_path) || current_page?(map_path)}" do %>
+    <%= link_to cinemas_path, class: "bottom_navbar-link #{'active' if current_page?(cinemas_path) || current_page?(map_path) || (params[:controller] == 'cinemas' && params[:action] == 'show')}" do %>
       <i class="fas fa-search"></i>
     <% end %>
 
