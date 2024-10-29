@@ -1,0 +1,37 @@
+<!-- record of old format -->
+
+<!-- <div id="comments-list-<%= review.id %>">
+  <h3>
+    <button class="btn btn-link toggle-comments" data-action="click->comments#toggle" data-comments-target="toggleButton">
+      Show Comments
+    </button>
+    
+    <%= turbo_stream_from "review_#{review.id}_comments" %>
+
+    <div class="comment-count-container">
+      <span id="comment-count-<%= review.id %>">
+        (<%= review.comments.count %>)
+      </span>
+    </div>
+  </h3>
+
+  <div id="comments-and-form-<%= review.id %>" class="hidden" data-comments-target="commentsSection">
+    <%= simple_form_for [cinema, review, Comment.new],
+        html: { class: "live-comment-form d-flex", data: { controller: "reset-form",
+        action: "turbo:submit-end->reset-form#reset" } } do |form| %>
+      <div class="form-floating">
+        <%= form.input :content, as: :text,
+                        label: false,
+                        placeholder: "Your Comment",
+                        input_html: { rows: 3 }, wrapper: false %>
+        <label for="<%= form.object_name %>_content">Your Comment</label>
+      </div>
+        <%= form.button :submit, 'Send', class: 'btn btn-primary' %>
+    <% end %>
+
+
+    <div id="comments-<%= review.id %>" class="comments">
+      <%= render partial: 'comments/comment', collection: review.comments.order(created_at: :desc), as: :comment, locals: { user: current_user } %>
+    </div>
+  </div>
+</div> -->
