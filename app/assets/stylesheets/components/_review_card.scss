@@ -77,19 +77,28 @@
         margin-bottom: 0;
         font-size: 18px;
       }
+
+      .img-thumbnail {
+        background-color: transparent;
+        border: none;
+      }
+      .review-image {
+        display: block;
+        flex-shrink: 0;
+        width: 70px;
+        height: 70px;
+        padding: 4px;
+        border-radius: 8px;
+        margin-top: 8px;
+        object-fit: cover;
+      }
+
+      .review-text {
+        flex: 1;
+      }
     }
 
-    .img-thumbnail {
-      background-color: transparent;
-      border: none;
-    }
-    .review-image {
-      display: block;
-      padding: 4px;
-      border-radius: 8px;
-      margin-right: 8px;
-      margin-top: 8px;
-    }
+    
 
     .review-rating-scale {
       display: flex;

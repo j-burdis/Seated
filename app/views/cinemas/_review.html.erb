@@ -36,45 +36,41 @@
   <div class="review-card-content">
     <div class="review-images">
       <% if review.photos.attached? %>
-        <div class="row">
-          <div class="col-12 col-sm-6 col-md-4">
-            <a href="#imageModal-<%= review.id %>" data-bs-toggle="modal" data-bs-target="#imageModal-<%= review.id %>">
-              <%# First photo only as the thumbnail %>
-              <%= cl_image_tag review.photos.first.key, height: 80, width: 80, crop: :fill, class: "img-thumbnail review-image" %>
-            </a>
-          </div>
+        <a href="#imageModal-<%= review.id %>" data-bs-toggle="modal" data-bs-target="#imageModal-<%= review.id %>">
+          <%# First photo only as the thumbnail %>
+          <%= cl_image_tag review.photos.first.key, class: "img-thumbnail review-image" %>
+        </a>
 
           <!-- Modal with a carousel for all photos -->
-          <div class="modal fade" id="imageModal-<%= review.id %>" tabindex="-1" aria-labelledby="imageModalLabel-<%= review.id %>" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-body">
-                  <!-- Bootstrap carousel for sliding between images -->
-                  <div id="carousel-<%= review.id %>" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                      <% review.photos.each_with_index do |photo, index| %>
-                        <div class="carousel-item <%= 'active' if index == 0 %>">
-                          <%= cl_image_tag photo.key, class: "d-block w-100 img-fluid"  %>
-                        </div>
-                      <% end %>
-                    </div>
-
-                    <%# Previous/Next carousel controls. Condition - only show if more than one image %>
-                    <% if review.photos.count > 1 %>
-                      <button class="carousel-control-prev" type="button" data-bs-target="#carousel-<%= review.id %>" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                      </button>
-                      <button class="carousel-control-next" type="button" data-bs-target="#carousel-<%= review.id %>" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                      </button>
+        <div class="modal fade" id="imageModal-<%= review.id %>" tabindex="-1" aria-labelledby="imageModalLabel-<%= review.id %>" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-body">
+                <!-- Bootstrap carousel for sliding between images -->
+                <div id="carousel-<%= review.id %>" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                    <% review.photos.each_with_index do |photo, index| %>
+                      <div class="carousel-item <%= 'active' if index == 0 %>">
+                        <%= cl_image_tag photo.key, class: "d-block w-100 img-fluid"  %>
+                      </div>
                     <% end %>
                   </div>
+
+                  <%# Previous/Next carousel controls. Condition - only show if more than one image %>
+                  <% if review.photos.count > 1 %>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-<%= review.id %>" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel-<%= review.id %>" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  <% end %>
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-gradient" data-bs-dismiss="modal">Close</button>
-                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-gradient" data-bs-dismiss="modal">Close</button>
               </div>
             </div>
           </div>
@@ -82,8 +78,11 @@
       <% end %>
     </div>
 
-    <p>"<%= review.content %>"</p>
+    <div class="review-text">
+      <p>"<%= review.content %>"</p>
+    </div>
   </div>
+
   <div class="review-rating-scale">
 
     <div class="review-card-rating">
