@@ -1,34 +1,38 @@
 <% favourites.each do |favourite| %>
-  <div class="top-pick-card">
-    <img src="<%= favourite.cinema.image_url %>" />
-    <div class="top-pick-details">
-      <div class="favourite-name-delete">
-        <h4> <%= favourite.cinema.name %> </h4>
-        <%= button_to cinema_favourite_path(favourite.cinema, favourite), method: :delete, class: "delete-icon rounded" do %>
-          <i class="fa-solid fa-x"></i>
-        <% end %>
-      </div>
-      <p> <%= favourite.cinema.address %> </p>
-      <div class="cinema-average-rating">
-        <% if favourite.cinema.average_rating.present? %>
-          <% rounded_rating = favourite.cinema.average_rating.floor %>
-          <% partial_rating = (favourite.cinema.average_rating % 1).round(1) %>
+  <%# <div class="top-pick-card"> %>
+  <div class="favourite-card-content">
+    <%= link_to cinema_path(favourite.cinema), class: "top-pick-card" do %>
+      <img src="<%= favourite.cinema.image_url %>" />
+      <div class="top-pick-details">
+        <div class="favourite-name-delete">
+          <h4> <%= favourite.cinema.name %> </h4>
+        </div>
+        <p> <%= favourite.cinema.address %> </p>
+        <div class="cinema-average-rating">
+          <% if favourite.cinema.average_rating.present? %>
+            <% rounded_rating = favourite.cinema.average_rating.floor %>
+            <% partial_rating = (favourite.cinema.average_rating % 1).round(1) %>
 
-          <% # Render the full rating images as red rating images %>
-          <% rounded_rating.times do %>
-            <%= image_tag 'seated-emoji.png', alt: 'Red Rating Emoji', class: 'red-rating-image' %>
+            <% # Render the full rating images as red rating images %>
+            <% rounded_rating.times do %>
+              <%= image_tag 'seated-emoji.png', alt: 'Red Rating Emoji', class: 'red-rating-image' %>
+            <% end %>
+
+            <% # Render the half image as a half red rating image %>
+            <% if partial_rating >= 0.5 %>
+              <%= image_tag 'seated-emoji.png', alt: 'Half Red Rating Emoji', class: 'half-red-rating-image' %>
+            <% end %>
+
+            <span class="average-rating-number">(<%= favourite.cinema.average_rating.round(1) %>)</span>
+          <% else %>
+            <span class="average-rating-number">No reviews yet</span>
           <% end %>
-
-          <% # Render the half image as a half red rating image %>
-          <% if partial_rating >= 0.5 %>
-            <%= image_tag 'seated-emoji.png', alt: 'Half Red Rating Emoji', class: 'half-red-rating-image' %>
-          <% end %>
-
-          <span class="average-rating-number">(<%= favourite.cinema.average_rating.round(1) %>)</span>
-        <% else %>
-          <span class="average-rating-number">No reviews yet</span>
-        <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
+
+    <%= button_to cinema_favourite_path(favourite.cinema, favourite), method: :delete, data: { turbo: false }, class: "delete-icon rounded" do %>
+      <i class="fa-solid fa-x"></i>
+    <% end %>
   </div>
 <% end %>

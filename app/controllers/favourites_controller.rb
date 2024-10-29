@@ -27,11 +27,19 @@ class FavouritesController < ApplicationController
     # raise
     @favourite = current_user.favourites.find_by(cinema: @cinema)
     respond_to do |format|
-      if @favourite.destroy
+      if @favourite.present? && @favourite.destroy
         format.turbo_stream do
-          render turbo_stream: turbo_stream.update(:favourites, partial: "favourites/favourite_list", locals: { favourites: @favourites })
+          render turbo_stream: turbo_stream.update(:favourites,
+                                                   partial: "favourites/favourite_list",
+                                                   locals: { favourites: @favourites })
         end
-        format.html { params[:show] ? (redirect_to cinema_path(@cinema)) : favourites_path }
+        format.html do
+          if params[:show]
+            redirect_to cinema_path(@cinema)
+          else
+            redirect_to favourites_path
+          end
+        end
         # format.json { render json: { success: true, new_action: cinema_favourites_path(@cinema), new_method: "post" } }
       else
         format.html { redirect_to favourites_path, alert: 'Could not remove comment.' }
