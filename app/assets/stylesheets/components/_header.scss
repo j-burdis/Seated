@@ -3,8 +3,8 @@
   padding-top: 32px;
   padding-bottom: 8px;
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
-  position: relative; /* Ensure it is positioned */
-  z-index: 500; /* Set by Shan - a higher z-index for header because average rating image for some reason was showing above header */
+  position: relative; 
+  z-index: 500; /* higher z-index for header because average rating image was showing in front */
 }
 
 .header-logo {

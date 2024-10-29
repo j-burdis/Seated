@@ -3,7 +3,12 @@
     <div class="col">
       <%# <h2>Log in</h2> %>
       <div class="logo-title">
-        <%= image_tag "Seated_logo.png" %>
+        <div class="header-logo">
+          <%#= link_to root_path do %>
+            <h1>Seated</h1>
+            <%= image_tag "seated-chair-no-background.png", alt:"Logo Seat", class: "header-logo-seat"%>
+          <%# end, class: 'header-logo-link' %>
+        </div>
       </div>
       <div class="login-form">
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
