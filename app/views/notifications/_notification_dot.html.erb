@@ -1,0 +1,3 @@
+<% if user.notifications.where(read: false).exists? %>
+  <span class="notification-dot"><i class="fa-solid fa-circle"></i></span>
+<% end %>
