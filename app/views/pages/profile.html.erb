@@ -55,7 +55,7 @@
                 <p class="no-review-message">We're all waiting for it...</p>
               <% else %>
                 <% current_user.reviews.order(created_at: :desc).each do |review| %>
-                    <%= link_to render(partial: 'cinemas/review', locals: { review: review, cinema: review.cinema }), cinema_path(review.cinema) %>
+                    <%= render partial: 'cinemas/review', locals: { review: review, cinema: review.cinema } %>
                 <% end %>
               <% end %>
             </div>

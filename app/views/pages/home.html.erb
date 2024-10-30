@@ -26,7 +26,7 @@
           <div class="cinema-review-cards">
             <h2>Recent Reviews</h2>
             <% @recent_reviews.each do |review| %>
-              <%= link_to render(partial: 'cinemas/review', locals: { review: review, cinema: review.cinema }), cinema_path(review.cinema) %>
+              <%= render partial: 'cinemas/review', locals: { review: review, cinema: review.cinema } %>
             <% end %>
           </div>
 

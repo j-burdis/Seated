@@ -1,112 +1,114 @@
 <div class="cinema-review-card">
-  <div class="review-card-user">
-    <% if review.user.profile_picture.attached? %>
-      <%= cl_image_tag review.user.profile_picture.key, class: "review-profile-pic" %>
-    <% else %>
-      <%= image_tag "profile-icon.jpg", alt: "Profile picture", class: "review-profile-pic" %>
-    <% end %>
-    <p><%= review.user.username %></p>
-  </div>
-  <div class="review-name-date">
-    <p><strong><%= review.cinema.name %></strong></p>
-    <p><%= review.created_at.strftime("%e/%m/%y") %></p>
-  </div>
-  <div class="review-screen-details">
-    <p>
-      <span class="review-screen-details-icon">
-        <%= image_tag('cinema-screen-emoji.jpg', alt: 'Screen icon', class: 'review-icon-class') %>
-      </span>
-      <span class="review-form-data"><strong><%= review.screen %></strong></span>
-    </p>
+  <%= link_to cinema_path(review.cinema) do %>
+    <div class="review-card-user">
+      <% if review.user.profile_picture.attached? %>
+        <%= cl_image_tag review.user.profile_picture.key, class: "review-profile-pic" %>
+      <% else %>
+        <%= image_tag "profile-icon.jpg", alt: "Profile picture", class: "review-profile-pic" %>
+      <% end %>
+      <p><%= review.user.username %></p>
+    </div>
+    <div class="review-name-date">
+      <p><strong><%= review.cinema.name %></strong></p>
+      <p><%= review.created_at.strftime("%e/%m/%y") %></p>
+    </div>
+    <div class="review-screen-details">
+      <p>
+        <span class="review-screen-details-icon">
+          <%= image_tag('cinema-screen-emoji.jpg', alt: 'Screen icon', class: 'review-icon-class') %>
+        </span>
+        <span class="review-form-data"><strong><%= review.screen %></strong></span>
+      </p>
 
-    <p>
-      <span class="review-screen-details-icon">
-        <%= image_tag('seated-emoji-original.png', alt: 'Seated icon', class: 'review-icon-class') %>
-      </span>
-      <span class="review-form-data"><strong><%= review.seat %></strong></span>
-    </p>
+      <p>
+        <span class="review-screen-details-icon">
+          <%= image_tag('seated-emoji-original.png', alt: 'Seated icon', class: 'review-icon-class') %>
+        </span>
+        <span class="review-form-data"><strong><%= review.seat %></strong></span>
+      </p>
 
-    <p>
-      <span class="review-screen-details-icon">
-        <%= image_tag('seated-emoji-gold.png', alt: 'Seated icon gold', class: 'review-icon-class') %>
-      </span>
-      <span class="review-form-data"><strong><%= review.pref_seat %></strong></span>
-    </p>
-  </div>
-  <div class="review-card-content">
-    <div class="review-images">
-      <% if review.photos.attached? %>
-        <a href="#imageModal-<%= review.id %>" data-bs-toggle="modal" data-bs-target="#imageModal-<%= review.id %>">
-          <%# First photo only as the thumbnail %>
-          <%= cl_image_tag review.photos.first.key, class: "img-thumbnail review-image" %>
-        </a>
+      <p>
+        <span class="review-screen-details-icon">
+          <%= image_tag('seated-emoji-gold.png', alt: 'Seated icon gold', class: 'review-icon-class') %>
+        </span>
+        <span class="review-form-data"><strong><%= review.pref_seat %></strong></span>
+      </p>
+    </div>
+    <div class="review-card-content">
+      <div class="review-images">
+        <% if review.photos.attached? %>
+          <a href="#imageModal-<%= review.id %>" data-bs-toggle="modal" data-bs-target="#imageModal-<%= review.id %>">
+            <%# First photo only as the thumbnail %>
+            <%= cl_image_tag review.photos.first.key, class: "img-thumbnail review-image" %>
+          </a>
 
-          <!-- Modal with a carousel for all photos -->
-        <div class="modal fade" id="imageModal-<%= review.id %>" tabindex="-1" aria-labelledby="imageModalLabel-<%= review.id %>" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-body">
-                <!-- Bootstrap carousel for sliding between images -->
-                <div id="carousel-<%= review.id %>" class="carousel slide" data-bs-ride="carousel">
-                  <div class="carousel-inner">
-                    <% review.photos.each_with_index do |photo, index| %>
-                      <div class="carousel-item <%= 'active' if index == 0 %>">
-                        <%= cl_image_tag photo.key, class: "d-block w-100 img-fluid"  %>
-                      </div>
+            <!-- Modal with a carousel for all photos -->
+          <div class="modal fade" id="imageModal-<%= review.id %>" tabindex="-1" aria-labelledby="imageModalLabel-<%= review.id %>" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <!-- Bootstrap carousel for sliding between images -->
+                  <div id="carousel-<%= review.id %>" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <% review.photos.each_with_index do |photo, index| %>
+                        <div class="carousel-item <%= 'active' if index == 0 %>">
+                          <%= cl_image_tag photo.key, class: "d-block w-100 img-fluid"  %>
+                        </div>
+                      <% end %>
+                    </div>
+
+                    <%# Previous/Next carousel controls. Condition - only show if more than one image %>
+                    <% if review.photos.count > 1 %>
+                      <button class="carousel-control-prev" type="button" data-bs-target="#carousel-<%= review.id %>" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carousel-<%= review.id %>" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
                     <% end %>
                   </div>
-
-                  <%# Previous/Next carousel controls. Condition - only show if more than one image %>
-                  <% if review.photos.count > 1 %>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-<%= review.id %>" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carousel-<%= review.id %>" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
-                    </button>
-                  <% end %>
                 </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-gradient" data-bs-dismiss="modal">Close</button>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-gradient" data-bs-dismiss="modal">Close</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      <% end %>
-    </div>
-
-    <div class="review-text">
-      <p>"<%= review.content %>"</p>
-    </div>
-  </div>
-
-  <div class="review-rating-scale">
-
-    <div class="review-card-rating">
-      <% if review.rating.present? %>
-        <% rounded_rating = review.rating.floor %>
-        <% partial_rating = (review.rating % 1).round(1) %>
-
-        <% # Render the full rating images as red rating images %>
-        <% rounded_rating.times do %>
-          <%= image_tag 'seated-emoji.png', alt: 'Red Rating Emoji', class: 'red-rating-image' %>
         <% end %>
+      </div>
 
-        <% # Render the half image as a half red rating image %>
-        <% if partial_rating >= 0.5 %>
-          <%= image_tag 'seated-emoji.png', alt: 'Half Red Rating Emoji', class: 'half-red-rating-image' %>
-        <% end %>
-
-        <span class="review-rating-number">(<%= review.rating.round(1) %>/5)</span>
-      <% else %>
-        <span class="review-rating-number">No rating provided</span>
-      <% end %>
+      <div class="review-text">
+        <p>"<%= review.content %>"</p>
+      </div>
     </div>
 
-  </div>
+    <div class="review-rating-scale">
+
+      <div class="review-card-rating">
+        <% if review.rating.present? %>
+          <% rounded_rating = review.rating.floor %>
+          <% partial_rating = (review.rating % 1).round(1) %>
+
+          <% # Render the full rating images as red rating images %>
+          <% rounded_rating.times do %>
+            <%= image_tag 'seated-emoji.png', alt: 'Red Rating Emoji', class: 'red-rating-image' %>
+          <% end %>
+
+          <% # Render the half image as a half red rating image %>
+          <% if partial_rating >= 0.5 %>
+            <%= image_tag 'seated-emoji.png', alt: 'Half Red Rating Emoji', class: 'half-red-rating-image' %>
+          <% end %>
+
+          <span class="review-rating-number">(<%= review.rating.round(1) %>/5)</span>
+        <% else %>
+          <span class="review-rating-number">No rating provided</span>
+        <% end %>
+      </div>
+
+    </div>
+  <% end%>
 
   <div class="cinema-vote-comment">
     <div class="review-vote" data-controller="vote">
