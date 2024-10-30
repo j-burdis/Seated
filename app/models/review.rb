@@ -13,4 +13,13 @@ class Review < ApplicationRecord
 
   # Optional: Validate that the user can only review a cinema once
   # validates :user_id, uniqueness: { scope: :cinema_id, message: 'You can only review a cinema once.' }
+
+  after_save :update_cinema_average_rating
+  after_destroy :update_cinema_average_rating
+
+  private
+
+  def update_cinema_average_rating
+    cinema.update_average_rating
+  end
 end
