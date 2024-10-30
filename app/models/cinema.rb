@@ -12,7 +12,7 @@ class Cinema < ApplicationRecord
   after_validation :geocode, if: :address_changed?
 
   def update_average_rating
-    self.average_rating = (reviews.average(:rating).to_f.round(2) if reviews.any?)
+    self.average_rating = reviews.average(:rating).to_f.round(1)
     save if average_rating_changed?
   end
 

@@ -212,6 +212,17 @@
         margin-bottom: 0;
       }
 
+      .modal-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        h5, h6 {
+          text-align: center;
+        }
+      }
+
       .form-floating {
         color: #333;
         font-size: 12px;
