@@ -38,14 +38,14 @@ class Comment < ApplicationRecord
     )
     Rails.logger.info "Notification created: #{notification.inspect}"
     broadcast_replace_to(
-      "notification_dot_#{self.review.user.id}",
+      "notification_dot_#{review.user.id}",
       target: "notification_dot_#{review.user.id}",
       partial: "notifications/notification_dot",
       locals: { user: review.user }
     )
 
     broadcast_prepend_later_to(
-      "notifications_#{self.review.user.id}",
+      "notifications_#{review.user.id}",
       target: "notifications-list",
       partial: "notifications/notification",
       locals: { notification: notification }
