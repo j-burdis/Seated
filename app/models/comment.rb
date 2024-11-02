@@ -36,7 +36,10 @@ class Comment < ApplicationRecord
       content: "#{user.username} commented on your review.",
       read: false
     )
+
     Rails.logger.info "Notification created: #{notification.inspect}"
+    Rails.logger.info "Broadcasting notification dot update for User ID: #{review.user.id}"
+
     broadcast_replace_to(
       "notification_dot_#{review.user.id}",
       target: "notification_dot_#{review.user.id}",
