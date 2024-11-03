@@ -32,13 +32,11 @@
 
     <%# Notifications button %>
     <div>
-      <%= turbo_stream_from "notification_dot_#{current_user.id}" %>
+      <%= turbo_stream_from "notification_dot", current_user %>
 
       <%= link_to notifications_path, class: "bottom_navbar-link position-relative #{'active' if current_page?(notifications_path)}" do %>
         <i class="fas fa-bell"></i>
-          <% if current_user.notifications.where(read: false).any? %>
-            <span class="notification-dot"><i class="fa-solid fa-circle"></i></span>
-          <% end %>
+        <%= render partial: "notifications/notification_dot", locals: { user: current_user } %>
       <% end %>
     </div>
 

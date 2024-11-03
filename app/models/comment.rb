@@ -41,7 +41,7 @@ class Comment < ApplicationRecord
     Rails.logger.info "Broadcasting notification dot update for User ID: #{review.user.id}"
 
     broadcast_replace_to(
-      "notification_dot_#{review.user.id}",
+      "notification_dot", review.user,
       target: "notification_dot_#{review.user.id}",
       partial: "notifications/notification_dot",
       locals: { user: review.user }
