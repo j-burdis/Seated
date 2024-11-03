@@ -1,51 +1,22 @@
+<!-- app/views/notifications/index.html.erb -->
 <div class="container">
   <div class="row">
     <div class="col">
       <div class="notification-index-content">
         <h1>Notifications</h1>
 
-        <% if @notifications.any? %>
-          <div class="notifications-list">
+        <!-- Turbo Stream Target for Real-Time Notifications -->
+        <%= turbo_stream_from "notifications_#{current_user.id}" %>
+
+        <div class="notifications-list" id="notifications-list">
+          <% if @notifications.any? %>
             <% @notifications.each do |notification| %>
-              
-              <div class="notification-<%= notification.read ? 'read' : 'unread' %>">
-                <div class="notification-index-card">
-                  <div class="notification-index-details">
-                    <% if notification.comment.present? %>
-                      <p>
-                        <%= link_to "#{notification.comment.user.username} commented on your review:", cinema_path(notification.comment.review.cinema, notification.comment.review), class: 'comment-link' %>
-                      </p>
-                      <p>
-                        <%= link_to notification.comment.content, cinema_path(notification.comment.review.cinema, notification.comment.review), class: 'comment-content' %>
-                      </p>
-                    <% elsif notification.vote.present? %>
-                      <p>
-                        <%= link_to "#{notification.vote.user.username} upvoted your review.", cinema_path(notification.vote.review.cinema, notification.vote.review) %>
-                      </p>
-                    <% end %>
-                  </div>
-                  <div class="notification-index-actions">
-                    <div>
-                      <p><em><%= time_ago_in_words(notification.created_at) %> ago</em></p>
-                    </div>
-                    <div class="notification-index-buttons">
-                      <% unless notification.read %>
-                        <%= button_to mark_as_read_notification_path(notification), method: :patch, class: 'mark-as-read' do %>
-                          <i class="fa-solid fa-envelope-circle-check"></i>
-                        <% end %>
-                      <% end %>
-                      <%= button_to notification_path(notification), method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete-notification' do %>
-                        <i class="fa-solid fa-trash-can"></i>
-                      <% end %>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <%= render notification %>
             <% end %>
-          </div>
-        <% else %>
-          <p>Nothing to see here...</p>
-        <% end %>
+          <% else %>
+            <p>Nothing to see here...</p>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

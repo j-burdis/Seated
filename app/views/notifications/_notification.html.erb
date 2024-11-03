@@ -1,0 +1,32 @@
+<!-- app/views/notifications/_notification.html.erb -->
+<div class="notification-<%= notification.read ? 'read' : 'unread' %>">
+  <div class="notification-index-card">
+    <div class="notification-index-details">
+      <% if notification.comment.present? %>
+        <p>
+          <%= link_to "#{notification.comment.user.username} commented on your review:", cinema_path(notification.comment.review.cinema, notification.comment.review) %>
+        </p>
+        <p>
+          <%= link_to notification.comment.content, cinema_path(notification.comment.review.cinema, notification.comment.review) %>
+        </p>
+      <% elsif notification.vote.present? %>
+        <p>
+          <%= link_to "#{notification.vote.user.username} upvoted your review.", cinema_path(notification.vote.review.cinema, notification.vote.review) %>
+        </p>
+      <% end %>
+    </div>
+    <div class="notification-index-actions">
+      <p><em><%= time_ago_in_words(notification.created_at) %> ago</em></p>
+      <div class="notification-index-buttons">
+        <% unless notification.read %>
+          <%= button_to mark_as_read_notification_path(notification), method: :patch, class: 'mark-as-read' do %>
+            <i class="fa-solid fa-envelope-circle-check"></i>
+          <% end %>
+        <% end %>
+        <%= button_to notification_path(notification), method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete-notification' do %>
+          <i class="fa-solid fa-trash-can"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,19 +5,25 @@
   <div class="container-fluid d-flex justify-content-around">
 
     <%# Home  button %>
-    <%= link_to root_path, class: "bottom_navbar-link #{'active' if current_page?(root_path)}" do %>
-      <i class="fa-solid fa-house"></i>
-    <% end %>
+    <div>
+      <%= link_to root_path, class: "bottom_navbar-link #{'active' if current_page?(root_path)}" do %>
+        <i class="fa-solid fa-house"></i>
+      <% end %>
+    </div>
 
     <%#  Search button %>
-    <%= link_to cinemas_path, class: "bottom_navbar-link #{'active' if current_page?(cinemas_path) || current_page?(map_path) || (params[:controller] == 'cinemas' && params[:action] == 'show')}" do %>
-      <i class="fas fa-search"></i>
-    <% end %>
+    <div>
+      <%= link_to cinemas_path, class: "bottom_navbar-link #{'active' if current_page?(cinemas_path) || current_page?(map_path) || (params[:controller] == 'cinemas' && params[:action] == 'show')}" do %>
+        <i class="fas fa-search"></i>
+      <% end %>
+    </div>
 
     <%# Favourites button %>
-    <%= link_to favourites_path, class: "bottom_navbar-link #{'active' if current_page?(favourites_path)}" do %>
-      <i class="fas fa-star"></i>
-    <% end %>
+    <div>
+      <%= link_to favourites_path, class: "bottom_navbar-link #{'active' if current_page?(favourites_path)}" do %>
+        <i class="fas fa-star"></i>
+      <% end %>
+    </div>  
 
     <%# Map button%>
     <%#= link_to map_path, class: "bottom_navbar-link #{'active' if current_page?(map_path)}" do %>
@@ -25,22 +31,25 @@
     <%# end %>
 
     <%# Notifications button %>
-    <%= link_to notifications_path, class: "bottom_navbar-link position-relative #{'active' if current_page?(notifications_path)}" do %>
-      <i class="fas fa-bell"></i>
-      <% if current_user.notifications.where(read: false).any? %>
-        <span class="notification-dot"><i class="fa-solid fa-circle"></i></span>
+    <div>
+      <%= turbo_stream_from "notification_dot", current_user %>
+
+      <%= link_to notifications_path, class: "bottom_navbar-link position-relative #{'active' if current_page?(notifications_path)}" do %>
+        <i class="fas fa-bell"></i>
+        <%= render partial: "notifications/notification_dot", locals: { user: current_user } %>
       <% end %>
-    <% end %>
+    </div>
 
     <%#  Profile buton %>
-    <%= link_to profile_path, class: "bottom_navbar-link #{'active' if current_page?(profile_path) && !current_user.profile_picture.attached?}" do %>
-      <% if current_user.profile_picture.attached? %>
-        <%= cl_image_tag current_user.profile_picture.key, alt: "Profile picture", class: "bottom_navbar-profile-pic" %>
-      <% else %>
-        <i class="fas fa-user"></i>
+    <div>
+      <%= link_to profile_path, class: "bottom_navbar-link #{'active' if current_page?(profile_path) && !current_user.profile_picture.attached?}" do %>
+        <% if current_user.profile_picture.attached? %>
+          <%= cl_image_tag current_user.profile_picture.key, alt: "Profile picture", class: "bottom_navbar-profile-pic" %>
+        <% else %>
+          <i class="fas fa-user"></i>
+        <% end %>
       <% end %>
-    <% end %>
-
+    </div>
 
   </div>
 </nav>

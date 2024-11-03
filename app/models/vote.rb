@@ -9,15 +9,29 @@ class Vote < ApplicationRecord
 
   private
 
-  def notify_review_owner
+  def notify_review_owner # rubocop:disable Metrics/MethodLength
     return if user == review.user
 
-    Notification.create(
+    notification = Notification.create(
       user: review.user,
       vote_id: self.id,
       notification_type: 'vote',
       content: "#{user.username} upvoted your review.",
       read: false
+    )
+
+    broadcast_replace_to(
+      "notification_dot", review.user,
+      target: "notification_dot_#{review.user.id}",
+      partial: "notifications/notification_dot",
+      locals: { user: review.user }
+    )
+
+    broadcast_prepend_later_to(
+      "notifications_#{review.user.id}",
+      target: "notifications-list",
+      partial: "notifications/notification",
+      locals: { notification: notification }
     )
   end
 end
