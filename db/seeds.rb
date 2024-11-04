@@ -22,7 +22,7 @@ begin
     address: "Brixton Oval, Lambeth, London, SW2 1EN",
     description: "A vibrant cinema located in the heart of Brixton, known for its eclectic film selection.",
     average_rating: nil,
-    image_url: "https://scontent.fcgm1-1.fna.fbcdn.net/v/t39.30808-6/243262403_10165728334210010_8338157497781979992_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=j7zdGwCpQpgQ7kNvgEbrvZ-&_nc_zt=23&_nc_ht=scontent.fcgm1-1.fna&_nc_gid=A_4RG8Y6-04rowS9mVOI5TA&oh=00_AYCgjRBuw8yxDpPDNdNzMpL-MID9GB9oMpWZysrrNw311A&oe=671DB076"
+    image_url: "https://ethniclondon.wordpress.com/wp-content/uploads/2013/07/img_20130801_172959_738.jpg?w=1920"
   )
 rescue Geocoder::Error => e
   Rails.logger.error("Geocoding failed for cinema1: #{e.message}")
