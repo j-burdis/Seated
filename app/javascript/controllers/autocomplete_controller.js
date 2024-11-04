@@ -18,17 +18,33 @@ export default class extends Controller {
       return
     }
 
-    const url = `https://www.seated.movie/cinemas?query=${query}` && `http://localhost:3000/cinemas?query=${query}`
+    // const url = `https://www.seated.movie/cinemas?query=${query}` && `http://localhost:3000/cinemas?query=${query}`
+
+    const baseUrl = window.location.hostname.includes('localhost') ? 'http://localhost:3000' : 'https://www.seated.movie';
+    const url = `${baseUrl}/cinemas?query=${query}`;
+
 
     fetch(url, {
-      headers: { "Accept": "application/json" }
+      headers: { 
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "X-Requested-With": "XMLHttpRequest"
+      },
+      credentials: 'include'
     })
-    .then(response => response.json())
+    // .then(response => response.json())
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json()
+    })
     .then((data) => {
       console.log(data)
       this.updateResults(data)
       // this.resultsTarget.innerHTML(data.list)
     })
+    .catch(error => console.error('Error:', error));
   }
 
   updateResults(cinemas) {
