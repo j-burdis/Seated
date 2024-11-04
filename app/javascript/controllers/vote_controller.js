@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="vote"
 export default class extends Controller {
   connect() {
-    console.log("voting stimulus")
+    console.log("voting stimulus connected")
   }
 
   static targets = ["voteCount", "voteButton"]

@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ["results"]
 
   connect() {
-   console.log("autocomplete connected")
+  //  console.log("autocomplete connected")
   //  console.log(this.resultsTarget)
   }
 
