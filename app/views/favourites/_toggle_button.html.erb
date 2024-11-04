@@ -1,0 +1,12 @@
+<div id="toggle-favourite-<%= cinema.id %>">
+  <% is_favorited = current_user.favourites.exists?(cinema: cinema) %>
+  <%= button_to(
+        is_favorited ? cinema_favourite_path(cinema, current_user.favourites.find_by(cinema: cinema)) : cinema_favourites_path(cinema),
+        method: is_favorited ? :delete : :post,
+        remote: true,
+        data: { action: "favourite#toggle" },
+        class: 'favourite-toggle-form'
+      ) do %>
+    <i data-favourite-target="star" class="fa-<%= is_favorited ? 'solid' : 'regular' %> fa-star favourite-toggle-btn <%= 'active' if is_favorited %>"></i>
+  <% end %>
+</div>

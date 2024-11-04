@@ -9,21 +9,13 @@
 
           <div data-controller="favourite" class="cinema-show-links">
 
-            <div class="show-add-favourite">
+            <div class="show-add-favourite" id="toggle-favourite-<%= @cinema.id %>">
 
               <p class="review-new-btn">
                 <%= link_to "Add review", new_cinema_review_path(@cinema), class: 'review-new-btn' %>
               </p>
 
-              <% if current_user.favourites.exists?(cinema: @cinema) %>
-                <%= button_to cinema_favourite_path(@cinema, current_user.favourites.find_by(cinema: @cinema), show:true), method: :delete, data: { action: "favourite#toggle" }, class: 'favourite-toggle-form' do %>
-                  <i data-favourite-target="star" class="fa-solid fa-star favourite-toggle-btn active"></i>
-                <% end %>
-              <% else %>
-                <%= button_to cinema_favourites_path(@cinema), method: :post, remote: true, data: { action: "favourite#toggle" }, class: 'favourite-toggle-form' do %>
-                  <i data-favourite-target="star" class="fa-regular fa-star favourite-toggle-btn"></i>
-                <% end %>
-              <% end %>
+              <%= render 'favourites/toggle_button', cinema: @cinema %>
 
             </div>
 

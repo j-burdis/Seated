@@ -1,5 +1,3 @@
-<%#= turbo_stream.remove dom_id(@favourite) %>
-
 <turbo-stream action="replace" target="toggle-favourite-<%= @cinema.id %>">
   <template>
     <%= render 'favourites/toggle_button', cinema: @cinema %>
