@@ -1,6 +1,6 @@
 <% favourites.each do |favourite| %>
   <%# <div class="top-pick-card"> %>
-  <div class="favourite-card-content">
+  <div class="favourite-card-content" id="favourite-<%= favourite.cinema.id %>">
     <%= link_to cinema_path(favourite.cinema), class: "top-pick-card" do %>
       <img src="<%= favourite.cinema.image_url %>" />
       <div class="top-pick-details">
@@ -31,7 +31,7 @@
       </div>
     <% end %>
 
-    <%= button_to cinema_favourite_path(favourite.cinema, favourite), method: :delete, data: { turbo: false }, class: "delete-icon rounded" do %>
+    <%= button_to cinema_favourite_path(favourite.cinema, favourite, origin: "favourites_index"), method: :delete, class: "delete-icon rounded" do %>
       <i class="fa-solid fa-x"></i>
     <% end %>
   </div>

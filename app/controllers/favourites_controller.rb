@@ -7,44 +7,34 @@ class FavouritesController < ApplicationController
 
   def create
     @favourite = current_user.favourites.new(cinema: @cinema)
-    respond_to do |format|
-      if @favourite.save
+    if @favourite.save
+      Rails.logger.info "Favourite created successfully for cinema #{@cinema.id}"
+      respond_to do |format|
+        format.turbo_stream
         format.html { redirect_to cinema_path(@cinema) }
-        # format.json do
-        # render json: { success: true, new_action: cinema_favourite_path(@cinema, @favourite), new_method: "delete" }
-        # end
-      else
-        format.html { redirect_to cinema_path(@cinema), alert: 'Could not create comment.' }
-        # format.json { render json: { success: false } }
       end
+    else
+      render json: { error: 'Could not add to favourites.' }, status: :unprocessable_entity
     end
   end
 
-  def destroy # rubocop:disable Metrics/MethodLength
-    # puts request.referrer
-    # puts params
-    @favourites = current_user.favourites
-    # raise
+  def destroy
     @favourite = current_user.favourites.find_by(cinema: @cinema)
-    respond_to do |format|
-      if @favourite.present? && @favourite.destroy
-        format.turbo_stream do
-          render turbo_stream: turbo_stream.update(:favourites,
-                                                   partial: "favourites/favourite_list",
-                                                   locals: { favourites: @favourites })
-        end
-        format.html do
-          if params[:show]
-            redirect_to cinema_path(@cinema)
-          else
-            redirect_to favourites_path
+    if @favourite&.destroy
+      respond_to do |format|
+        if params[:origin] == "favourites_index"
+          format.turbo_stream { render turbo_stream: turbo_stream.remove("favourite-#{@cinema.id}") }
+          format.html { redirect_to favourites_path, notice: "Favourite removed from your list." }
+        else
+          format.turbo_stream do
+            render turbo_stream: turbo_stream.replace("toggle-favourite-#{@cinema.id}", partial: "favourites/toggle_button",
+                                                                                        locals: { cinema: @cinema })
           end
+          format.html { redirect_to cinema_path(@cinema), notice: "Favourite removed." }
         end
-        # format.json { render json: { success: true, new_action: cinema_favourites_path(@cinema), new_method: "post" } }
-      else
-        format.html { redirect_to favourites_path, alert: 'Could not remove comment.' }
-        # format.json { render json: { success: false } }
       end
+    else
+      render json: { error: 'Could not remove from favourites.' }, status: :unprocessable_entity
     end
   end
 

@@ -15,15 +15,9 @@
                 <%= link_to "Add review", new_cinema_review_path(@cinema), class: 'review-new-btn' %>
               </p>
 
-              <% if current_user.favourites.exists?(cinema: @cinema) %>
-                <%= button_to cinema_favourite_path(@cinema, current_user.favourites.find_by(cinema: @cinema), show:true), method: :delete, data: { action: "favourite#toggle" }, class: 'favourite-toggle-form' do %>
-                  <i data-favourite-target="star" class="fa-solid fa-star favourite-toggle-btn active"></i>
-                <% end %>
-              <% else %>
-                <%= button_to cinema_favourites_path(@cinema), method: :post, remote: true, data: { action: "favourite#toggle" }, class: 'favourite-toggle-form' do %>
-                  <i data-favourite-target="star" class="fa-regular fa-star favourite-toggle-btn"></i>
-                <% end %>
-              <% end %>
+              <div id="toggle-favourite-<%= @cinema.id %>">
+                <%= render 'favourites/toggle_button', cinema: @cinema %>
+              </div>
 
             </div>
 
@@ -32,9 +26,6 @@
                 <%= link_to "↩ All cinemas", cinemas_path %>
               </div>
               <div class="cinema-show-average">
-                <%# <p> Average rating:  %>
-                  <%#= @cinema.average_rating.present? ? @cinema.average_rating.round(1) : 'No reviews yet' %>
-                  <%# </p> %>
                 <div class="cinema-average-rating">
                   <% if @cinema.average_rating.present? %>
                     <% rounded_rating = @cinema.average_rating.floor %>
@@ -55,14 +46,9 @@
                     <span class="average-rating-number">No reviews yet</span>
                   <% end %>
                 </div>
-
-
               </div>
-
             </div>
-
           </div>
-
         </div>
 
         <div class="cinema-review-cards">
