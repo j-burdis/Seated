@@ -101,7 +101,7 @@
             <%= image_tag 'seated-emoji.png', alt: 'Half Red Rating Emoji', class: 'half-red-rating-image' %>
           <% end %>
 
-          <span class="review-rating-number">(<%= review.rating.round(1) %>/5)</span>
+          <span class="review-rating-number">(<%= review.rating.round(1) %>)</span>
         <% else %>
           <span class="review-rating-number">No rating provided</span>
         <% end %>

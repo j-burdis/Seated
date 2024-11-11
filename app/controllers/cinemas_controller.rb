@@ -7,6 +7,7 @@ class CinemasController < ApplicationController
       @cinemas = Cinema.search_by_name_and_address(params[:query])
                        .order(Arel.sql("COALESCE(average_rating, 0) DESC"))
     else
+      params[:sorted_by]
       @cinemas = Cinema.all
                        .order(Arel.sql("COALESCE(average_rating, 0) DESC"))
     end
