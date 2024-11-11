@@ -3,7 +3,6 @@
   <%= button_to(
         is_favorited ? cinema_favourite_path(cinema, current_user.favourites.find_by(cinema: cinema)) : cinema_favourites_path(cinema),
         method: is_favorited ? :delete : :post,
-        remote: true,
         data: { action: "favourite#toggle" },
         class: 'favourite-toggle-form'
       ) do %>
