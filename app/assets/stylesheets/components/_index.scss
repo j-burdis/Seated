@@ -6,3 +6,12 @@
 @import "bottom_navbar";
 @import "card_rating_scale";
 @import "review_card";
+
+.modal-backdrop {
+  z-index: 1040 !important;
+}
+
+.modal {
+  z-index: 1050 !important;
+}
+  
