@@ -6,6 +6,7 @@ export default class extends Controller {
 
   connect() {
   //  console.log("autocomplete connected")
+    this.seatedEmojiPath = document.querySelector(".cinema-index-background").dataset.seatedEmojiPath;
   }
 
   search(event) {
@@ -83,12 +84,12 @@ export default class extends Controller {
 
         // Render full rating images
         for (let i = 0; i < roundedRating; i++) {
-          ratingHtml += `<img src="/assets/seated-emoji.png" alt="Red Rating Emoji" class="red-rating-image">`;
+          ratingHtml += `<img src="${this.seatedEmojiPath}" alt="Red Rating Emoji" class="red-rating-image">`;
         }
 
         // Render a half rating image if partial rating >= 0.5
         if (partialRating >= 0.5) {
-          ratingHtml += `<img src="/assets/seated-emoji.png" alt="Half Red Rating Emoji" class="half-red-rating-image">`;
+          ratingHtml += `<img src="${this.seatedEmojiPath}" alt="Half Red Rating Emoji" class="half-red-rating-image">`;
         }
 
         ratingHtml += `<span class="review-rating-number">(${(Math.round(cinema.average_rating * 10) / 10).toFixed(1)})</span>`;
