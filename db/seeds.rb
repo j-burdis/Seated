@@ -16,17 +16,15 @@ Review.destroy_all
 Cinema.destroy_all
 User.destroy_all
 
-begin
-  cinema1 = Cinema.create!(
-    name: "The Ritzy Picturehouse",
-    address: "Brixton Oval, Lambeth, London, SW2 1EN",
-    description: "A vibrant cinema located in the heart of Brixton, known for its eclectic film selection.",
-    average_rating: nil,
-    image_url: "https://ethniclondon.wordpress.com/wp-content/uploads/2013/07/img_20130801_172959_738.jpg?w=1920"
-  )
-rescue Geocoder::Error => e
-  Rails.logger.error("Geocoding failed for cinema1: #{e.message}")
-end
+
+cinema1 = Cinema.create!(
+  name: "The Ritzy Picturehouse",
+  address: "Brixton Oval, Lambeth, London, SW2 1EN",
+  description: "A vibrant cinema located in the heart of Brixton, known for its eclectic film selection.",
+  average_rating: nil,
+  image_url: "https://ethniclondon.wordpress.com/wp-content/uploads/2013/07/img_20130801_172959_738.jpg?w=1920"
+)
+
 cinema2 = Cinema.create!(
   name: "Picturehouse Finsbury Park",
   address: "17 City North Place, Finsbury Park, London, N4 3FU",
@@ -157,7 +155,7 @@ cinema17 = Cinema.create!(
 
 cinema18 = Cinema.create!(
   name: "Everyman Barnet",
-  address: "EN5 1AB, Greater London",
+  address: "EN5 1AB, Barnet, Greater London",
   description: "Located in a bustling area, providing a comfortable and unique cinema experience.",
   average_rating: nil,
   image_url: "https://live.staticflickr.com/514/32321154155_a6394420bb_b.jpg"
