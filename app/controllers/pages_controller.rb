@@ -20,6 +20,7 @@ class PagesController < ApplicationController
         }
       end
     end
+
     @markers = @cinemas.geocoded.map do |cinema|
       {
         lat: cinema.latitude,
