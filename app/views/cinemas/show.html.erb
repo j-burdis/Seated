@@ -6,6 +6,7 @@
           <div class="cinema-show-card">
 
             <h1> <%= @cinema.name %> </h1>
+            <p> <%= @cinema.address %> </p>
             <img src="<%= @cinema.image_url %>" alt="<%= @cinema.name %>">
 
             <div data-controller="favourite" class="cinema-show-links">
