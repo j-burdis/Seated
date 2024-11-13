@@ -34,6 +34,7 @@
         <span class="review-form-data"><strong><%= review.pref_seat %></strong></span>
       </p>
     </div>
+  <% end %>
     <div class="review-card-content">
       <div class="review-images">
         <% if review.photos.attached? %>
@@ -79,11 +80,14 @@
         <% end %>
       </div>
 
-      <div class="review-text">
-        <p>"<%= review.content %>"</p>
-      </div>
+      <%= link_to cinema_path(review.cinema) do %>
+        <div class="review-text">
+          <p>"<%= review.content %>"</p>
+        </div>
+      <% end %>
     </div>
 
+  <%= link_to cinema_path(review.cinema) do %>
     <div class="review-rating-scale">
 
       <div class="review-card-rating">
