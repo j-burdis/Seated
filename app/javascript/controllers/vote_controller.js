@@ -6,11 +6,11 @@ export default class extends Controller {
     // console.log("voting stimulus connected")
   }
 
-  static targets = ["voteCount", "voteButton"]
+  static targets = ["voteCount"]
+  // , "voteButton"
 
   submitVote(event) {
     event.preventDefault();
-    console.log("Submitting vote");
 
     const form = event.currentTarget;
     const url = form.action;
@@ -29,7 +29,7 @@ export default class extends Controller {
       .then((data) => {
         if (data.success) {
           this.voteCountTarget.innerHTML = `(${data.vote_count})`;
-          this.updateVoteButton(data);
+          // this.updateVoteButton(data);
         }
       })
       .catch(error => console.log("Error:", error));
@@ -39,28 +39,29 @@ export default class extends Controller {
     return document.querySelector('meta[name="csrf-token"]').getAttribute('content');
   }
 
-  // updateButton(data) {
-  //   if (data.vote_exists) {
-  //     this.voteButtonTarget.outerHTML = `<form class="button_to" action="${data.delete_vote_url}" method="post" data-action="submit->vote#vote" data-vote-target="voteButton">
-  //       <input type="hidden" name="_method" value="delete">
-  //       <button class="vote-button-down" type="submit"><i class="fa-solid fa-sort-down"></i></button>
-  //     </form>`;
-  //   } else {
-  //     this.voteButtonTarget.outerHTML = `<form class="button_to" action="${data.create_vote_url}" method="post" data-action="submit->vote#vote" data-vote-target="voteButton">
-  //       <button class="vote-button-up" type="submit"><i class="fa-solid fa-sort-up"></i></button>
-  //     </form>`;
-  //   }
-  // }
-  updateVoteButton(data) {
-    const voteButtonHtml = data.vote_exists
-      ? `<form class="button_to" action="${data.delete_vote_url}" method="post" data-action="submit->vote#submitVote" data-vote-target="voteButton">
-          <input type="hidden" name="_method" value="delete">
-          <button class="vote-button-down" type="submit"><i class="fa-solid fa-thumbs-up"></i></button>
-        </form>`
-      : `<form class="button_to" action="${data.create_vote_url}" method="post" data-action="submit->vote#submitVote" data-vote-target="voteButton">
-          <button class="vote-button-up" type="submit"><i class="fa-regular fa-thumbs-up"></i></button>
-        </form>`;
+  // updateVoteButton(data) {
+  //   const voteButtonHtml = data.vote_exists
+  //     ? `<form class="button_to" action="${data.delete_vote_url}" method="post" data-action="submit->vote#submitVote" data-vote-target="voteButton">
+  //         <input type="hidden" name="_method" value="delete">
+  //         <button class="vote-button-down" type="submit"><i class="fa-solid fa-thumbs-up"></i></button>
+  //       </form>`
+  //     : `<form class="button_to" action="${data.create_vote_url}" method="post" data-action="submit->vote#submitVote" data-vote-target="voteButton">
+  //         <button class="vote-button-up" type="submit"><i class="fa-regular fa-thumbs-up"></i></button>
+  //       </form>`;
 
-    this.voteButtonTarget.outerHTML = voteButtonHtml;
-  }
+  //   this.voteButtonTarget.outerHTML = voteButtonHtml;
+  // }
 }
+
+// updateButton(data) {
+//   if (data.vote_exists) {
+//     this.voteButtonTarget.outerHTML = `<form class="button_to" action="${data.delete_vote_url}" method="post" data-action="submit->vote#vote" data-vote-target="voteButton">
+//       <input type="hidden" name="_method" value="delete">
+//       <button class="vote-button-down" type="submit"><i class="fa-solid fa-sort-down"></i></button>
+//     </form>`;
+//   } else {
+//     this.voteButtonTarget.outerHTML = `<form class="button_to" action="${data.create_vote_url}" method="post" data-action="submit->vote#vote" data-vote-target="voteButton">
+//       <button class="vote-button-up" type="submit"><i class="fa-solid fa-sort-up"></i></button>
+//     </form>`;
+//   }
+// }
