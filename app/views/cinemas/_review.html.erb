@@ -115,22 +115,8 @@
   <% end%>
 
   <div class="cinema-vote-comment">
-    <div class="review-vote" data-controller="vote">
-      <div class="review-vote-arrow">
-        <% if current_user.votes.exists?(review: review) %>
-          <%= form_with url: cinema_review_vote_path(cinema, review, review.votes.find_by(user: current_user)),
-                  method: :delete, class: 'button_to',
-                  data: { action: "submit->vote#submitVote", vote_target: "voteButton" }, local: false do %>
-            <button class="vote-button-down" type="submit"><i class="fa-solid fa-thumbs-up"></i></button>
-          <% end %>
-        <% else %>
-          <%= form_with url: cinema_review_votes_path(cinema, review),
-                  method: :post, class: 'button_to',
-                  data: { action: "submit->vote#submitVote", vote_target: "voteButton" }, local: false do %>
-            <button class="vote-button-up" type="submit"><i class="fa-regular fa-thumbs-up"></i></button>
-          <% end %>
-        <% end %>
-      </div>
+    <div class="review-vote" id="toggle-vote-<%= review.id %>">
+      <%= render 'votes/toggle_button', review: review %>
       <div class="review-vote-count">
         <p data-vote-target="voteCount">(<%= review.votes.count %>)</p>
       </div>

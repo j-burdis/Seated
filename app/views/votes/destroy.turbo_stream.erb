@@ -1,0 +1,6 @@
+<turbo-stream action="replace" target="toggle-vote-<%= @review.id %>">
+  <template>
+    <%= render partial: 'votes/toggle_button', locals: { review: @review }, formats: [:html] %>
+  </template>
+</turbo-stream>
+
