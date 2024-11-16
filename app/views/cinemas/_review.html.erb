@@ -117,10 +117,6 @@
   <div class="cinema-vote-comment">
     <div class="review-vote" id="toggle-vote-<%= review.id %>">
       <%= render 'votes/toggle_button', review: review %>
-      <div class="review-vote-count">
-        <p data-vote-target="voteCount">(<%= review.votes.count %>)</p>
-      </div>
-
     </div>
     <%# comments %>
     <div class="review-comment" data-controller="comments">

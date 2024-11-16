@@ -1,4 +1,4 @@
-<div id="toggle-vote-<%= review.id %>">
+<div class="review-vote" id="toggle-vote-<%= review.id %>">
   <% is_voted = current_user.votes.exists?(review: review) %>
   <%= button_to(
       is_voted ? cinema_review_vote_path(review.cinema, review, current_user.votes.find_by(review: review)) : cinema_review_votes_path(review.cinema, review),
@@ -8,4 +8,7 @@
       ) do %>
   <i class="fa-<%= is_voted ? 'solid' : 'regular' %> fa-thumbs-up vote-toggle-btn <%= 'active' if is_voted %>"></i>
   <% end %>
+  <div class="review-vote-count">
+    <p data-vote-target="voteCount">(<%= review.votes.count || 0 %>)</p>
+  </div>
 </div>

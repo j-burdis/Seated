@@ -193,6 +193,25 @@
       }
     }
 
+    .vote-toggle-form {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+    }
+    
+    .vote-toggle-btn {
+      font-size: 36px;
+      color: #FF0000;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    
+      &.active {
+        color: #FF0000;
+        background-color: transparent;
+      }
+    }
+    
+
     .review-comment {
       color: #333;
 
