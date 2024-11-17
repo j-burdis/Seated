@@ -50,3 +50,8 @@
 .cinema-show-card .cinema-average-rating {
   @extend .large-rating;
 }
+
+.keyup-results .red-rating-image,
+.keyup-results .half-red-rating-image {
+  margin-right: 5.5px;
+}
