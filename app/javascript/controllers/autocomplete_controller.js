@@ -38,8 +38,8 @@ export default class extends Controller {
       return response.json()
     })
     .then((data) => {
-      console.log(data)
-      this.updateResults(data)
+      // console.log(data)
+      this.updateResults(data, true) // Pass true for keyup results
     })
     .catch(error => console.error('Error:', error));
   }
@@ -69,13 +69,18 @@ export default class extends Controller {
     .catch(error => console.error('Error:', error));
   }
 
-  updateResults(cinemas) {
+  updateResults(cinemas, isKeyup = false) {
     // Clear current results
     this.resultsTarget.innerHTML = "";
 
     // Create a wrapping container for the cinema cards
     const cinemaCardsWrapper = document.createElement("div");
     cinemaCardsWrapper.className = "cinema-cards";
+
+    // Add a specific class if the results are from keyup
+    if (isKeyup) {
+      cinemaCardsWrapper.classList.add("keyup-results");
+    }
 
     // Populate the results
     cinemas.forEach(cinema => {
