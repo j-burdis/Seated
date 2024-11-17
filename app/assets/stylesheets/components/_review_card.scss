@@ -83,19 +83,19 @@
         border: none;
       }
 
+      .review-images {
+        flex-shrink: 0;
+        width: 70px;
+        height: 70px;
+      }
+
       .review-image {
         display: block;
-        flex-shrink: 0;
-        // width: 70px;
         height: 70px;
         padding: 4px;
         border-radius: 8px;
         margin-top: 8px;
         object-fit: cover;
-      }
-
-      .review-text {
-        flex: 1;
       }
     }
 

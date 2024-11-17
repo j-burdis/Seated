@@ -36,8 +36,8 @@
     </div>
   <% end %>
     <div class="review-card-content">
-      <div class="review-images">
-        <% if review.photos.attached? %>
+      <% if review.photos.attached? %>
+        <div class="review-images">
           <a href="#imageModal-<%= review.id %>" data-bs-toggle="modal" data-bs-target="#imageModal-<%= review.id %>">
             <%# First photo only as the thumbnail %>
             <%= cl_image_tag review.photos.first.key, class: "img-thumbnail review-image" %>
@@ -77,8 +77,8 @@
               </div>
             </div>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
 
       <%= link_to cinema_path(review.cinema) do %>
         <div class="review-text">
