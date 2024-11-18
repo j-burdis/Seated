@@ -12,12 +12,13 @@ class CommentsController < ApplicationController
       respond_to do |format|
         format.turbo_stream do
           render turbo_stream: [
-            turbo_stream.prepend("comments-#{@comment.review.id}".to_sym,
+            turbo_stream.prepend("comments-#{@review.id}".to_sym,
                                  partial: "comments/comment",
                                  locals: { comment: @comment, user: current_user }),
-            turbo_stream.replace("comment-count-#{@comment.review.id}".to_sym,
-                                 partial: "comments/comment_count",
-                                 locals: { review: @review })
+            turbo_stream.replace("comment-count-#{@review.id}".to_sym,
+                                 html: "(#{@review.comments.count})")
+            #  partial: "comments/comment_count",
+            #  locals: { review: @review }),
           ]
         end
         format.html { redirect_to cinema_path(@cinema) }
@@ -40,12 +41,10 @@ class CommentsController < ApplicationController
         format.turbo_stream do
           render turbo_stream: [
             turbo_stream.remove("comment-#{@comment.id}"),
-            # turbo_stream.replace("comment-#{@comment.id}",
-            #                      partial: "comments/comment_deleted",
-            #                      locals: { comment: @comment }),
             turbo_stream.replace("comment-count-#{@review.id}",
-                                 partial: "comments/comment_count",
-                                 locals: { review: @review })
+                                 html: "(#{@review.comments.count})")
+            #  partial: "comments/comment_count",
+            #  locals: { review: @review }),
           ]
         end
         format.html { redirect_to cinema_path(@cinema), notice: 'Comment removed' }

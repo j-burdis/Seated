@@ -22,8 +22,9 @@ class Comment < ApplicationRecord
   def broadcast_comment_count
     broadcast_replace_to "review_#{review.id}_comments",
                          target: "comment-count-#{review.id}",
-                         partial: "comments/comment_count",
-                         locals: { review: review }
+                         html: "(#{review.comments.count})"
+                        #  partial: "comments/comment_count",
+                        #  locals: { review: review }
   end
 
   def notify_review_owner

@@ -121,12 +121,13 @@
     <%# comments %>
     <div class="review-comment" data-controller="comments">
 
-      <h3>
+      <p>
         <button class="btn btn-link" data-bs-toggle="modal" data-bs-target="#commentsModal-<%= review.id %>">
-          Show Comments (<%= review.comments.count %>)
+          Show Comments
         </button>
+        <span id="comment-count-<%= review.id %>">(<%= review.comments.count %>)</span>
         <%= turbo_stream_from "review_#{review.id}_comments" %>
-      </h3>
+      </p>
 
       <!-- Modal for Comments -->
       <div class="modal fade" id="commentsModal-<%= review.id %>" tabindex="-1" aria-labelledby="commentsModalLabel-<%= review.id %>" aria-hidden="true">
