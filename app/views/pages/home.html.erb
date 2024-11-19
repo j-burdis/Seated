@@ -9,6 +9,12 @@
           <div class="home-welcome-message">
             <% if user_signed_in? %>
               <p>Welcome back, <%= current_user.username %></p>
+            <% else %>
+              <p>
+                <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-gradient' %>
+                &nbsp; or &nbsp;
+                <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-gradient' %>
+              </p>
             <%  end %>
           </div>
 

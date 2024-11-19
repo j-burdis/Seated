@@ -139,6 +139,19 @@
       justify-content: space-between;
       align-items: start;
       margin-top: 8px;
+
+      p {
+        margin-bottom: 4px;
+        flex: 1;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+
+        .btn.btn-gradient {
+          padding: 4px 8px;
+          font-weight: 400;
+        }
+      }
     }
 
     .review-comment h3 {

@@ -115,6 +115,7 @@
   <% end%>
 
   <div class="cinema-vote-comment">
+    <% if user_signed_in? %>
     <div class="review-vote" id="toggle-vote-<%= review.id %>">
       <%= render 'votes/toggle_button', review: review %>
     </div>
@@ -162,6 +163,8 @@
       </div>
 
     </div>
-    
+    <% else %>
+        <p><%= link_to 'Sign in', new_user_session_path, class: 'btn btn-gradient' %>&nbsp; to vote & comment</p>
+    <% end %>
   </div>
 </div>

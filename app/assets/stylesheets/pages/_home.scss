@@ -26,7 +26,15 @@ body {
   margin-top: 16px;
 
   p {
-    margin-bottom: 8px;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .btn.btn-gradient {
+      padding: 4px 8px;
+      font-weight: 400;
+    }
   }
 }
 

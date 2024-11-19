@@ -43,7 +43,7 @@
     <%#  Profile buton %>
     <div>
       <%= link_to profile_path, class: "bottom_navbar-link #{'active' if current_page?(profile_path) && !current_user.profile_picture.attached?}" do %>
-        <% if current_user.profile_picture.attached? %>
+        <% if user_signed_in? && current_user.profile_picture.attached? %>
           <%= cl_image_tag current_user.profile_picture.key, alt: "Profile picture", class: "bottom_navbar-profile-pic" %>
         <% else %>
           <i class="fas fa-user"></i>

@@ -1,5 +1,7 @@
-<%= tag.div id: "notification_dot_#{user.id}" do %>
-  <% if user.notifications.where(read: false).any? %>
-    <span class="notification-dot"><i class="fa-solid fa-circle"></i></span>
+<% if user_signed_in? %>
+  <%= tag.div id: "notification_dot_#{user.id}" do %>
+    <% if user.notifications.where(read: false).any? %>
+      <span class="notification-dot"><i class="fa-solid fa-circle"></i></span>
+    <% end %>
   <% end %>
 <% end %>
