@@ -139,6 +139,13 @@
       justify-content: space-between;
       align-items: start;
       margin-top: 8px;
+
+      p {
+        margin-bottom: 4px;
+        flex: 1;
+        justify-content: center;
+        display: flex;
+      }
     }
 
     .review-comment h3 {

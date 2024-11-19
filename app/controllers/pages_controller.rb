@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  # skip_before_action :authenticate_user!, only: %i[home map]
+  skip_before_action :authenticate_user!, only: %i[home map]
 
   def map # rubocop:disable Metrics/MethodLength
     if params[:query].present?
