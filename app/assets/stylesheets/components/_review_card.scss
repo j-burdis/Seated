@@ -145,6 +145,12 @@
         flex: 1;
         justify-content: center;
         display: flex;
+        align-items: center;
+
+        .btn.btn-gradient {
+          padding: 4px 8px;
+          font-weight: 400;
+        }
       }
     }
 
