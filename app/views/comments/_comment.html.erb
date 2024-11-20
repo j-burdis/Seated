@@ -1,15 +1,19 @@
 <div id="comment-<%= comment.id %>">
-  <p><strong><%= comment.user.username %>:</strong> <%= comment.content %></p>
+  <p><strong><%= comment.user.username %>:</strong>&nbsp;<%= comment.content %></p>
 
   <% Rails.logger.debug "Rendering Comment ID: #{comment.id}, Current User: #{user&.id}, Comment User: #{comment.user.id}" %>
 
   <div class="comment-time-delete">
-    <p class="mb-0"><small><%= time_ago_in_words(comment.created_at) %> ago</small></p>
+    <div class="comment-time-info">
+      <p class="mb-0"><small><%= time_ago_in_words(comment.created_at) %> ago</small></p>
+    </div>
     <%# message.created_at.strftime("%a %b %e at %l:%M %p") %>
-    <% if comment.user == user %>
-      <%= button_to 'X', [comment.review.cinema, comment.review, comment],
-                        method: :delete, 
-                        class: 'btn btn-danger btn-sm ms-2' %>
-    <% end %>
+    <div class="comment-delete-button">
+      <% if comment.user == user %>
+        <%= button_to 'X', [comment.review.cinema, comment.review, comment],
+                          method: :delete, 
+                          class: 'btn btn-danger btn-sm ms-2' %>
+      <% end %>
+    </div>
   </div>
 </div>
