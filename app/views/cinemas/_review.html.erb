@@ -163,8 +163,10 @@
       </div>
 
     </div>
-    <% else %>
-        <p><%= link_to 'Sign in', new_user_session_path, class: 'btn btn-gradient' %>&nbsp; to vote & comment</p>
-    <% end %>
+    <%# <div class="comment-sign-in"> %>
+      <% else %>
+          <p><%= link_to 'Sign in', new_user_session_path, class: 'btn btn-gradient' %>&nbsp; to vote & comment</p>
+      <% end %>
+    <%# </div> %>
   </div>
 </div>

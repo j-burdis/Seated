@@ -232,12 +232,14 @@
         color: #333;
         text-decoration: none;
         margin: 8px;
-        margin-right: 0px;
         padding: 0;
       }
 
       p {
         margin-bottom: 0;
+        display: flex;
+        justify-content: start;
+        align-items: center;
       }
 
       .modal-title {
@@ -281,6 +283,16 @@
         align-items: center;
         margin-bottom: 8px;
 
+        .comment-time-info {
+          flex-grow: 1;
+          text-align: left;
+        }
+
+        .comment-delete-button {
+          flex-shrink: 0;
+          margin-left: 8px;
+        }
+  
         .btn {
           padding: 0px 4px;
           font-size: 14px;
