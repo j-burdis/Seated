@@ -1,6 +1,4 @@
 .cinema-review-cards {
-  display: flex;
-  flex-direction: column;
   padding-top: 8px;
   padding-bottom: 16px;
   margin-top: 8px;
@@ -68,9 +66,10 @@
 
     .review-card-content {
       display: flex;
-      align-items: start;
+      align-items: center;
       text-align: center;
       background-color: #FBF7F5;
+      justify-content: flex-start;
 
       p {
         margin-top: 8px;
@@ -96,6 +95,10 @@
         border-radius: 8px;
         margin-top: 8px;
         object-fit: cover;
+      }
+
+      a {
+        flex: 1;
       }
     }
 

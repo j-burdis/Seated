@@ -2,18 +2,17 @@
   background-color: #FBF7F5;
   color: #333;
   border-radius: 2px;
-}
+  width: 100%;
+  max-width: 484px;
 
-.review-form-contents {
-  padding: 0 8px;
-}
+  h2 {
+    margin-top: 8px;
+  }
 
-.back-btn {
-  margin-top: 16px;
-
-  p {
-    margin-bottom: 0;
-    font-size: 14px;
+  @media (min-width: 768px) {
+    width: 484px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

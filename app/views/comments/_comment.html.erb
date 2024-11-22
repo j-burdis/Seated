@@ -1,5 +1,5 @@
 <div id="comment-<%= comment.id %>">
-  <p><strong><%= comment.user.username %>:</strong>&nbsp;<%= comment.content %></p>
+  <p style="align-items: start"><strong style="margin-right: 8px;"><%= comment.user.username %>:</strong><%= comment.content %></p>
 
   <% Rails.logger.debug "Rendering Comment ID: #{comment.id}, Current User: #{user&.id}, Comment User: #{comment.user.id}" %>
 

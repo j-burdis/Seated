@@ -1,6 +1,14 @@
 .profile-contents {
   color: #333;
   padding: 0 16px;
+  width: 100%;
+  max-width: 484px;
+
+  @media (min-width: 768px) {
+    width: 484px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .profile-top {
@@ -75,6 +83,10 @@
 
 .profile-top-picks {
   margin-top: 16px;
+
+  h2 {
+    padding-left: 8px;
+  }
 
   .no-review-message {
     text-align: center;
