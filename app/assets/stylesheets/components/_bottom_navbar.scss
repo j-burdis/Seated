@@ -2,9 +2,20 @@
   background-color: #fbf7f5 !important;
   border-top: 1px solid #ddd;
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
-  // justify-content: space-around !important;
-  // align-items: center;
   padding: 14px 0;
+
+  .container-fluid {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 484px;
+
+    @media (min-width: 768px) {
+      width: 484px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
 }
 
 .bottom_navbar-link {

@@ -2,7 +2,7 @@ class Review < ApplicationRecord
   belongs_to :cinema
   belongs_to :user
   has_many :comments, dependent: :destroy
-  has_many :votes
+  has_many :votes, dependent: :destroy
   has_many_attached :photos
 
   validates :screen, presence: true

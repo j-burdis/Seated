@@ -1,5 +1,13 @@
 .review-form-contents {
   padding: 0 8px;
+  width: 100%;
+  max-width: 484px;
+
+  @media (min-width: 768px) {
+    width: 484px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .back-btn {
@@ -8,7 +16,7 @@
   p {
     margin-bottom: 0;
     font-size: 14px;
-    color: #FF0000;
+    color: #333;
   }
 }
 
@@ -24,6 +32,8 @@
 }
 
 .review-new-card {
+  margin-bottom: 63px;
+
   .card {
     display: flex;
     flex-direction: column;
