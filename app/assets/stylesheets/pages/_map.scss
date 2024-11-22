@@ -1,15 +1,26 @@
 // .map-main {
   // background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), asset-url('background-seats.jpg');
 // }
+.map-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .map-index-search {
   color: #333;
   font-size: 20px;
   display: flex;
   flex-direction: column;
-  align-items: start;
-  width: 100%;
   padding: 2px 15px;
+  width: 100%;
+  max-width: 484px;
+
+  @media (min-width: 768px) {
+    width: 484px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .form-control {
