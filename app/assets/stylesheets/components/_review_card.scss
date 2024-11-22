@@ -5,6 +5,7 @@
   padding-bottom: 16px;
   margin-top: 8px;
   margin-bottom: 24px;
+  align-items: center;
 
   h2 {
     color: #333;
@@ -20,6 +21,8 @@
     margin: 8px 0;
     text-decoration: none;
     border: 1px solid rgba(152, 33, 44, 0.65);
+    width: 100%;
+    max-width: 484px;
 
     .review-card-user {
       display: flex;
@@ -68,10 +71,10 @@
 
     .review-card-content {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       text-align: center;
       background-color: #FBF7F5;
-      justify-content: center;
+      justify-content: flex-start;
 
       p {
         margin-top: 8px;
@@ -97,6 +100,10 @@
         border-radius: 8px;
         margin-top: 8px;
         object-fit: cover;
+      }
+
+      a {
+        flex: 1;
       }
     }
 
@@ -317,5 +324,11 @@
       opacity: 1;
       transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
     }
+  }
+
+  @media (min-width: 768px) {
+    width: 484px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
