@@ -2,6 +2,8 @@
   color: #FBF7F5;
   padding: 0 16px;
   color: #333;
+  width: 100%;
+  max-width: 484px;
 
   h1 {
     margin-top: 16px;
@@ -11,6 +13,12 @@
   .no-favourite-message {
     margin-top: 16px;
     text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    width: 484px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

@@ -9,6 +9,8 @@
   margin-bottom: 32px;
   padding: 0 16px;
   color: #333;
+  width: 100%;
+  max-width: 484px;
 
   .index-search {
     font-size: 20px;
@@ -94,5 +96,11 @@
         font-size: 16px;
       }      
     }
+  }
+
+  @media (min-width: 768px) {
+    width: 484px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
