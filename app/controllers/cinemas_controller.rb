@@ -19,7 +19,18 @@ class CinemasController < ApplicationController
   end
 
   def show
-    @reviews = @cinema.reviews.order(created_at: :desc)
+    @reviews = @cinema.reviews
+
+    case params[:filter]
+    when "rating_high_to_low"
+      @reviews = @reviews.order(rating: :desc)
+    when "rating_low_to_high"
+      @reviews = @reviews.order(rating: :asc)
+    when "date_oldest"
+      @reviews = @reviews.order(created_at: :asc)
+    else # Default to newest first
+      @reviews = @reviews.order(created_at: :desc)
+    end
   end
 
   private
