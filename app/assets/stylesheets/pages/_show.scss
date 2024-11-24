@@ -86,4 +86,10 @@
   align-items: center;
   margin-left: 8px;
   margin-top: 4px;
+
+  .btn-primary:active,
+  .btn-primary:focus {
+    background-color: #ff0000 !important;
+    border-color: #ff0000 !important;
+  }
 }

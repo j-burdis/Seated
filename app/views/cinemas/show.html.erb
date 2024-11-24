@@ -57,7 +57,7 @@
             <h2> Our community </h2>
 
             <div class="review-filters">
-              <%= form_with(url: cinema_path(@cinema), method: :get, local: true, class: "filter-form") do |f| %>
+              <%= form_with(url: cinema_path(@cinema), method: :get, local: false, data: { turbo_frame: "reviews" }, class: "filter-form") do |f| %>
                 <%= f.label :filter, "Filter:" %>
                 <%= f.select :filter, options_for_select([
                     ["Newest - oldest", "date_newest"],
@@ -70,9 +70,11 @@
               <% end %>
             </div>
 
-            <% @reviews.each do |review| %>
-                <%= render partial: 'cinemas/review', locals: { review: review, cinema: @cinema } %>
-            <% end %>
+            <turbo-frame id="reviews">
+              <% @reviews.each do |review| %>
+                  <%= render partial: 'cinemas/review', locals: { review: review, cinema: @cinema } %>
+              <% end %>
+            </turbo-frame>
 
           </div>
 
