@@ -56,9 +56,25 @@
           <div class="cinema-review-cards">
             <h2> Our community </h2>
 
-            <% @reviews.each do |review| %>
-                <%= render partial: 'cinemas/review', locals: { review: review, cinema: @cinema } %>
-            <% end %>
+            <div class="review-filters">
+              <%= form_with(url: cinema_path(@cinema), method: :get, local: false, data: { turbo_frame: "reviews" }, class: "filter-form") do |f| %>
+                <%= f.label :filter, "Filter:" %>
+                <%= f.select :filter, options_for_select([
+                    ["Newest - oldest", "date_newest"],
+                    ["Oldest - newest", "date_oldest"],
+                    ["Rating: high - low", "rating_high_to_low"],
+                    ["Rating: low - high", "rating_low_to_high"]
+                  ], selected: params[:filter] || "date_newest"),
+                  {}, class: "form-select d-inline-block w-auto" %>
+                <%= f.submit "Apply", class: "btn btn-primary" %>
+              <% end %>
+            </div>
+
+            <turbo-frame id="reviews">
+              <% @reviews.each do |review| %>
+                  <%= render partial: 'cinemas/review', locals: { review: review, cinema: @cinema } %>
+              <% end %>
+            </turbo-frame>
 
           </div>
 
