@@ -50,5 +50,17 @@ class PagesController < ApplicationController
 
   def profile
     @user_top_cinemas = current_user.cinemas_by_highest_average_rating
+
+    @reviews = current_user.reviews
+    case params[:filter]
+    when "rating_high_to_low"
+      @reviews = @reviews.order(rating: :desc)
+    when "rating_low_to_high"
+      @reviews = @reviews.order(rating: :asc)
+    when "date_oldest"
+      @reviews = @reviews.order(created_at: :asc)
+    else # Default to newest first
+      @reviews = @reviews.order(created_at: :desc)
+    end
   end
 end

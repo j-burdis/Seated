@@ -49,16 +49,34 @@
           } %>
 
           <div class="profile-past-reviews">
-            <div class="cinema-review-cards">
-              <h2> Your reviews </h2>
-              <% if current_user.reviews.empty? %>
-                <p class="no-review-message">We're all waiting for it...</p>
-              <% else %>
-                <% current_user.reviews.order(created_at: :desc).each do |review| %>
-                    <%= render partial: 'cinemas/review', locals: { review: review, cinema: review.cinema } %>
-                <% end %>
+            
+            <h2> Your reviews </h2>
+
+            <div class="review-filters">
+              <%= form_with(url: profile_path, method: :get, local: false, data: { turbo_frame: "reviews" }, class: "filter-form") do |f| %>
+                <%= f.label :filter, "Filter:" %>
+                <%= f.select :filter, options_for_select([
+                    ["Newest - oldest", "date_newest"],
+                    ["Oldest - newest", "date_oldest"],
+                    ["Rating: high - low", "rating_high_to_low"],
+                    ["Rating: low - high", "rating_low_to_high"]
+                  ], selected: params[:filter] || "date_newest"),
+                  {}, class: "form-select d-inline-block w-auto" %>
+                <%= f.submit "Apply", class: "btn btn-primary" %>
               <% end %>
             </div>
+
+            <turbo-frame id="reviews">
+              <div class="cinema-review-cards">
+                <% if current_user.reviews.empty? %>
+                  <p class="no-review-message">We're all waiting for it...</p>
+                <% else %>
+                  <% @reviews.each do |review| %>
+                      <%= render partial: 'cinemas/review', locals: { review: review, cinema: review.cinema } %>
+                  <% end %>
+                <% end %>
+              </div>
+            </turbo-frame>
           </div>
         </div>
       </div>
