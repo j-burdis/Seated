@@ -28,7 +28,7 @@ class Comment < ApplicationRecord
   end
 
   def notify_review_owner
-    return if user == review.user
+    return if user == review.user || Notification.exists?(user: review.user, comment: self)
 
     notification = Notification.create(
       user: review.user,
@@ -46,6 +46,7 @@ class Comment < ApplicationRecord
     )
 
     broadcast_prepend_later_to(
+    # broadcast_replace_to(
       "notifications_#{review.user.id}",
       target: "notifications-list",
       partial: "notifications/notification",

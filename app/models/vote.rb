@@ -10,7 +10,7 @@ class Vote < ApplicationRecord
   private
 
   def notify_review_owner # rubocop:disable Metrics/MethodLength
-    return if user == review.user
+    return if user == review.user || Notification.exists?(user: review.user, vote_id: self.id)
 
     notification = Notification.create(
       user: review.user,
@@ -28,6 +28,7 @@ class Vote < ApplicationRecord
     )
 
     broadcast_prepend_later_to(
+    # broadcast_replace_to(
       "notifications_#{review.user.id}",
       target: "notifications-list",
       partial: "notifications/notification",
