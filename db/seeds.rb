@@ -86,9 +86,9 @@ puts "Cinema table populated"
 
 users = [
   { email: 'jon@jon.com', password: 'password', username: "just_jon" },
-  { email: 'temi@tayo.com', password: 'password', username: "tee" },
-  { email: 'harvi@max.com', password: 'password', username: "mr_singh" },
-  { email: 'shan@shan.com', password: 'password', username: "bambambaluyos" }
+  { email: 'paul@schrader.com', password: 'password', username: "schrader" },
+  { email: 'ridley@scott.com', password: 'password', username: "ridley" },
+  { email: 'robert@eggers.com', password: 'password', username: "eggers" }
 ].map { |data| User.create!(data) }
 puts "User table populated"
 
